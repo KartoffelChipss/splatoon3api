@@ -1,12 +1,16 @@
 {
   "name": "splatoon3api",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple Method to get current and next Splatoon 3 maps",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kartoffelchips",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KartoffelChipss/splatoon3api"
+  },
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^3.2.10"

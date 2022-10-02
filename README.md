@@ -1,10 +1,12 @@
 # Splatoon3api
-Splatoon3api is a simple library to get the current and next Splatoon 2 Maps and Salmonruns. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Currently, there is only an english and german translation, but there will be more in the Future.
+Splatoon3api is a simple library to get the current and next Splatoon 3 Maps and Salmonruns. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Currently, there is only an english and german translation, but there will be more in the Future.
 
 ## Usage
 ### Installation
 Simply execute the following command in your commandline:
-```npm install splatoon3api```
+```
+npm install splatoon3api
+```
 ### Usage
 First, import the module like the following:
 ```js
