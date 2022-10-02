@@ -1,0 +1,28 @@
+{
+    "stages": {
+        "1": { "name": "Sengkluft" },
+        "2": { "name": "Streifenaal-Straße" },
+        "3": { "name": "Schnapperchen-Basar" },
+        "4": { "name": "Schwertmuschel-Reservoir" },
+        "6": { "name": "Aalstahl-Metallwerk" },
+        "10": { "name": "Makrelenbrücke" },
+        "11": { "name": "Pinakoithek" },
+        "12": { "name": "Mahi-Mahi Resort" },
+        "13": { "name": "Perlmutt-Akademie" },
+        "14": { "name": "Störwerft" },
+        "15": { "name": "Cetacea-Markt" },
+        "16": { "name": "Flunder-Funpark" }
+    },
+    "rules": {
+        "TURF_WAR": { "name": "Revierkampf" },
+        "GOAL": { "name": "Operation Goldfisch" },
+        "AREA": { "name": "Herrschaft" },
+        "LOFT": { "name": "Turmkommando" },
+        "CLAM": { "name": "Muschelchaos" }
+    },
+    "coop_stages": {
+        "1": { "name": "Salmoniden-Damm" },
+        "2": { "name": "Fort Nautilax" },
+        "7": { "name": "Gone Fission Hydroplant" }
+    }
+}

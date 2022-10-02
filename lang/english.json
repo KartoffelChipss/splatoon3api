@@ -1,0 +1,28 @@
+{
+    "stages": {
+        "1": { "name": "Scorch Gorge" },
+        "2": { "name": "Eeltail Alley" },
+        "3": { "name": "Hagglefish Market" },
+        "4": { "name": "Undertow Spillway" },
+        "6": { "name": "Mincemeat Metalworks" },
+        "10": { "name": "Hammerhead Bridge" },
+        "11": { "name": "Museum d'Alfonsino" },
+        "12": { "name": "Mahi-Mahi Resort" },
+        "13": { "name": "Inkblot Art Academy" },
+        "14": { "name": "Sturgeon Shipyard" },
+        "15": { "name": "MakoMart" },
+        "16": { "name": "Wahoo World" }
+    },
+    "rules": {
+        "TURF_WAR": { "name": "Turf War" },
+        "GOAL": { "name": "Rainmaker" },
+        "AREA": { "name": "Splat Zones" },
+        "LOFT": { "name": "Tower Control" },
+        "CLAM": { "name": "Clam Blitz" }
+    },
+    "coop_stages": {
+        "1": { "name": "Spawning Grounds" },
+        "2": { "name": "Sockeye Station" },
+        "7": { "name": "Gone Fission Hydroplant" }
+    }
+}
