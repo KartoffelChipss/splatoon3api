@@ -1,5 +1,5 @@
 # Splatoon3api
-Splatoon3api is a simple library to get the current and next Splatoon 3 Maps and Salmonruns. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Currently, there is only an english and german translation, but there will be more in the Future.
+Splatoon3api is a simple library to get the current and next Splatoon 3 Maps and Salmonruns. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Currently, there is only an english and german translation, but there will be more in the future.
 
 ## Usage
 ### Installation
@@ -8,25 +8,25 @@ Simply execute the following command in your commandline:
 npm install splatoon3api
 ```
 ### Usage
-First, import the module like the following:
+First, import the module like this:
 ```js
 const splatoon3api = require("splatoon3api");
 const Splatoon3 = new splatoon3api.Client("en");
 ```
-You can exchange the `en` for any other language on the following list:
+You can exchange the `en` for any other language in the list below:
 - `en` - English
 - `de` - German
 
-Once you have done this, you can use all the folling functions as you like.
+Once you have done this, you can use all the following functions as you like.
 
 #### Current Stages
-To get the current Turf War and Ranked maps, you can use the `getCurrentStages()` function like in the following:
+To get the current Turf War and Ranked maps, you can use the `getCurrentStages()` function:
 ```js
 Splatoon3.getCurrentStages(res => {
   console.log(res);
 });
 ```
-It should return something similar to the following:
+It should return something like this:
 ```js
 {
   regular: {
@@ -73,13 +73,13 @@ It should return something similar to the following:
 }
 ```
 #### Next Stages
-To get the next Turf War and Ranked maps, you can use the `getNextStages()` function like in the following:
+To get the next Turf War and Ranked maps, you can use the `getNextStages()` function:
 ```js
 Splatoon3.getNextStages(res => {
   console.log(res);
 });
 ```
-It should return something similar to the following:
+It should return something like this:
 ```js
 {
   regular: {
@@ -127,13 +127,13 @@ It should return something similar to the following:
 ```
 
 ### Salmonrun Schedules
-To get the current and next Salmonruns, you can use the ``getSalmonRun()`` function like in the following:
+To get the current and next Salmonruns, you can use the ``getSalmonRun()`` function:
 ```js
 Splatoon3.getSalmonRun(res => {
     console.log(res);
 });
 ```
-It should return something similar to the following:
+It should return something like this:
 ```js
 {
   details: {
