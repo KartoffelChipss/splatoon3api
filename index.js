@@ -1,5 +1,6 @@
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const compatibleLanguages = ["en", "fr", "es", "de", "nl", "it", "ru", "ja", "jp"];
+//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = require('node-fetch/');
+const compatibleLanguages = ["en", "de"];
 
 const schedulesURL   = "https://splatoon3.ink/data/schedules.json";
 
