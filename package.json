@@ -1,6 +1,6 @@
 {
   "name": "splatoon3api",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A simple Method to get current and next Splatoon 3 maps",
   "main": "index.js",
   "scripts": {
