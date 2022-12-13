@@ -5,6 +5,8 @@
         "3": { "name": "Schnapperchen-Basar" },
         "4": { "name": "Schwertmuschel-Reservoir" },
         "6": { "name": "Aalstahl-Metallwerk" },
+        "7": { "name": "Kusaya-Quellen" },
+        "9": { "name": "Schollensiedlung" },
         "10": { "name": "Makrelenbrücke" },
         "11": { "name": "Pinakoithek" },
         "12": { "name": "Mahi-Mahi Resort" },
@@ -21,8 +23,9 @@
         "CLAM": { "name": "Muschelchaos" }
     },
     "coop_stages": {
-        "1": { "name": "Salmoniden-Damm" },
-        "2": { "name": "Fort Nautilax" },
-        "7": { "name": "Gone Fission Hydroplant" }
+        "Spawning Grounds": { "name": "Salmoniden-Damm" },
+        "Sockeye Station": { "name": "Fort Nautilax" },
+        "Gone Fission Hydroplant": { "name": "Gone Fission Hydroplant" },
+        "Marooner's Bay": { "name": "Schiffswrack-Insel" }
     }
 }

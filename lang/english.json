@@ -5,6 +5,8 @@
         "3": { "name": "Hagglefish Market" },
         "4": { "name": "Undertow Spillway" },
         "6": { "name": "Mincemeat Metalworks" },
+        "7": { "name": "Brinewater Springs" },
+        "9": { "name": "Flounder Heights" },
         "10": { "name": "Hammerhead Bridge" },
         "11": { "name": "Museum d'Alfonsino" },
         "12": { "name": "Mahi-Mahi Resort" },
@@ -21,8 +23,9 @@
         "CLAM": { "name": "Clam Blitz" }
     },
     "coop_stages": {
-        "1": { "name": "Spawning Grounds" },
-        "2": { "name": "Sockeye Station" },
-        "7": { "name": "Gone Fission Hydroplant" }
+        "Spawning Grounds": { "name": "Spawning Grounds" },
+        "Sockeye Station": { "name": "Sockeye Station" },
+        "Gone Fission Hydroplant": { "name": "Gone Fission Hydroplant" },
+        "Marooner's Bay": { "name": "Marooner's Bay" }
     }
 }

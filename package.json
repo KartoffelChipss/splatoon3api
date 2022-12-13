@@ -11,6 +11,7 @@
     "type": "git",
     "url": "https://github.com/KartoffelChipss/splatoon3api"
   },
+  "keywords": [ "splatoon 3", "splatoon", "nintendo", "splatoon3.ink", "rotation", "schedule", "salmonrun", "turfwar"],
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.7"

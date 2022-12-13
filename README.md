@@ -1,6 +1,10 @@
 # Splatoon3api
 Splatoon3api is a simple library to get the current and next Splatoon 3 Maps and Salmonruns. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Currently, there is only an english and german translation, but there will be more in the future.
 
+Splatoon3api is also supporting the new maps and X-Battles!
+
+If you have trouble with this module, feel free to ask me in my [Discord](https://discord.gg/KevMGSc4Mz).
+
 ## Usage
 ### Installation
 Simply execute the following command in your commandline:
@@ -70,6 +74,19 @@ It should return something like this:
       rules: 'Rainmaker'
     }
   }
+  xbattle: {
+    start_time: '2022-12-13T18:00:00Z',
+    end_time: '2022-12-13T20:00:00Z',
+    stage1: {
+      name: 'Undertow Spillway',
+      image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_1.png'
+    },
+    stage2: {
+      name: 'Wahoo World',
+      image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+    },
+    rules: 'Rainmaker'
+  }
 }
 ```
 #### Next Stages
@@ -122,6 +139,19 @@ It should return something like this:
       },
       rules: 'Clam Blitz'
     }
+  }
+  xbattle: {
+    start_time: '2022-12-13T20:00:00Z',
+    end_time: '2022-12-13T22:00:00Z',
+    stage1: {
+      name: 'Mahi-Mahi Resort',
+      image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/8273118c1ffe1bf6fe031c7d8c9795dab52632c9b76e8e9f01f644ac5ae0ccc0_1.png'
+    },
+    stage2: {
+      name: 'Inkblot Art Academy',
+      image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/40aba8b36a9439e2d670fde5b3478819ea8a94f9e503b9d783248a5716786f35_1.png'
+    },
+    rules: 'Clam Blitz'
   }
 }
 ```

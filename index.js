@@ -63,6 +63,19 @@ class Client {
                         rules: this.translation.rules[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsRule.rule].name
                     }
 		  		}
+                data.xbattle = {
+                    start_time: json.data.xSchedules.nodes[0].startTime,
+                    end_time: json.data.xSchedules.nodes[0].endTime,
+                    stage1: {
+                        name: this.translation.stages[json.data.xSchedules.nodes[0].xMatchSetting.vsStages[0].vsStageId].name,
+                        image: json.data.xSchedules.nodes[0].xMatchSetting.vsStages[0].image.url
+                    },
+                    stage2: {
+                      name: this.translation.stages[json.data.xSchedules.nodes[0].xMatchSetting.vsStages[1].vsStageId].name,
+                        image: json.data.xSchedules.nodes[0].xMatchSetting.vsStages[1].image.url
+                    },
+                    rules: this.translation.rules[json.data.xSchedules.nodes[0].xMatchSetting.vsRule.rule].name
+                }
 		  		return callback(data);
 		  	});
 	}
@@ -115,6 +128,19 @@ class Client {
                       rules: this.translation.rules[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsRule.rule].name
                   }
                 }
+                data.xbattle = {
+                    start_time: json.data.xSchedules.nodes[1].startTime,
+                    end_time: json.data.xSchedules.nodes[1].endTime,
+                    stage1: {
+                        name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[0].vsStageId].name,
+                        image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[0].image.url
+                    },
+                    stage2: {
+                      name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].vsStageId].name,
+                        image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].image.url
+                    },
+                    rules: this.translation.rules[json.data.xSchedules.nodes[1].xMatchSetting.vsRule.rule].name
+                }
                 return callback(data);
 		  	});
 	}
@@ -131,7 +157,7 @@ class Client {
 		  				start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[0].startTime,
 		  				end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[0].endTime,
 		  				stage: {
-		  					name: this.translation.coop_stages[json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.coopStage.coopStageId].name,
+		  					name: this.translation.coop_stages[json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.coopStage.name].name,
 		  					image: json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.coopStage.image.url
 		  				},
 		  				weapons: {
@@ -157,7 +183,7 @@ class Client {
                         start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[1].startTime,
                         end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[1].endTime,
 		  				stage: {
-		  					name: this.translation.coop_stages[json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.coopStage.coopStageId].name,
+		  					name: this.translation.coop_stages[json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.coopStage.name].name,
 		  					image: json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.coopStage.image.url
 		  				},
 		  				weapons: {
