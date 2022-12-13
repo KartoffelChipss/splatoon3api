@@ -1,7 +1,7 @@
 # Splatoon3api
 Splatoon3api is a simple library to get the current and next Splatoon 3 Maps and Salmonruns. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Currently, there is only an english and german translation, but there will be more in the future.
 
-Splatoon3api is also supporting the new maps and X-Battles!
+Splatoon3api is now also supporting the new maps and X-Battles!
 
 If you have trouble with this module, feel free to ask me in my [Discord](https://discord.gg/KevMGSc4Mz).
 
@@ -73,7 +73,7 @@ It should return something like this:
       },
       rules: 'Rainmaker'
     }
-  }
+  },
   xbattle: {
     start_time: '2022-12-13T18:00:00Z',
     end_time: '2022-12-13T20:00:00Z',
@@ -139,7 +139,7 @@ It should return something like this:
       },
       rules: 'Clam Blitz'
     }
-  }
+  },
   xbattle: {
     start_time: '2022-12-13T20:00:00Z',
     end_time: '2022-12-13T22:00:00Z',
