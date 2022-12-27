@@ -1,6 +1,6 @@
-//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+// const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const fetch = require('node-fetch/');
-const compatibleLanguages = ["en", "de"];
+const compatibleLanguages = ["en", "de", "nl", "fr", "es", "it", "ru", "jp"];
 
 const schedulesURL   = "https://splatoon3.ink/data/schedules.json";
 
@@ -13,10 +13,28 @@ class Client {
 		if(lang.toLowerCase() === "de") {
 			this.translation = require("./lang/german.json");
 		}
+        if(lang.toLowerCase() === "nl") {
+			this.translation = require("./lang/dutch.json");
+		}
+        if(lang.toLowerCase() === "fr") {
+			this.translation = require("./lang/french.json");
+		}
+        if(lang.toLowerCase() === "es") {
+			this.translation = require("./lang/spanish.json");
+		}
+        if(lang.toLowerCase() === "it") {
+			this.translation = require("./lang/italian.json");
+		}
+        if(lang.toLowerCase() === "ru") {
+			this.translation = require("./lang/russian.json");
+		}
+        if(lang.toLowerCase() === "jp") {
+			this.translation = require("./lang/japanese.json");
+		}
 	}
 
 	getCurrentStages(callback) {
-		if(!callback) {return console.log("Splatoon2api - Please enter a function!")};
+		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
 		fetch(schedulesURL)
 			.catch(err => console.error(err))
 		  	.then(res => res.json())
@@ -81,7 +99,7 @@ class Client {
 	}
 
 	getNextStages(callback) {
-		if(!callback) {return console.log("Splatoon2api - Please enter a function!")};
+		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
 		fetch(schedulesURL)
 			.catch(err => console.error(err))
 		  	.then(res => res.json())
@@ -146,7 +164,7 @@ class Client {
 	}
 
 	getSalmonRun(callback) {
-		if(!callback) {return console.log("Splatoon2api - Please enter a function!")};
+		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
 		fetch(schedulesURL)
 			.catch(err => console.error(err))
 		  	.then(res => res.json())

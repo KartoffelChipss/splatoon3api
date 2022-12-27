@@ -1,0 +1,31 @@
+{
+    "stages": {
+        "1": { "name": "Roggentrog" },
+        "2": { "name": "Forelviaduct" },
+        "3": { "name": "Boter-bij-de-vismarkt" },
+        "4": { "name": "Baarsreservoir" },
+        "6": { "name": "Zilversmelt-hoogovens" },
+        "7": { "name": "Barbeelbaden" },
+        "9": { "name": "Baleinbuurt" },
+        "10": { "name": "Brandingbrug" },
+        "11": { "name": "Galerie Le Guppy" },
+        "12": { "name": "El Dorade-resort" },
+        "13": { "name": "Koraalcampus" },
+        "14": { "name": "Walruswerf" },
+        "15": { "name": "Bultrugbazaar" },
+        "16": { "name": "Waterwonderland" }
+    },
+    "rules": {
+        "TURF_WAR": { "name": "Grondoorlog" },
+        "GOAL": { "name": "Bazookarper" },
+        "AREA": { "name": "Spetterzones" },
+        "LOFT": { "name": "Torentwist" },
+        "CLAM": { "name": "Schelpenstrijd" }
+    },
+    "coop_stages": {
+        "Spawning Grounds": { "name": "Salmonietendam" },
+        "Sockeye Station": { "name": "Fort Ammoniet" },
+        "Gone Fission Hydroplant": { "name": "Kwikwi-krachtcentrale" },
+        "Marooner's Bay": { "name": "Wrak van de ms Grondel" }
+    }
+}

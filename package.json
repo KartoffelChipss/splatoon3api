@@ -4,7 +4,7 @@
   "description": "A simple Method to get current and next Splatoon 3 maps",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./testapp/index.js"
   },
   "author": "Kartoffelchips",
   "repository": {

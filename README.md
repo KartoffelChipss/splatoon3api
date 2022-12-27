@@ -1,9 +1,9 @@
 # Splatoon3api
-Splatoon3api is a simple library to get the current and next Splatoon 3 Maps and Salmonruns. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Currently, there is only an english and german translation, but there will be more in the future.
+Splatoon3api is a simple library to get the current and next Splatoon 3 Maps and Salmonruns (rotations). This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Splatoon3api is available in eight different languages ([List of available languages](#languages))
 
 Splatoon3api is now also supporting the new maps and X-Battles!
 
-If you have trouble with this module, feel free to ask me in my [Discord](https://discord.gg/KevMGSc4Mz).
+If you have trouble with this package, feel free to ask me in my [Discord](https://discord.gg/KevMGSc4Mz).
 
 ## Usage
 ### Installation
@@ -12,14 +12,22 @@ Simply execute the following command in your commandline:
 npm install splatoon3api
 ```
 ### Usage
-First, import the module like this:
+First, import the package like this:
 ```js
 const splatoon3api = require("splatoon3api");
 const Splatoon3 = new splatoon3api.Client("en");
 ```
+
+#### Languages
 You can exchange the `en` for any other language in the list below:
 - `en` - English
 - `de` - German
+- `nl` - Dutch
+- `fr` - French
+- `es` - Spanish
+- `it` - Italian
+- `ru` - Russian
+- `jp` - Japanese
 
 Once you have done this, you can use all the following functions as you like.
 
