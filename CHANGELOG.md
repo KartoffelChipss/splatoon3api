@@ -2,6 +2,17 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.1.6 - 2022-12-30
+
+### Added
+- Added upcoming Splatfests
+- Added past Splatfests
+
+### Changed
+- Added Splatfests to [readme.md](./README.md)
+
+### Fixed
+
 ## 1.1.5 - 2022-12-30
 
 ### Added
