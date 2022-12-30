@@ -515,6 +515,12 @@ Splatoon3.getUpcomingSplatfests(res => {
 });
 ```
 
+#### Splatfests are divided into those four regions:
+- **US:** The Americas, Australia, New Zealand
+- **EU:** Europe
+- **JP:** Japan
+- **AP:** Hong Kong, South Korea (Asia/Pacific)
+
 Please note, that the Hexcolors can be a bit off the real colors. If you want the most accurate colors, you should use RGBA.
 
 It should return something like this:
@@ -640,6 +646,12 @@ Splatoon3.getPastSplatfests(res => {
     console.log(res);
 });
 ```
+
+#### Splatfests are divided into those four regions:
+- **US:** The Americas, Australia, New Zealand
+- **EU:** Europe
+- **JP:** Japan
+- **AP:** Hong Kong, South Korea (Asia/Pacific)
 
 Please note, that the Hexcolors can be a bit off the real colors. If you want the most accurate colors, you should use RGBA.
 
