@@ -506,6 +506,340 @@ It should return something like this:
 ```
 
 ---
+
+### Scheduled Splatfests
+To get scheduled Splatfest, that are coming in the future, you can use the `getUpcomingSplatfests()` function:
+```js
+Splatoon3.getUpcomingSplatfests(res => {
+    console.log(res);
+});
+```
+
+Please note, that the Hexcolors can be a bit off the real colors. If you want the most accurate colors, you should use RGBA.
+
+It should return something like this:
+```js
+{
+   "US":[
+      {
+         "title":"What's your favorite taste sensation?",
+         "startTime":"2023-01-07T00:00:00Z",
+         "endTime":"2023-01-09T00:00:00Z",
+         "teams":{
+            "0":{
+               "teamName":"Spicy",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/a8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png",
+               "color":"rgba(172.99965535500002, 83.999546685, 56.000551529999996, 1)",
+               "colorHEX":"#ac5338ff"
+            },
+            "1":{
+               "teamName":"Sweet",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png",
+               "color":"rgba(153.99959566500002, 110.998952295, 204.00000306, 1)",
+               "colorHEX":"#996eccff"
+            },
+            "2":{
+               "teamName":"Sour",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png",
+               "color":"rgba(165.000294135, 180.99900127499998, 51.000000765, 1)",
+               "colorHEX":"#a5b433ff"
+            }
+         }
+      }
+   ],
+   "EU":[
+      {
+         "title":"What's your favorite taste sensation?",
+         "startTime":"2023-01-07T00:00:00Z",
+         "endTime":"2023-01-09T00:00:00Z",
+         "teams":{
+            "0":{
+               "teamName":"Spicy",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/a8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png",
+               "color":"rgba(172.99965535500002, 83.999546685, 56.000551529999996, 1)",
+               "colorHEX":"#ac5338ff"
+            },
+            "1":{
+               "teamName":"Sweet",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png",
+               "color":"rgba(153.99959566500002, 110.998952295, 204.00000306, 1)",
+               "colorHEX":"#996eccff"
+            },
+            "2":{
+               "teamName":"Sour",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png",
+               "color":"rgba(165.000294135, 180.99900127499998, 51.000000765, 1)",
+               "colorHEX":"#a5b433ff"
+            }
+         }
+      }
+   ],
+   "JP":[
+      {
+         "title":"好みの味は？",
+         "startTime":"2023-01-07T00:00:00Z",
+         "endTime":"2023-01-09T00:00:00Z",
+         "teams":{
+            "0":{
+               "teamName":"辛い",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/a8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png",
+               "color":"rgba(172.99965535500002, 83.999546685, 56.000551529999996, 1)",
+               "colorHEX":"#ac5338ff"
+            },
+            "1":{
+               "teamName":"甘い",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png",
+               "color":"rgba(153.99959566500002, 110.998952295, 204.00000306, 1)",
+               "colorHEX":"#996eccff"
+            },
+            "2":{
+               "teamName":"すっぱい",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png",
+               "color":"rgba(165.000294135, 180.99900127499998, 51.000000765, 1)",
+               "colorHEX":"#a5b433ff"
+            }
+         }
+      }
+   ],
+   "AP":[
+      {
+         "title":"What's your favorite taste sensation?",
+         "startTime":"2023-01-07T00:00:00Z",
+         "endTime":"2023-01-09T00:00:00Z",
+         "teams":{
+            "0":{
+               "teamName":"Spicy",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/a8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png",
+               "color":"rgba(172.99965535500002, 83.999546685, 56.000551529999996, 1)",
+               "colorHEX":"#ac5338ff"
+            },
+            "1":{
+               "teamName":"Sweet",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png",
+               "color":"rgba(153.99959566500002, 110.998952295, 204.00000306, 1)",
+               "colorHEX":"#996eccff"
+            },
+            "2":{
+               "teamName":"Sour",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-taste/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png",
+               "color":"rgba(165.000294135, 180.99900127499998, 51.000000765, 1)",
+               "colorHEX":"#a5b433ff"
+            }
+         }
+      }
+   ]
+}
+```
+
+---
+
+### Past Splatfests
+To get all past Splatfests, you can use the `getPastSplatfests()` function:
+```js
+Splatoon3.getPastSplatfests(res => {
+    console.log(res);
+});
+```
+
+Please note, that the Hexcolors can be a bit off the real colors. If you want the most accurate colors, you should use RGBA.
+
+It should return something like this:
+```js
+{
+   "US":[
+      {
+         "title":"What's your partner Pokémon type?",
+         "startTime":"2022-11-12T00:00:00Z",
+         "endTime":"2022-11-14T00:00:00Z",
+         "teams":{
+            "0":{
+               "teamName":"Grass",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-pocket/a8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png",
+               "color":"rgba(26.9994, 169.00125153, 115.999499235, 1)",
+               "colorHEX":"#1aa973ff",
+               "role":"ATTACK",
+               "results":{
+                  "isWinner":false,
+                  "conchShellsRatio":0.33711,
+                  "conchShellsTop":false,
+                  "voteRatio":0.25801,
+                  "isVoteTop":false,
+                  "regularContributionRatio":0.33411,
+                  "isRegularContributionTop":false,
+                  "proModeContributionRatio":0.33591,
+                  "isProModeContributionTop":false
+               }
+            },
+            "1":{
+               "teamName":"Fire",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-pocket/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png",
+               "color":"rgba(217.99950051000002, 70.00004897999999, 20.9992501785, 1)",
+               "colorHEX":"#d94614ff",
+               "role":"ATTACK",
+               "results":{
+                  "isWinner":false,
+                  "conchShellsRatio":0.32521,
+                  "conchShellsTop":false,
+                  "voteRatio":0.33601000000000003,
+                  "isVoteTop":false,
+                  "regularContributionRatio":0.32751,
+                  "isRegularContributionTop":false,
+                  "proModeContributionRatio":0.30551,
+                  "isProModeContributionTop":false
+               }
+            },
+            "2":{
+               "teamName":"Water",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-pocket/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png",
+               "color":"rgba(45.999449999999996, 115.999499235, 255, 1)",
+               "colorHEX":"#2d73ffff",
+               "role":"DEFENSE",
+               "results":{
+                  "isWinner":true,
+                  "conchShellsRatio":0.33771,
+                  "conchShellsTop":true,
+                  "voteRatio":0.40601000000000004,
+                  "isVoteTop":true,
+                  "regularContributionRatio":0.33841,
+                  "isRegularContributionTop":true,
+                  "proModeContributionRatio":0.35861,
+                  "isProModeContributionTop":true
+               }
+            }
+         }
+      },
+      {
+         "title":"What would you bring to a deserted island?",
+         "startTime":"2022-09-24T00:00:00Z",
+         "endTime":"2022-09-26T00:00:00Z",
+         "teams":{
+            "0":{
+               "teamName":"Gear",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-mujintou/a8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png",
+               "color":"rgba(138.00000699, 25.0000004115, 248.000000355, 1)",
+               "colorHEX":"#8a19f8ff",
+               "role":"ATTACK",
+               "results":{
+                  "isWinner":true,
+                  "conchShellsRatio":0.33451000000000003,
+                  "conchShellsTop":false,
+                  "voteRatio":0.5828099999999999,
+                  "isVoteTop":true,
+                  "regularContributionRatio":0.35291,
+                  "isRegularContributionTop":true,
+                  "proModeContributionRatio":0.33471,
+                  "isProModeContributionTop":false
+               }
+            },
+            "1":{
+               "teamName":"Grub",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-mujintou/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png",
+               "color":"rgba(191.000003865, 113.00000844, 24.0000004695, 1)",
+               "colorHEX":"#bf7118ff",
+               "role":"ATTACK",
+               "results":{
+                  "isWinner":false,
+                  "conchShellsRatio":0.30441,
+                  "conchShellsTop":false,
+                  "voteRatio":0.20701,
+                  "isVoteTop":false,
+                  "regularContributionRatio":0.31381000000000003,
+                  "isRegularContributionTop":false,
+                  "proModeContributionRatio":0.30161,
+                  "isProModeContributionTop":false
+               }
+            },
+            "2":{
+               "teamName":"Fun",
+               "image":"https://splatoon3.ink/assets/splatnet/resources/fest/juea-mujintou/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png",
+               "color":"rgba(40.999997519999994, 192.000003705, 94.00000969499999, 1)",
+               "colorHEX":"#28c05eff",
+               "role":"DEFENSE",
+               "results":{
+                  "isWinner":false,
+                  "conchShellsRatio":0.36111,
+                  "conchShellsTop":true,
+                  "voteRatio":0.21021,
+                  "isVoteTop":false,
+                  "regularContributionRatio":0.33331,
+                  "isRegularContributionTop":false,
+                  "proModeContributionRatio":0.36371000000000003,
+                  "isProModeContributionTop":true
+               }
+            }
+         }
+      }
+   ],
+   "EU":[
+      {
+         "title":"What's your partner Pokémon type?",
+         "startTime":"2022-11-12T00:00:00Z",
+         "endTime":"2022-11-14T00:00:00Z",
+         "teams":{
+            "0":[Object],
+            "1":[Object],
+            "2":[Object],
+         }
+      },
+      {
+         "title":"What would you bring to a deserted island?",
+         "startTime":"2022-09-24T00:00:00Z",
+         "endTime":"2022-09-26T00:00:00Z",
+         "teams":{
+            "0":[Object],
+            "1":[Object],
+            "2":[Object],
+         }
+      }
+   ],
+   "JP":[
+      {
+         "title":"パートナーに選ぶならどのタイプ？",
+         "startTime":"2022-11-12T00:00:00Z",
+         "endTime":"2022-11-14T00:00:00Z",
+         "teams":{
+            "0":[Object],
+            "1":[Object],
+            "2":[Object],
+         }
+      },
+      {
+         "title":"無人島に持っていくなら？",
+         "startTime":"2022-09-24T00:00:00Z",
+         "endTime":"2022-09-26T00:00:00Z",
+         "teams":{
+            "0":[Object],
+            "1":[Object],
+            "2":[Object],
+         }
+      }
+   ],
+   "AP":[
+      {
+         "title":"What's your partner Pokémon type?",
+         "startTime":"2022-11-12T00:00:00Z",
+         "endTime":"2022-11-14T00:00:00Z",
+         "teams":{
+            "0":[Object],
+            "1":[Object],
+            "2":[Object],
+         }
+      },
+      {
+         "title":"What would you bring to a deserted island?",
+         "startTime":"2022-09-24T00:00:00Z",
+         "endTime":"2022-09-26T00:00:00Z",
+         "teams":{
+            "0":[Object],
+            "1": [Object],
+            "2":[Object]
+         }
+      }
+   ]
+}
+```
+
+---
 ## Change Log
 
 You can find the Changelog in [CHANGELOG.md](./CHANGELOG.md).

@@ -7,6 +7,18 @@ const compatibleLanguages = ["en", "de", "nl", "fr", "es", "it", "ru", "jp"];
 const schedulesURL = "https://splatoon3.ink/data/schedules.json";
 const salmonGearURL = "https://splatoon3.ink/data/coop.json";
 const gearURL = "https://splatoon3.ink/data/gear.json";
+const festURL = "https://splatoon3.ink/data/festivals.json";
+
+function RGBAToHexA(rgba, forceRemoveAlpha = false) {
+    return "#" + rgba.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
+        .split(',') // splits them at ","
+        .filter((string, index) => !forceRemoveAlpha || index !== 3)
+        .map(string => parseFloat(string)) // Converts them to numbers
+        .map((number, index) => index === 3 ? Math.round(number * 255) : number) // Converts alpha to 255 number
+        .map(number => number.toString(16)) // Converts numbers to hex
+        .map(string => string.length === 1 ? "0" + string : string) // Adds 0 when length of one number is 1
+        .join("") // Puts the array to togehter to a string
+}
 
 class Client {
 	constructor(lang) {
@@ -479,6 +491,132 @@ class Client {
                 return callback(data);
 		  	});
 	}
+
+    getUpcomingSplatfests(callback) {
+		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+		fetch(festURL)
+			.catch(err => console.error(err))
+		  	.then(res => res.json())
+		  	.then(json => {
+                let data = {};
+
+                Object.keys(json).forEach(region => {
+                    data[region] = [];
+                    json[region].data.festRecords.nodes.forEach(fest => {
+                        if (fest.state !== "SCHEDULED") return;
+    
+                        data[region].push({
+                            title: fest.title,
+                            startTime: fest.startTime,
+                            endTime: fest.endTime,
+                            teams: {
+                                0: {
+                                    teamName: fest.teams[0].teamName,
+                                    image: fest.teams[0].image.url,
+                                    color: `rgba(${fest.teams[0].color.r * 255}, ${fest.teams[0].color.g * 255}, ${fest.teams[0].color.b * 255}, ${fest.teams[0].color.a})`,
+                                    colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[0].color.r * 255)}, ${Math.floor(fest.teams[0].color.g * 255)}, ${Math.floor(fest.teams[0].color.b * 255)}, ${Math.floor(fest.teams[0].color.a)})`)
+                                },
+                                1: {
+                                    teamName: fest.teams[1].teamName,
+                                    image: fest.teams[1].image.url,
+                                    color: `rgba(${fest.teams[1].color.r * 255}, ${fest.teams[1].color.g * 255}, ${fest.teams[1].color.b * 255}, ${fest.teams[1].color.a})`,
+                                    colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[1].color.r * 255)}, ${Math.floor(fest.teams[1].color.g * 255)}, ${Math.floor(fest.teams[1].color.b * 255)}, ${Math.floor(fest.teams[1].color.a)})`)
+                                },
+                                2: {
+                                    teamName: fest.teams[2].teamName,
+                                    image: fest.teams[2].image.url,
+                                    color: `rgba(${fest.teams[2].color.r * 255}, ${fest.teams[2].color.g * 255}, ${fest.teams[2].color.b * 255}, ${fest.teams[2].color.a})`,
+                                    colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[2].color.r * 255)}, ${Math.floor(fest.teams[2].color.g * 255)}, ${Math.floor(fest.teams[2].color.b * 255)}, ${Math.floor(fest.teams[2].color.a)})`)
+                                }
+                            }
+                        })
+                    })
+                })
+
+                return callback(data);
+            });
+    }
+
+    getPastSplatfests(callback) {
+		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+		fetch(festURL)
+			.catch(err => console.error(err))
+		  	.then(res => res.json())
+		  	.then(json => {
+                let data = {};
+
+                Object.keys(json).forEach(region => {
+                    data[region] = [];
+                    json[region].data.festRecords.nodes.forEach(fest => {
+                        if (fest.state !== "CLOSED") return;
+    
+                        data[region].push({
+                            title: fest.title,
+                            startTime: fest.startTime,
+                            endTime: fest.endTime,
+                            teams: {
+                                0: {
+                                    teamName: fest.teams[0].teamName,
+                                    image: fest.teams[0].image.url,
+                                    color: `rgba(${fest.teams[0].color.r * 255}, ${fest.teams[0].color.g * 255}, ${fest.teams[0].color.b * 255}, ${fest.teams[0].color.a})`,
+                                    colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[0].color.r * 255)}, ${Math.floor(fest.teams[0].color.g * 255)}, ${Math.floor(fest.teams[0].color.b * 255)}, ${Math.floor(fest.teams[0].color.a)})`),
+                                    role: fest.teams[0].role,
+                                    results: {
+                                        isWinner: fest.teams[0].result.isWinner,
+                                        conchShellsRatio: fest.teams[0].result.horagaiRatio,
+                                        conchShellsTop: fest.teams[0].result.isHoragaiRatioTop,
+                                        voteRatio: fest.teams[0].result.voteRatio,
+                                        isVoteTop: fest.teams[0].result.isVoteRatioTop,
+                                        regularContributionRatio: fest.teams[0].result.regularContributionRatio,
+                                        isRegularContributionTop: fest.teams[0].result.isRegularContributionRatioTop,
+                                        proModeContributionRatio: fest.teams[0].result.challengeContributionRatio,
+                                        isProModeContributionTop: fest.teams[0].result.isChallengeContributionRatioTop,
+                                    }
+                                },
+                                1: {
+                                    teamName: fest.teams[1].teamName,
+                                    image: fest.teams[1].image.url,
+                                    color: `rgba(${fest.teams[1].color.r * 255}, ${fest.teams[1].color.g * 255}, ${fest.teams[1].color.b * 255}, ${fest.teams[1].color.a})`,
+                                    colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[1].color.r * 255)}, ${Math.floor(fest.teams[1].color.g * 255)}, ${Math.floor(fest.teams[1].color.b * 255)}, ${Math.floor(fest.teams[1].color.a)})`),
+                                    role: fest.teams[1].role,
+                                    results: {
+                                        isWinner: fest.teams[1].result.isWinner,
+                                        conchShellsRatio: fest.teams[1].result.horagaiRatio,
+                                        conchShellsTop: fest.teams[1].result.isHoragaiRatioTop,
+                                        voteRatio: fest.teams[1].result.voteRatio,
+                                        isVoteTop: fest.teams[1].result.isVoteRatioTop,
+                                        regularContributionRatio: fest.teams[1].result.regularContributionRatio,
+                                        isRegularContributionTop: fest.teams[1].result.isRegularContributionRatioTop,
+                                        proModeContributionRatio: fest.teams[1].result.challengeContributionRatio,
+                                        isProModeContributionTop: fest.teams[1].result.isChallengeContributionRatioTop,
+                                    }
+                                },
+                                2: {
+                                    teamName: fest.teams[2].teamName,
+                                    image: fest.teams[2].image.url,
+                                    color: `rgba(${fest.teams[2].color.r * 255}, ${fest.teams[2].color.g * 255}, ${fest.teams[2].color.b * 255}, ${fest.teams[2].color.a})`,
+                                    colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[2].color.r * 255)}, ${Math.floor(fest.teams[2].color.g * 255)}, ${Math.floor(fest.teams[2].color.b * 255)}, ${Math.floor(fest.teams[2].color.a)})`),
+                                    role: fest.teams[2].role,
+                                    results: {
+                                        isWinner: fest.teams[2].result.isWinner,
+                                        conchShellsRatio: fest.teams[2].result.horagaiRatio,
+                                        conchShellsTop: fest.teams[2].result.isHoragaiRatioTop,
+                                        voteRatio: fest.teams[2].result.voteRatio,
+                                        isVoteTop: fest.teams[2].result.isVoteRatioTop,
+                                        regularContributionRatio: fest.teams[2].result.regularContributionRatio,
+                                        isRegularContributionTop: fest.teams[2].result.isRegularContributionRatioTop,
+                                        proModeContributionRatio: fest.teams[2].result.challengeContributionRatio,
+                                        isProModeContributionTop: fest.teams[2].result.isChallengeContributionRatioTop,
+                                    }
+                                }
+                            }
+                        })
+                    })
+                })
+
+                return callback(data);
+            });
+    }
 }
 
 
