@@ -15,6 +15,8 @@ If you have trouble with this package, feel free to ask me in my [Discord](https
     - [Next stages](#next-stages)
     - [Salmonrun](#salmonrun-schedules)
     - [Splatnet gear](#splatnet-gear)
+    - [Upcoming Splatfests](#scheduled-splatfests)
+    - [Past Splatfests](#past-splatfests)
 - [Change Log](#change-log)
 
 ### Installation

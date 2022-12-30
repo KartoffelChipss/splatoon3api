@@ -2,6 +2,15 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.1.7 - 2022-12-30
+
+### Added
+
+### Changed
+- Minor Changes to [readme.md](./README.md)
+
+### Fixed
+
 ## 1.1.6 - 2022-12-30
 
 ### Added
