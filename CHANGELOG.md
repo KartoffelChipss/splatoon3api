@@ -2,6 +2,16 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.2.0 - 2023-03-13
+
+### Added
+- Support for new maps and weapons
+
+### Changed
+- Minor Changes to the language files
+
+### Fixed
+
 ## 1.1.7 - 2022-12-30
 
 ### Added

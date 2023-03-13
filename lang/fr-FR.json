@@ -1,27 +1,4 @@
 {
-    "stages": {
-        "1": { "name": "Canyon aux colonnes" },
-        "2": { "name": "Banlieue Balibot" },
-        "3": { "name": "Marché Grefin" },
-        "4": { "name": "Réservoir Rigadelle" },
-        "6": { "name": "Casse Rascasse" },
-        "7": { "name": "Sources Sauret" },
-        "9": { "name": "Lotissement Filament" },
-        "10": { "name": "Pont Esturgeon" },
-        "11": { "name": "Galeries Guppy" },
-        "12": { "name": "Club Ca$halot" },
-        "13": { "name": "Institut Calam'arts" },
-        "14": { "name": "Chantier Narval" },
-        "15": { "name": "Supermarché Cétacé" },
-        "16": { "name": "Parc Carapince" }
-    },
-    "rules": {
-        "TURF_WAR": { "name": "Guerre de territoire" },
-        "GOAL": { "name": "Mission Bazookarpe" },
-        "AREA": { "name": "Défense de zone" },
-        "LOFT": { "name": "Expédition risquée" },
-        "CLAM": { "name": "Pluie de palourdes" }
-    },
     "coop_stages": {
         "Spawning Grounds": { "name": "Barrage salmonoïde" },
         "Sockeye Station": { "name": "Bastion colimaçon" },
@@ -34,1071 +11,1799 @@
         "ClothingGear": "Vêtements",
         "ShoesGear": "Chaussures"
     },
-    "weapons": {
-        "48d6e062dd8b7efb":{
-           "name":"Aérogun"
-        },
-        "3adcc67d997a5aa8":{
-           "name":"Rouleau carbone"
-        },
-        "61d373353a48eb2e":{
-           "name":"Détoneur"
-        },
-        "cfcd1cb4b09dc134":{
-           "name":"Nettoyeur XL"
-        },
-        "7813d8c4d9103b07":{
-           "name":"Dépoteur"
-        },
-        "57684fd4ee281e09":{
-           "name":"Rouleau"
-        },
-        "7a4705bd110b0cee":{
-           "name":"Bassineur"
-        },
-        "ba2b27f7c17b1632":{
-           "name":"Trisperceur"
-        },
-        "3939e000515fe04c":{
-           "name":"Double voltigeur noir"
-        },
-        "6c5bbce4a6c63d0c":{
-           "name":"Compresseur"
-        },
-        "39e383c2f6d1ca3e":{
-           "name":"Nautilus 47"
-        },
-        "627d43fa3ab06066":{
-           "name":"Turboblaster"
-        },
-        "4dc28c8d9bca2dae":{
-           "name":"Double encreur"
-        },
-        "670ae6f0c617cca4":{
-           "name":"Éclablaster"
-        },
-        "9e45d86ccd5fea1e":{
-           "name":"Badigeonneur stylo"
-        },
-        "e2b5e6b340555596":{
-           "name":"Détubeur"
-        },
-        "59d665d32bb4122a":{
-           "name":"Marqueur léger"
-        },
-        "77e4f6414e5a257d":{
-           "name":"Éclatana Doto"
-        },
-        "2c34cb021254c8f8":{
-           "name":"Liquidateur pro"
-        },
-        "f668bd94e7ebf62d":{
-           "name":"Turboblaster pro"
-        },
-        "d3d579406dbc0fc8":{
-           "name":"Aérogun"
-        },
-        "8c157e85b75798e7":{
-           "name":"Rouleau carbone"
-        },
-        "6529a2c7f83ca858":{
-           "name":"Détoneur"
-        },
-        "92f330252fdd9421":{
-           "name":"Nettoyeur XL"
-        },
-        "7d97fc215efe47fa":{
-           "name":"Dépoteur"
-        },
-        "0637f4b4225f22b8":{
-           "name":"Rouleau"
-        },
-        "13ef7ad9ba855fe1":{
-           "name":"Bassineur"
-        },
-        "7ed9dd50b97d24f3":{
-           "name":"Trisperceur"
-        },
-        "8e59d00fc471083a":{
-           "name":"Double voltigeur noir"
-        },
-        "f09bb1bb306659dd":{
-           "name":"Compresseur"
-        },
-        "af505e7c4bdb7888":{
-           "name":"Nautilus 47"
-        },
-        "2d3900d357e005e9":{
-           "name":"Turboblaster"
-        },
-        "582d03e42a63596a":{
-           "name":"Double encreur"
-        },
-        "9208eee9ecd2026e":{
-           "name":"Éclablaster"
-        },
-        "cb9126ea2928b619":{
-           "name":"Badigeonneur stylo"
-        },
-        "70aa6b216ca8f01c":{
-           "name":"Détubeur"
-        },
-        "41492e011c163cc1":{
-           "name":"Marqueur léger"
-        },
-        "df5b39ea3d32b25b":{
-           "name":"Éclatana Doto"
-        },
-        "617dedf1c26235dc":{
-           "name":"Liquidateur pro"
-        },
-        "83275e416e7c1bc2":{
-           "name":"Turboblaster pro"
-        },
-        "1f6ce9f852641707":{
-           "name":"Aléatoire"
-        },
-        "d9bbd083353c118d":{
-           "name":"Calibre 2000"
-        },
-        "9a9dcaa55c2f6545":{
-           "name":"Liquidateur"
-        },
-        "8c0617eafedab081":{
-           "name":"Bimbamboum Mk I"
-        },
-        "0037f260dd45e397":{
-           "name":"Para-encre XL"
-        },
-        "cf6021b669c84379":{
-           "name":"N-ZAP 85"
-        },
-        "b5c29680486b0d1c":{
-           "name":"Épinceau"
-        },
-        "a99a6dd8efd4d5bb":{
-           "name":"Arroseur lourd"
-        },
-        "50563f3849b68e0a":{
-           "name":"Exteinteur"
-        },
-        "1e344559d62809b2":{
-           "name":"Double moucheteur"
-        },
-        "e594a5f9535eaf40":{
-           "name":"Épinceau brosse"
-        },
-        "7a2dd4e35809d537":{
-           "name":"Dynamo-rouleau"
-        },
-        "1e9e39f56c9f6d1a":{
-           "name":"Décap'express Alpha"
-        },
-        "5903a8cef02e4298":{
-           "name":"Double Kelvin 525"
-        },
-        "1208a614c4bb22cf":{
-           "name":"Rafablaster"
-        },
-        "cb1243d9c1908a38":{
-           "name":"Badigeonneur XS"
-        },
-        "57717b83b81f474f":{
-           "name":"Extraceur +"
-        },
-        "e70b1ea70b5916be":{
-           "name":"Marqueur lourd"
-        },
-        "4b6949b9e979636c":{
-           "name":"Proxiblaster"
-        },
-        "53cefbb18bb74cb3":{
-           "name":"Para-encre espion"
-        },
-        "1d1dd4a9165c4a0c":{
-           "name":"Concentraceur"
-        },
-        "97745a7307013de3":{
-           "name":"Double nettoyeur"
-        },
-        "11ba9e5928b14318":{
-           "name":"Badigeonneur"
-        },
-        "5615e681937a3f12":{
-           "name":"Arroseur léger"
-        },
-        "24cab1bbfb443770":{
-           "name":"Para-encre"
-        },
-        "ab50e9ae40810698":{
-           "name":"Calibre 3000"
-        },
-        "319a3174ebcb8224":{
-           "name":"Liquidateur Jr."
-        },
-        "a31def86914d98ae":{
-           "name":"Encrifugeur"
-        },
-        "afc40370eb8a1aa5":{
-           "name":"Éclablaster XL"
-        },
-        "daa5ab5b571faec5":{
-           "name":"Flexi-rouleau"
-        },
-        "8f8bfbac8a43c2c7":{
-           "name":"Éclatana d'estampe"
-        },
-        "70e60082b7f73c24":{
-           "name":"Coralux 450"
-        },
-        "13d0d18880c2f4e4":{
-           "name":"Seauceur"
-        },
-        "66e9cd75721a942f":{
-           "name":"Lanceur spatial"
-        },
-        "7f8967b3ae112ffc":{
-           "name":"Rouleau large"
-        },
-        "a1ea7028b1bcdd28":{
-           "name":"Crayon X - 5H"
-        }
+  "stages": {
+    "VnNTdGFnZS0x": {
+      "name": "Canyon aux colonnes"
     },
-    "brands": {
-        "QnJhbmQtOA==":{
-           "name":"Gédéon"
-        },
-        "QnJhbmQtMTk=":{
-           "name":"Alpaj"
-        },
-        "QnJhbmQtMjA=":{
-           "name":"Apex"
-        },
-        "QnJhbmQtMA==":{
-           "name":"Kalamarus Rex"
-        },
-        "QnJhbmQtMw==":{
-           "name":"Iormungand"
-        },
-        "QnJhbmQtNA==":{
-           "name":"Ezko"
-        },
-        "QnJhbmQtNQ==":{
-           "name":"Focus"
-        },
-        "QnJhbmQtNg==":{
-           "name":"Friture"
-        },
-        "QnJhbmQtMTE=":{
-           "name":"Cubic"
-        },
-        "QnJhbmQtMTA=":{
-           "name":"OculR"
-        },
-        "QnJhbmQtOQ==":{
-           "name":"Abysma"
-        },
-        "QnJhbmQtMg==":{
-           "name":"Krakers"
-        },
-        "QnJhbmQtNw==":{
-           "name":"Jack"
-        },
-        "QnJhbmQtMTc=":{
-           "name":"Thony K"
-        },
-        "QnJhbmQtMQ==":{
-           "name":"Leviathus"
-        },
-        "QnJhbmQtMTY=":{
-           "name":"DUX"
-        },
-        "QnJhbmQtMTU=":{
-           "name":"Aroz"
-        }
+    "VnNTdGFnZS0y": {
+      "name": "Banlieue Balibot"
     },
-    "gear": {
-        "1f6189fcaf092a8f":{
-           "name":"Chapeau melon"
-        },
-        "81921ab4f3fc42fa":{
-           "name":"Chemisette blanche"
-        },
-        "8af6d74efc8ee977":{
-           "name":"Baskets à scratch rouges"
-        },
-        "e0ef16dcbf779fd8":{
-           "name":"Tennis suédine simples"
-        },
-        "406929c86d7a258e":{
-           "name":"T-shirt smiley framboise"
-        },
-        "3dc58146de458313":{
-           "name":"T-shirt blanc"
-        },
-        "c2bb9f1294c295da":{
-           "name":"Bottes de moto"
-        },
-        "43847b716e0167b8":{
-           "name":"Lunettes noires ovales"
-        },
-        "71abfaf22d9b6bbe":{
-           "name":"Lunettes de moto"
-        },
-        "b53bdaf8c13d29f2":{
-           "name":"Lunettes opaques"
-        },
-        "174d4dbb6348257b":{
-           "name":"Chapeau melon"
-        },
-        "ad7271a600e96517":{
-           "name":"Chemisette blanche"
-        },
-        "24232b34f82cb2d3":{
-           "name":"Baskets à scratch rouges"
-        },
-        "b8fd00bc6b0e03f8":{
-           "name":"Tennis suédine simples"
-        },
-        "aac289491487b78e":{
-           "name":"T-shirt smiley framboise"
-        },
-        "42fd0a010e3834d6":{
-           "name":"T-shirt blanc"
-        },
-        "d6ae0f6877fbe8e7":{
-           "name":"Bottes de moto"
-        },
-        "2e502b645aa81e2c":{
-           "name":"Lunettes noires ovales"
-        },
-        "66b70d0194f48051":{
-           "name":"Lunettes de moto"
-        },
-        "2b897acb8435752e":{
-           "name":"Lunettes opaques"
-        },
-        "11826a638e557c8c":{
-           "name":"T-shirt rayé marin"
-        },
-        "eeea995329a3b65a":{
-           "name":"Masque de plongée"
-        },
-        "8c2f59eb75da5ece":{
-           "name":"Bandana biscuit Friture"
-        },
-        "5f1f38129dc8708e":{
-           "name":"Bottes énergétiques"
-        },
-        "b4efce44ed819f22":{
-           "name":"T-shirt beige rétro"
-        },
-        "a8037dfb0ea3cfc9":{
-           "name":"Lunettes transparentes"
-        },
-        "c9b62256129de184":{
-           "name":"T-shirt Abysma ivoire"
-        },
-        "4402242820b66e9b":{
-           "name":"Sandales poudreuse"
-        },
-        "9dda2a64daaa651f":{
-           "name":"Chemise hippie"
-        },
-        "d4c2c203e5ef0568":{
-           "name":"T-shirt dégradé crépuscule"
-        },
-        "947dcdc899197eb1":{
-           "name":"Écouteurs sonar"
-        },
-        "1bd94af735c58372":{
-           "name":"Casquette rayée"
-        },
-        "643a053973902353":{
-           "name":"Casque baladeur"
-        },
-        "677b0d3b7d27ad00":{
-           "name":"Bottes perle HU1T73"
-        },
-        "5268305e6503989f":{
-           "name":"Masque smiley"
-        },
-        "23dfd1075a93a33d":{
-           "name":"Chemise bouffonne"
-        },
-        "324df9a75e061379":{
-           "name":"Tongs smiley"
-        },
-        "127b76d4323e74bb":{
-           "name":"Haut double blanc"
-        },
-        "b4b3212cb5cd7bae":{
-           "name":"Maillot des Umibozu (dom.)"
-        },
-        "784d73e378d54a65":{
-           "name":"Hippo montantes rouges"
-        },
-        "5a2640a1b24f4104":{
-           "name":"Canotier sombre"
-        },
-        "913c8abcf3b7f553":{
-           "name":"Mocassins pied-de-poulpe"
-        },
-        "2724594845943e60":{
-           "name":"Sweat jaune Kalamarus Rex"
-        },
-        "70e9d5e472ac488e":{
-           "name":"Chemisette hippo"
-        },
-        "1e8eb9a8cf359ddb":{
-           "name":"Sabots chocolat"
-        },
-        "0f9024a487709d60":{
-           "name":"Egings IV rouges et noires"
-        },
-        "d8dc38f9cff8a7c0":{
-           "name":"Lunettes demi-cerclées"
-        },
-        "536ee3c575414b1c":{
-           "name":"Bottes Palmi poudreuse"
-        },
-        "aa6d34604fc32094":{
-           "name":"Tri-shirt Calamar"
-        },
-        "93a1f4889a507aca":{
-           "name":"Hippo montantes zombi"
-        },
-        "74557810f479b67d":{
-           "name":"Flèches orange"
-        },
-        "956b07f16e9239e5":{
-           "name":"Écran facialamar"
-        },
-        "917b0ff5e7deb49d":{
-           "name":"Blouson K"
-        },
-        "8cb74f9b9027d2e1":{
-           "name":"Haut double moutarde"
-        },
-        "633c2879fd8e03e7":{
-           "name":"Blouson calamar"
-        },
-        "1612c8b009f235b2":{
-           "name":"Bonnet de docker"
-        },
-        "eb43f28ba5c38ec6":{
-           "name":"T-shirt col en V blanc"
-        },
-        "61e8f58a1c752d85":{
-           "name":"T-shirt thé Alpaj"
-        },
-        "81e8fd0b464e2414":{
-           "name":"Tennis suédine pro"
-        },
-        "fa6f79b5f26ce405":{
-           "name":"Chemise rustique Aroz"
-        },
-        "a50223bf951b4680":{
-           "name":"Chemisette punk farniente"
-        },
-        "f7c12d451f1fcd8f":{
-           "name":"Tennis montantes mako"
-        },
-        "68b8d5cfeb33c744":{
-           "name":"Flèches unies"
-        },
-        "ae84b607bf8777f9":{
-           "name":"Claquettes rouges Friture"
-        },
-        "2e526124ce7e8f6f":{
-           "name":"Casquette Sea Invader"
-        },
-        "b8b4c69bd9db92ef":{
-           "name":"Crustarapace rouge"
-        },
-        "a7919c8be2a28d62":{
-           "name":"Egings IV bleues et noires"
-        },
-        "3675b37346898e14":{
-           "name":"Haut quadri DUX 08"
-        },
-        "cdf0aa473ac99c5c":{
-           "name":"Orques crépuscule"
-        },
-        "d00e44e66d68e35b":{
-           "name":"T-shirt Iormungand noir"
-        },
-        "8edd77ea62ba9e9f":{
-           "name":"Haut quadri DUX 10"
-        },
-        "1fec43172d6fa45f":{
-           "name":"Maillot de cycliste"
-        },
-        "f90966ee929161d3":{
-           "name":"Chukkas sable"
-        },
-        "3156cd52b7438c4a":{
-           "name":"Lunettes de soleil 18 carats"
-        },
-        "007b0011ba440126":{
-           "name":"T-shirt Iormungand blanc"
-        },
-        "5f0b0a4b682ede5a":{
-           "name":"Sandales chunky roses"
-        },
-        "ed2f366255fe2400":{
-           "name":"Tennis montantes algue"
-        },
-        "1373e5fdef7d81d0":{
-           "name":"Casquette baseball chaude"
-        },
-        "65d7097e248028a8":{
-           "name":"Maillot de basket (domicile)"
-        },
-        "2f2c0867bcd60fa2":{
-           "name":"Lunettes colorées"
-        },
-        "dc2d135b5dedc8d0":{
-           "name":"Haut sportif Ezko"
-        },
-        "4318b892228fff97":{
-           "name":"Tennis bleues"
-        },
-        "b7c5f3453773550b":{
-           "name":"Flexi-tabis wasabi"
-        },
-        "d0aa19a37f3cd296":{
-           "name":"Baskets turquoise"
-        },
-        "8a4df8e058429a82":{
-           "name":"Haut double Cubic"
-        },
-        "db62936fd681df2b":{
-           "name":"T-shirt noir"
-        },
-        "41bedd53522bb38d":{
-           "name":"Bandeau de ping-pong"
-        },
-        "b815880233a35cd6":{
-           "name":"Hippo montantes violettes"
-        },
-        "cfecc281c452aa74":{
-           "name":"Casque à cornes"
-        },
-        "e8ba8734c2ebfa80":{
-           "name":"Tongs noires"
-        },
-        "f83218ce2928e443":{
-           "name":"Masque Friture"
-        },
-        "d8398bdfdddfb898":{
-           "name":"T-shirt 8 bits noir"
-        },
-        "441c1f7903f5412d":{
-           "name":"Bottes sécurité nubuck"
-        },
-        "c0630f568ecb669c":{
-           "name":"Visière teintée"
-        },
-        "bdbd666af9084dbe":{
-           "name":"Chaussures rando exclusives"
-        },
-        "fbc70cfb825986de":{
-           "name":"Casque Eurêka"
-        },
-        "81be854769c15200":{
-           "name":"Blouson poisson-charge"
-        },
-        "baa3c99301fbf998":{
-           "name":"Bandeau de tennis"
-        },
-        "4261e5c7df04b91a":{
-           "name":"Sabots huître"
-        },
-        "f52b184f2b9aecb1":{
-           "name":"T-shirt fléché gris"
-        },
-        "b2446e7ab074da26":{
-           "name":"T-shirt cerisier Alpaj"
-        },
-        "2be678af332735c1":{
-           "name":"Visière Cubic"
-        },
-        "e1acfff65d803f23":{
-           "name":"Coupe-vent vintage Cubic"
-        },
-        "1f28c536cbdc80c2":{
-           "name":"T-shirt 8 bits blanc"
-        },
-        "386fb7e34a2abc2a":{
-           "name":"Bandeau blanc"
-        },
-        "f4d7dfa61cc72a67":{
-           "name":"Lunettes rondes"
-        },
-        "4c02bd493cf9b01e":{
-           "name":"Tennis montantes rouges"
-        },
-        "7b854854cece266d":{
-           "name":"Chapeau zen"
-        },
-        "de236faed2faac4c":{
-           "name":"Anorak vert anis"
-        },
-        "1dc35b1abeefcd35":{
-           "name":"Bob en jean"
-        },
-        "ad5679cf966d56d0":{
-           "name":"Baskets à scratch blanches"
-        },
-        "678373bb7134e71d":{
-           "name":"Baskets roses"
-        },
-        "3c5acd12e6e2d7de":{
-           "name":"Masque Aroz"
-        },
-        "4fea8b21041700fd":{
-           "name":"Sweat capuche gris"
-        },
-        "2d60b55fc7167d95":{
-           "name":"Chaussures bateau café"
-        },
-        "e2d69f22cb5653f5":{
-           "name":"Casquette branchée"
-        },
-        "110ff0c454074cfa":{
-           "name":"T-shirt lait Alpaj"
-        },
-        "9fa5cc8851fcf88c":{
-           "name":"Casquette baseball"
-        },
-        "0f00a6635aede845":{
-           "name":"Casque de hockey"
-        },
-        "f9ffbfce0e2875d0":{
-           "name":"Verres teintés"
-        },
-        "6f2d6bded7e3b5a3":{
-           "name":"Blouson mosaïque"
-        },
-        "eaff9715e83e69d6":{
-           "name":"Haut ananas"
-        },
-        "703d46b112a2fb1e":{
-           "name":"Sandales chunky cyan"
-        },
-        "4fbc8152a1d9b11c":{
-           "name":"Tri-shirt déchiré"
-        },
-        "95a7d0caf568a88b":{
-           "name":"Casque carapace"
-        },
-        "a64eaf2183a3df2a":{
-           "name":"Lunettes carrées Aroz"
-        },
-        "2134bc4107ef589f":{
-           "name":"Compensées carmin Aroz"
-        },
-        "f8d476712897b5ea":{
-           "name":"Chemisette à logos"
-        },
-        "bc5773c0d48ba324":{
-           "name":"Bob"
-        },
-        "4397b925c765efa4":{
-           "name":"Haut parachute grenat"
-        },
-        "f7360a8678a652e1":{
-           "name":"Anorak matcha"
-        },
-        "e592552a3149cbc2":{
-           "name":"Chemise splash"
-        },
-        "896386102c8cc7c9":{
-           "name":"Haut double Leviathus"
-        },
-        "aa220e98e0b8ce4d":{
-           "name":"T-shirt double vert"
-        },
-        "72d90ee8f6051b8e":{
-           "name":"Blouson aéré"
-        },
-        "eb19bc1bf079b53e":{
-           "name":"Casque pro"
-        },
-        "3a661f31ee2e6ae3":{
-           "name":"Sweat lamantin"
-        },
-        "215ca40180b6f437":{
-           "name":"Visière Friture"
-        },
-        "39bbd0d9f8a9be1e":{
-           "name":"Bonnet côtelé"
-        },
-        "154047abb13f296a":{
-           "name":"AL-GA 30XX"
-        },
-        "3165dd0fe53699ed":{
-           "name":"T-shirt OculR noir"
-        },
-        "4333c406473ac20d":{
-           "name":"Bottes de chasse"
-        },
-        "5f3cbcd31423e391":{
-           "name":"Chemise à carreaux"
-        },
-        "49df3a5d8d0a99ac":{
-           "name":"Claquettes jaunes Friture"
-        },
-        "fb978d294c4a18b9":{
-           "name":"Boléro négatif"
-        },
-        "dd87314a71de50ff":{
-           "name":"Masque Focus"
-        },
-        "926ada9976cdae43":{
-           "name":"Lunettes d'aviateur"
-        },
-        "97ed5418f991d678":{
-           "name":"Chemise mosaïque savane"
-        },
-        "9c3d6d6c10d9d41f":{
-           "name":"Gilet forestier kaki"
-        },
-        "c661525659d90ef4":{
-           "name":"Casquette filet Cubic"
-        },
-        "dfeb51ebc84513c4":{
-           "name":"Chemisette poulpe farniente"
-        },
-        "67a744219d496350":{
-           "name":"Baskets mandarine"
-        },
-        "8be6bc50a7bc8ab5":{
-           "name":"Parka fourrée arctique"
-        },
-        "1cf11459184751e4":{
-           "name":"Chaussures rando"
-        },
-        "df03a24d19aa6f8e":{
-           "name":"T-shirt bleu rétro"
-        },
-        "8ed3f04671809fb9":{
-           "name":"Pull requin"
-        },
-        "b192c92961b2adf6":{
-           "name":"Chemise mosaïque urbaine"
-        },
-        "809e99c2ffa7312a":{
-           "name":"T-shirt ophidien"
-        },
-        "c97a0167cc492b36":{
-           "name":"Sandales chunky orange"
-        },
-        "476e9139880248e4":{
-           "name":"T-shirt à collier Aroz"
-        },
-        "a4d6ce587f7547b4":{
-           "name":"Flèches ouvertes bleues"
-        },
-        "9aec8fb9cb1ba2b8":{
-           "name":"Blouson en cuir noir"
-        },
-        "7df1610b801fb8e5":{
-           "name":"Lunettes de natation"
-        },
-        "fb29dd121ab3b5f2":{
-           "name":"Blouson négatif"
-        },
-        "3b84e904cd60534c":{
-           "name":"Sweat ethnique magma"
-        },
-        "445ffa87c30bbac0":{
-           "name":"Casque écho Octa"
-        },
-        "662beb4fb9ea74f9":{
-           "name":"Casquette à rabats noire"
-        },
-        "15d0c6619faead78":{
-           "name":"Casque de receveur (dom.)"
-        },
-        "940500ce3bf4cc00":{
-           "name":"Turbo-tabis rouges"
-        },
-        "ff8cd1836a1d4fc2":{
-           "name":"Octaskets rouges"
-        },
-        "878e926050e1816b":{
-           "name":"Tri-shirt Octa"
-        },
-        "8bf529c3f3753265":{
-           "name":"Polo noir Ezko"
-        },
-        "e2a0872fdee7a498":{
-           "name":"Casque coloré"
-        },
-        "95b7d8bd81a014ae":{
-           "name":"Chemisette tropiques"
-        },
-        "f2184eafd208d20c":{
-           "name":"Chemisette de bowling"
-        },
-        "ed176e1f5f945985":{
-           "name":"Casque astro"
-        },
-        "4f4fc3a6e642be37":{
-           "name":"Chemise tache d'encre"
-        },
-        "77d5515a65d72500":{
-           "name":"Tandem Octacala"
-        },
-        "14c7c198c5f1332c":{
-           "name":"Haut pomme"
-        },
-        "580b51c0cb8c045b":{
-           "name":"Bonnet court"
-        },
-        "eb6566409e55ddad":{
-           "name":"T-shirt Abysma bleu"
-        },
-        "b4a91c3b5329437c":{
-           "name":"Doudoune négative"
-        },
-        "99108a6528e78424":{
-           "name":"T-shirt OculR bleu clair"
-        },
-        "94fa81f8a11b0a30":{
-           "name":"Anorak Alpaj"
-        },
-        "6da49b6929c446ee":{
-           "name":"Béret Aroz"
-        },
-        "a085384ce9c3e9ee":{
-           "name":"Compensées Tigre Aroz"
-        },
-        "bd7a4b5395750d95":{
-           "name":"Baskets montantes choco"
-        },
-        "8540e611a17cd249":{
-           "name":"T-shirt dégradé flammes"
-        },
-        "2f2e954b23c261c7":{
-           "name":"Casquette de cycliste"
-        },
-        "4301fb8489341eef":{
-           "name":"Casque de football Octa"
-        },
-        "9b8a23e17b1b5ea3":{
-           "name":"Bandana faune marine"
-        },
-        "d4d0bc79dce60c64":{
-           "name":"Souliers d'escalade été"
-        },
-        "591b7bcd94410bf0":{
-           "name":"Casquette légère"
-        },
-        "a217ef7797136fcb":{
-           "name":"T-shirt basique"
-        },
-        "29a7def9b876a301":{
-           "name":"Masque de peinture"
-        },
-        "e1f937486dd6b7c9":{
-           "name":"Masque OCTADUX"
-        },
-        "ca976a3bc9cd78b2":{
-           "name":"Sweat basket"
-        },
-        "972b9fce355daced":{
-           "name":"Bottes sécurité rouges"
-        },
-        "aa51588a1699ae25":{
-           "name":"T-shirt galaxie Cubic"
-        },
-        "38776da1845adf08":{
-           "name":"Cloche Friture"
-        },
-        "68a94c789b4c8b44":{
-           "name":"Bottines punk grenat"
-        },
-        "76f5e76c784b1c50":{
-           "name":"Lunettes de natation K"
-        },
-        "36e84fe6b7608c8c":{
-           "name":"Egings V rouges et blanches"
-        },
-        "405281a377614420":{
-           "name":"Casque de motocross"
-        },
-        "42ea283da9409cdb":{
-           "name":"T-shirt proie"
-        },
-        "3c90c890a335af86":{
-           "name":"Mocassins squale"
-        },
-        "7262e999c5bad9da":{
-           "name":"Gilet motif calamar"
-        },
-        "4faf2e67e092b400":{
-           "name":"Bandana crâne"
-        },
-        "c639924b729138ab":{
-           "name":"Sweat sportif Octa (ext.)"
-        },
-        "c21aaf1b52292dc7":{
-           "name":"Parka Focus INK"
-        },
-        "26136d489a89af87":{
-           "name":"Chapeau tulipe pare-soleil"
-        },
-        "5483b9aa63533859":{
-           "name":"Manteau forestier"
-        },
-        "dac35d4c46be1969":{
-           "name":"Bottes de pluie vertes"
-        },
-        "1c6debb9237e2890":{
-           "name":"Polaire toundra crème"
-        },
-        "94c1e453748a9abe":{
-           "name":"Pull grunge poignet bleu"
-        },
-        "95fcba8b9a39cd62":{
-           "name":"Bottines punk noires"
-        },
-        "1f6ddf2cf1d59bae":{
-           "name":"Sandales chaussettes fluo"
-        },
-        "69be0ed9f464ea4a":{
-           "name":"Chaussures à crampons"
-        },
-        "c2281bc39bd310d0":{
-           "name":"Lunettes rétro"
-        },
-        "17667e85698763c8":{
-           "name":"Chemisette baseball"
-        },
-        "37b13a41409cd558":{
-           "name":"Chapeau de cowboy orné"
-        },
-        "0316c51eca942a1c":{
-           "name":"Béret et lunettes Aroz"
-        },
-        "b443eba90e562d26":{
-           "name":"Richelieu semelle rouge"
-        },
-        "7866d2e458dcc9fa":{
-           "name":"Écharpe Alpaj"
-        }
+    "VnNTdGFnZS0z": {
+      "name": "Marché Grefin"
     },
-    "powers": {
-        "032c2b30027d6a23":{
-           "name":"Encrémenteur (pr.)"
-        },
-        "294d158b20a03702":{
-           "name":"Come-back"
-        },
-        "8eff7c5906b17202":{
-           "name":"Ninjalamar"
-        },
-        "a6ee72ab2e279e1d":{
-           "name":"Turbo-calamar"
-        },
-        "793e8f393b093b33":{
-           "name":"Réception réussie"
-        },
-        "7491b2168b321d3e":{
-           "name":"Aérodynamisme"
-        },
-        "9a736dd26cc6d3c5":{
-           "name":"Course à pied"
-        },
-        "ea552d4a7c94a0eb":{
-           "name":"Super roulade"
-        },
-        "1a994b9f1d422b23":{
-           "name":"Arme spéciale +"
-        },
-        "4b8e1b77f6b1ef60":{
-           "name":"Inconnu"
-        },
-        "1406c4da9fe690c9":{
-           "name":"Encrémenteur (pr.)"
-        },
-        "c8179c066b561cd5":{
-           "name":"Come-back"
-        },
-        "0e71bff24c3f37ad":{
-           "name":"Ninjalamar"
-        },
-        "03c7b7bc6cb68512":{
-           "name":"Turbo-calamar"
-        },
-        "b4e72a2b9c9f3d53":{
-           "name":"Réception réussie"
-        },
-        "1f86150af97debf6":{
-           "name":"Aérodynamisme"
-        },
-        "16cbf780227d6f6d":{
-           "name":"Course à pied"
-        },
-        "c54714a0c4aa3e11":{
-           "name":"Super roulade"
-        },
-        "e2c02f122de2c567":{
-           "name":"Arme spéciale +"
-        },
-        "264ff06a6e99b11a":{
-           "name":"Inconnu"
-        },
-        "1d202ffb6e81bce5":{
-           "name":"Retour perdant"
-        },
-        "815a9a65c869e5d9":{
-           "name":"Filtre à secondaires"
-        },
-        "d419d93c9ca266f2":{
-           "name":"Pieds au sec"
-        },
-        "0e164aae93afae43":{
-           "name":"Baisse spéciale -"
-        },
-        "28c5ec4430082450":{
-           "name":"Sans temps morts"
-        },
-        "aedd94fe223261d5":{
-           "name":"Feu de l'action"
-        },
-        "c43ab03140bb13f2":{
-           "name":"Levée d'encre"
-        },
-        "6dcecca7e07e73c4":{
-           "name":"Jauge spéciale +"
-        },
-        "8afb83ffeb289865":{
-           "name":"Revanche"
-        },
-        "9d5a18e4c5e5645e":{
-           "name":"Chapeaux de roue"
-        },
-        "0e2ac5e15d77b2cb":{
-           "name":"Arme secondaire +"
-        },
-        "3820d64c12f27290":{
-           "name":"Démolition"
-        },
-        "8340c4eed8943fc7":{
-           "name":"Encrémenteur (sec.)"
-        },
-        "5602e981c1c00258":{
-           "name":"Encre thermique"
-        },
-        "44d2c5620c1d3c73":{
-           "name":"Justice"
-        },
-        "51f03088c1111fd7":{
-           "name":"Ultime sursaut"
-        }
+    "VnNTdGFnZS00": {
+      "name": "Réservoir Rigadelle"
+    },
+    "VnNTdGFnZS02": {
+      "name": "Casse Rascasse"
+    },
+    "VnNTdGFnZS0xMA==": {
+      "name": "Pont Esturgeon"
+    },
+    "VnNTdGFnZS0xMQ==": {
+      "name": "Galeries Guppy"
+    },
+    "VnNTdGFnZS0xMg==": {
+      "name": "Club Ca$halot"
+    },
+    "VnNTdGFnZS0xMw==": {
+      "name": "Institut Calam'arts"
+    },
+    "VnNTdGFnZS0xNA==": {
+      "name": "Chantier Narval"
+    },
+    "VnNTdGFnZS0xNQ==": {
+      "name": "Supermarché Cétacé"
+    },
+    "VnNTdGFnZS0xNg==": {
+      "name": "Parc Carapince"
+    },
+    "Q29vcFN0YWdlLTc=": {
+      "name": "Centrale Anguilla"
+    },
+    "Q29vcFN0YWdlLTE=": {
+      "name": "Barrage salmonoïde"
+    },
+    "Q29vcFN0YWdlLTI=": {
+      "name": "Bastion colimaçon"
+    },
+    "Q29vcFN0YWdlLTY=": {
+      "name": "Épave des braves"
+    },
+    "VnNTdGFnZS03": {
+      "name": "Sources Sauret"
+    },
+    "VnNTdGFnZS05": {
+      "name": "Lotissement Filament"
+    },
+    "Q29vcFN0YWdlLTEwMA==": {
+      "name": "Parc Carapince"
+    },
+    "Q29vcFN0YWdlLS05OTk=": {
+      "name": ""
+    },
+    "VnNTdGFnZS01": {
+      "name": "Ruines Uma'mi"
+    },
+    "VnNTdGFnZS0xOA==": {
+      "name": "Manta Maria"
+    },
+    "Q29vcFN0YWdlLTEwMg==": {
+      "name": "Institut Calam'arts"
     }
+  },
+  "rules": {
+    "VnNSdWxlLTA=": {
+      "name": "Guerre de territoire"
+    },
+    "VnNSdWxlLTI=": {
+      "name": "Expédition risquée"
+    },
+    "VnNSdWxlLTM=": {
+      "name": "Mission Bazookarpe"
+    },
+    "VnNSdWxlLTE=": {
+      "name": "Défense de zone"
+    },
+    "VnNSdWxlLTQ=": {
+      "name": "Pluie de palourdes"
+    }
+  },
+  "weapons": {
+    "48d6e062dd8b7efb": {
+      "name": "Aérogun"
+    },
+    "3adcc67d997a5aa8": {
+      "name": "Rouleau carbone"
+    },
+    "61d373353a48eb2e": {
+      "name": "Détoneur"
+    },
+    "cfcd1cb4b09dc134": {
+      "name": "Nettoyeur XL"
+    },
+    "7813d8c4d9103b07": {
+      "name": "Dépoteur"
+    },
+    "57684fd4ee281e09": {
+      "name": "Rouleau"
+    },
+    "7a4705bd110b0cee": {
+      "name": "Bassineur"
+    },
+    "ba2b27f7c17b1632": {
+      "name": "Trisperceur"
+    },
+    "3939e000515fe04c": {
+      "name": "Double voltigeur noir"
+    },
+    "6c5bbce4a6c63d0c": {
+      "name": "Compresseur"
+    },
+    "39e383c2f6d1ca3e": {
+      "name": "Nautilus 47"
+    },
+    "627d43fa3ab06066": {
+      "name": "Turboblaster"
+    },
+    "4dc28c8d9bca2dae": {
+      "name": "Double encreur"
+    },
+    "670ae6f0c617cca4": {
+      "name": "Éclablaster"
+    },
+    "9e45d86ccd5fea1e": {
+      "name": "Badigeonneur stylo"
+    },
+    "e2b5e6b340555596": {
+      "name": "Détubeur"
+    },
+    "59d665d32bb4122a": {
+      "name": "Marqueur léger"
+    },
+    "77e4f6414e5a257d": {
+      "name": "Éclatana Doto"
+    },
+    "2c34cb021254c8f8": {
+      "name": "Liquidateur pro"
+    },
+    "f668bd94e7ebf62d": {
+      "name": "Turboblaster pro"
+    },
+    "d3d579406dbc0fc8": {
+      "name": "Aérogun"
+    },
+    "8c157e85b75798e7": {
+      "name": "Rouleau carbone"
+    },
+    "6529a2c7f83ca858": {
+      "name": "Détoneur"
+    },
+    "92f330252fdd9421": {
+      "name": "Nettoyeur XL"
+    },
+    "7d97fc215efe47fa": {
+      "name": "Dépoteur"
+    },
+    "0637f4b4225f22b8": {
+      "name": "Rouleau"
+    },
+    "13ef7ad9ba855fe1": {
+      "name": "Bassineur"
+    },
+    "7ed9dd50b97d24f3": {
+      "name": "Trisperceur"
+    },
+    "8e59d00fc471083a": {
+      "name": "Double voltigeur noir"
+    },
+    "f09bb1bb306659dd": {
+      "name": "Compresseur"
+    },
+    "af505e7c4bdb7888": {
+      "name": "Nautilus 47"
+    },
+    "2d3900d357e005e9": {
+      "name": "Turboblaster"
+    },
+    "582d03e42a63596a": {
+      "name": "Double encreur"
+    },
+    "9208eee9ecd2026e": {
+      "name": "Éclablaster"
+    },
+    "cb9126ea2928b619": {
+      "name": "Badigeonneur stylo"
+    },
+    "70aa6b216ca8f01c": {
+      "name": "Détubeur"
+    },
+    "41492e011c163cc1": {
+      "name": "Marqueur léger"
+    },
+    "df5b39ea3d32b25b": {
+      "name": "Éclatana Doto"
+    },
+    "617dedf1c26235dc": {
+      "name": "Liquidateur pro"
+    },
+    "83275e416e7c1bc2": {
+      "name": "Turboblaster pro"
+    },
+    "1f6ce9f852641707": {
+      "name": "Aléatoire"
+    },
+    "d9bbd083353c118d": {
+      "name": "Calibre 2000"
+    },
+    "9a9dcaa55c2f6545": {
+      "name": "Liquidateur"
+    },
+    "8c0617eafedab081": {
+      "name": "Bimbamboum Mk I"
+    },
+    "0037f260dd45e397": {
+      "name": "Para-encre XL"
+    },
+    "cf6021b669c84379": {
+      "name": "N-ZAP 85"
+    },
+    "b5c29680486b0d1c": {
+      "name": "Épinceau"
+    },
+    "a99a6dd8efd4d5bb": {
+      "name": "Arroseur lourd"
+    },
+    "50563f3849b68e0a": {
+      "name": "Exteinteur"
+    },
+    "1e344559d62809b2": {
+      "name": "Double moucheteur"
+    },
+    "e594a5f9535eaf40": {
+      "name": "Épinceau brosse"
+    },
+    "7a2dd4e35809d537": {
+      "name": "Dynamo-rouleau"
+    },
+    "1e9e39f56c9f6d1a": {
+      "name": "Décap'express Alpha"
+    },
+    "5903a8cef02e4298": {
+      "name": "Double Kelvin 525"
+    },
+    "1208a614c4bb22cf": {
+      "name": "Rafablaster"
+    },
+    "cb1243d9c1908a38": {
+      "name": "Badigeonneur XS"
+    },
+    "57717b83b81f474f": {
+      "name": "Extraceur +"
+    },
+    "e70b1ea70b5916be": {
+      "name": "Marqueur lourd"
+    },
+    "4b6949b9e979636c": {
+      "name": "Proxiblaster"
+    },
+    "53cefbb18bb74cb3": {
+      "name": "Para-encre espion"
+    },
+    "1d1dd4a9165c4a0c": {
+      "name": "Concentraceur"
+    },
+    "97745a7307013de3": {
+      "name": "Double nettoyeur"
+    },
+    "11ba9e5928b14318": {
+      "name": "Badigeonneur"
+    },
+    "5615e681937a3f12": {
+      "name": "Arroseur léger"
+    },
+    "24cab1bbfb443770": {
+      "name": "Para-encre"
+    },
+    "ab50e9ae40810698": {
+      "name": "Calibre 3000"
+    },
+    "319a3174ebcb8224": {
+      "name": "Liquidateur Jr."
+    },
+    "a31def86914d98ae": {
+      "name": "Encrifugeur"
+    },
+    "afc40370eb8a1aa5": {
+      "name": "Éclablaster XL"
+    },
+    "daa5ab5b571faec5": {
+      "name": "Flexi-rouleau"
+    },
+    "8f8bfbac8a43c2c7": {
+      "name": "Éclatana d'estampe"
+    },
+    "70e60082b7f73c24": {
+      "name": "Coralux 450"
+    },
+    "13d0d18880c2f4e4": {
+      "name": "Seauceur"
+    },
+    "66e9cd75721a942f": {
+      "name": "Lanceur spatial"
+    },
+    "7f8967b3ae112ffc": {
+      "name": "Rouleau large"
+    },
+    "a1ea7028b1bcdd28": {
+      "name": "Crayon X - 5H"
+    },
+    "edcfecb7e8acd1a7": {
+      "name": "Aléatoire"
+    },
+    "fdf543c48448da4e": {
+      "name": "Marqueur lourd"
+    },
+    "20efbeb85f11abdb": {
+      "name": "Compresseur"
+    },
+    "b4417b7d33c4ab76": {
+      "name": "Bassineur"
+    },
+    "a7d8fc7be0a046c5": {
+      "name": "Trisperceur"
+    },
+    "b88acfa356b2b714": {
+      "name": "Para-encre espion"
+    },
+    "f17da8de892bcdfe": {
+      "name": "N-ZAP 85"
+    },
+    "e11e5913db5eb0c2": {
+      "name": "Rouleau"
+    },
+    "b481841e5def66d6": {
+      "name": "Décap'express Alpha"
+    },
+    "6834571f25b34c9b": {
+      "name": "Épinceau"
+    },
+    "f6c61a0f1a701928": {
+      "name": "Calibre 2000"
+    },
+    "78795dccc3ffeef2": {
+      "name": "Détoneur"
+    },
+    "585c7915a3dc5f28": {
+      "name": "Concentraceur"
+    },
+    "2fc3e19d592734ea": {
+      "name": "Aléatoire"
+    },
+    "32982b9043dd8d1e": {
+      "name": "Coralux 450"
+    },
+    "09465cbd66e15c68": {
+      "name": "Double encreur"
+    },
+    "23c3b20f6e9ed6ec": {
+      "name": "Encrifugeur"
+    },
+    "cacef7e261a01e16": {
+      "name": "Turboblaster"
+    },
+    "7df085c7508e8535": {
+      "name": "Dépoteur"
+    },
+    "61a156e5e66059eb": {
+      "name": "Lanceur spatial"
+    },
+    "4d532284b062ba27": {
+      "name": "Dynamo-rouleau"
+    },
+    "1f7f2880bcca7894": {
+      "name": "Calibre 3000"
+    },
+    "c8cdd727419d9309": {
+      "name": "Double Kelvin 525"
+    },
+    "f695f95bfc09af76": {
+      "name": "Arroseur léger"
+    },
+    "c1a8381441bb38a7": {
+      "name": "Éclatana d'estampe"
+    },
+    "91aa1bf7ac84f262": {
+      "name": "Crayon X - 5H"
+    },
+    "3a6b429b6f247c59": {
+      "name": "Éclatana Doto"
+    },
+    "44b6f56d15a02529": {
+      "name": "Éclablaster"
+    },
+    "6f2cb494a35976ab": {
+      "name": "Flexi-rouleau"
+    },
+    "70897086ac95fc07": {
+      "name": "Para-encre XL"
+    },
+    "49171e6de78e50c7": {
+      "name": "Liquidateur Jr."
+    },
+    "5d214c667c007340": {
+      "name": "Liquidateur pro"
+    },
+    "d6c4482a8ef368b6": {
+      "name": "Éclablaster XL"
+    },
+    "dfa290ce0cdeae98": {
+      "name": "Extraceur +"
+    },
+    "53054d13f95bfdac": {
+      "name": "Aérogun"
+    },
+    "7529642b716dda2a": {
+      "name": "Badigeonneur XS"
+    },
+    "6832e7cb1f31ec60": {
+      "name": "Rouleau large"
+    },
+    "8823b314132f4724": {
+      "name": "Détubeur"
+    },
+    "974ad42eab86aa42": {
+      "name": "Marqueur léger"
+    },
+    "98ce5f188f2896e8": {
+      "name": "Rafablaster"
+    },
+    "ec55cea9d34b4b87": {
+      "name": "Badigeonneur stylo"
+    },
+    "b0343d4f4b600e95": {
+      "name": "Nettoyeur XL"
+    }
+  },
+  "brands": {
+    "QnJhbmQtOA==": {
+      "name": "Gédéon"
+    },
+    "QnJhbmQtMTk=": {
+      "name": "Alpaj"
+    },
+    "QnJhbmQtMjA=": {
+      "name": "Apex"
+    },
+    "QnJhbmQtMA==": {
+      "name": "Kalamarus Rex"
+    },
+    "QnJhbmQtMw==": {
+      "name": "Iormungand"
+    },
+    "QnJhbmQtNA==": {
+      "name": "Ezko"
+    },
+    "QnJhbmQtNQ==": {
+      "name": "Focus"
+    },
+    "QnJhbmQtNg==": {
+      "name": "Friture"
+    },
+    "QnJhbmQtMTE=": {
+      "name": "Cubic"
+    },
+    "QnJhbmQtMTA=": {
+      "name": "OculR"
+    },
+    "QnJhbmQtOQ==": {
+      "name": "Abysma"
+    },
+    "QnJhbmQtMg==": {
+      "name": "Krakers"
+    },
+    "QnJhbmQtNw==": {
+      "name": "Jack"
+    },
+    "QnJhbmQtMTc=": {
+      "name": "Thony K"
+    },
+    "QnJhbmQtMQ==": {
+      "name": "Leviathus"
+    },
+    "QnJhbmQtMTY=": {
+      "name": "DUX"
+    },
+    "QnJhbmQtMTU=": {
+      "name": "Aroz"
+    },
+    "QnJhbmQtOTg=": {
+      "name": "Macalamar"
+    }
+  },
+  "gear": {
+    "1f6189fcaf092a8f": {
+      "name": "Chapeau melon"
+    },
+    "81921ab4f3fc42fa": {
+      "name": "Chemisette blanche"
+    },
+    "8af6d74efc8ee977": {
+      "name": "Baskets à scratch rouges"
+    },
+    "e0ef16dcbf779fd8": {
+      "name": "Tennis suédine simples"
+    },
+    "406929c86d7a258e": {
+      "name": "T-shirt smiley framboise"
+    },
+    "3dc58146de458313": {
+      "name": "T-shirt blanc"
+    },
+    "c2bb9f1294c295da": {
+      "name": "Bottes de moto"
+    },
+    "43847b716e0167b8": {
+      "name": "Lunettes noires ovales"
+    },
+    "71abfaf22d9b6bbe": {
+      "name": "Lunettes de moto"
+    },
+    "b53bdaf8c13d29f2": {
+      "name": "Lunettes opaques"
+    },
+    "174d4dbb6348257b": {
+      "name": "Chapeau melon"
+    },
+    "ad7271a600e96517": {
+      "name": "Chemisette blanche"
+    },
+    "24232b34f82cb2d3": {
+      "name": "Baskets à scratch rouges"
+    },
+    "b8fd00bc6b0e03f8": {
+      "name": "Tennis suédine simples"
+    },
+    "aac289491487b78e": {
+      "name": "T-shirt smiley framboise"
+    },
+    "42fd0a010e3834d6": {
+      "name": "T-shirt blanc"
+    },
+    "d6ae0f6877fbe8e7": {
+      "name": "Bottes de moto"
+    },
+    "2e502b645aa81e2c": {
+      "name": "Lunettes noires ovales"
+    },
+    "66b70d0194f48051": {
+      "name": "Lunettes de moto"
+    },
+    "2b897acb8435752e": {
+      "name": "Lunettes opaques"
+    },
+    "11826a638e557c8c": {
+      "name": "T-shirt rayé marin"
+    },
+    "eeea995329a3b65a": {
+      "name": "Masque de plongée"
+    },
+    "8c2f59eb75da5ece": {
+      "name": "Bandana biscuit Friture"
+    },
+    "5f1f38129dc8708e": {
+      "name": "Bottes énergétiques"
+    },
+    "b4efce44ed819f22": {
+      "name": "T-shirt beige rétro"
+    },
+    "a8037dfb0ea3cfc9": {
+      "name": "Lunettes transparentes"
+    },
+    "c9b62256129de184": {
+      "name": "T-shirt Abysma ivoire"
+    },
+    "4402242820b66e9b": {
+      "name": "Sandales poudreuse"
+    },
+    "9dda2a64daaa651f": {
+      "name": "Chemise hippie"
+    },
+    "d4c2c203e5ef0568": {
+      "name": "T-shirt dégradé crépuscule"
+    },
+    "947dcdc899197eb1": {
+      "name": "Écouteurs sonar"
+    },
+    "1bd94af735c58372": {
+      "name": "Casquette rayée"
+    },
+    "643a053973902353": {
+      "name": "Casque baladeur"
+    },
+    "677b0d3b7d27ad00": {
+      "name": "Bottes perle HU1T73"
+    },
+    "5268305e6503989f": {
+      "name": "Masque smiley"
+    },
+    "23dfd1075a93a33d": {
+      "name": "Chemise bouffonne"
+    },
+    "324df9a75e061379": {
+      "name": "Tongs smiley"
+    },
+    "127b76d4323e74bb": {
+      "name": "Haut double blanc"
+    },
+    "b4b3212cb5cd7bae": {
+      "name": "Maillot des Umibozu (dom.)"
+    },
+    "784d73e378d54a65": {
+      "name": "Hippo montantes rouges"
+    },
+    "5a2640a1b24f4104": {
+      "name": "Canotier sombre"
+    },
+    "913c8abcf3b7f553": {
+      "name": "Mocassins pied-de-poulpe"
+    },
+    "2724594845943e60": {
+      "name": "Sweat jaune Kalamarus Rex"
+    },
+    "70e9d5e472ac488e": {
+      "name": "Chemisette hippo"
+    },
+    "1e8eb9a8cf359ddb": {
+      "name": "Sabots chocolat"
+    },
+    "0f9024a487709d60": {
+      "name": "Egings IV rouges et noires"
+    },
+    "d8dc38f9cff8a7c0": {
+      "name": "Lunettes demi-cerclées"
+    },
+    "536ee3c575414b1c": {
+      "name": "Bottes Palmi poudreuse"
+    },
+    "aa6d34604fc32094": {
+      "name": "Tri-shirt Calamar"
+    },
+    "93a1f4889a507aca": {
+      "name": "Hippo montantes zombi"
+    },
+    "74557810f479b67d": {
+      "name": "Flèches orange"
+    },
+    "956b07f16e9239e5": {
+      "name": "Écran facialamar"
+    },
+    "917b0ff5e7deb49d": {
+      "name": "Blouson K"
+    },
+    "8cb74f9b9027d2e1": {
+      "name": "Haut double moutarde"
+    },
+    "633c2879fd8e03e7": {
+      "name": "Blouson calamar"
+    },
+    "1612c8b009f235b2": {
+      "name": "Bonnet de docker"
+    },
+    "eb43f28ba5c38ec6": {
+      "name": "T-shirt col en V blanc"
+    },
+    "61e8f58a1c752d85": {
+      "name": "T-shirt thé Alpaj"
+    },
+    "81e8fd0b464e2414": {
+      "name": "Tennis suédine pro"
+    },
+    "fa6f79b5f26ce405": {
+      "name": "Chemise rustique Aroz"
+    },
+    "a50223bf951b4680": {
+      "name": "Chemisette punk farniente"
+    },
+    "f7c12d451f1fcd8f": {
+      "name": "Tennis montantes mako"
+    },
+    "68b8d5cfeb33c744": {
+      "name": "Flèches unies"
+    },
+    "ae84b607bf8777f9": {
+      "name": "Claquettes rouges Friture"
+    },
+    "2e526124ce7e8f6f": {
+      "name": "Casquette Sea Invader"
+    },
+    "b8b4c69bd9db92ef": {
+      "name": "Crustarapace rouge"
+    },
+    "a7919c8be2a28d62": {
+      "name": "Egings IV bleues et noires"
+    },
+    "3675b37346898e14": {
+      "name": "Haut quadri DUX 08"
+    },
+    "cdf0aa473ac99c5c": {
+      "name": "Orques crépuscule"
+    },
+    "d00e44e66d68e35b": {
+      "name": "T-shirt Iormungand noir"
+    },
+    "8edd77ea62ba9e9f": {
+      "name": "Haut quadri DUX 10"
+    },
+    "1fec43172d6fa45f": {
+      "name": "Maillot de cycliste"
+    },
+    "f90966ee929161d3": {
+      "name": "Chukkas sable"
+    },
+    "3156cd52b7438c4a": {
+      "name": "Lunettes de soleil 18 carats"
+    },
+    "007b0011ba440126": {
+      "name": "T-shirt Iormungand blanc"
+    },
+    "5f0b0a4b682ede5a": {
+      "name": "Sandales chunky roses"
+    },
+    "ed2f366255fe2400": {
+      "name": "Tennis montantes algue"
+    },
+    "1373e5fdef7d81d0": {
+      "name": "Casquette baseball chaude"
+    },
+    "65d7097e248028a8": {
+      "name": "Maillot de basket (domicile)"
+    },
+    "2f2c0867bcd60fa2": {
+      "name": "Lunettes colorées"
+    },
+    "dc2d135b5dedc8d0": {
+      "name": "Haut sportif Ezko"
+    },
+    "4318b892228fff97": {
+      "name": "Tennis bleues"
+    },
+    "b7c5f3453773550b": {
+      "name": "Flexi-tabis wasabi"
+    },
+    "d0aa19a37f3cd296": {
+      "name": "Baskets turquoise"
+    },
+    "8a4df8e058429a82": {
+      "name": "Haut double Cubic"
+    },
+    "db62936fd681df2b": {
+      "name": "T-shirt noir"
+    },
+    "41bedd53522bb38d": {
+      "name": "Bandeau de ping-pong"
+    },
+    "b815880233a35cd6": {
+      "name": "Hippo montantes violettes"
+    },
+    "cfecc281c452aa74": {
+      "name": "Casque à cornes"
+    },
+    "e8ba8734c2ebfa80": {
+      "name": "Tongs noires"
+    },
+    "f83218ce2928e443": {
+      "name": "Masque Friture"
+    },
+    "d8398bdfdddfb898": {
+      "name": "T-shirt 8 bits noir"
+    },
+    "441c1f7903f5412d": {
+      "name": "Bottes sécurité nubuck"
+    },
+    "c0630f568ecb669c": {
+      "name": "Visière teintée"
+    },
+    "bdbd666af9084dbe": {
+      "name": "Chaussures rando exclusives"
+    },
+    "fbc70cfb825986de": {
+      "name": "Casque Eurêka"
+    },
+    "81be854769c15200": {
+      "name": "Blouson poisson-charge"
+    },
+    "baa3c99301fbf998": {
+      "name": "Bandeau de tennis"
+    },
+    "4261e5c7df04b91a": {
+      "name": "Sabots huître"
+    },
+    "f52b184f2b9aecb1": {
+      "name": "T-shirt fléché gris"
+    },
+    "b2446e7ab074da26": {
+      "name": "T-shirt cerisier Alpaj"
+    },
+    "2be678af332735c1": {
+      "name": "Visière Cubic"
+    },
+    "e1acfff65d803f23": {
+      "name": "Coupe-vent vintage Cubic"
+    },
+    "1f28c536cbdc80c2": {
+      "name": "T-shirt 8 bits blanc"
+    },
+    "386fb7e34a2abc2a": {
+      "name": "Bandeau blanc"
+    },
+    "f4d7dfa61cc72a67": {
+      "name": "Lunettes rondes"
+    },
+    "4c02bd493cf9b01e": {
+      "name": "Tennis montantes rouges"
+    },
+    "7b854854cece266d": {
+      "name": "Chapeau zen"
+    },
+    "de236faed2faac4c": {
+      "name": "Anorak vert anis"
+    },
+    "1dc35b1abeefcd35": {
+      "name": "Bob en jean"
+    },
+    "ad5679cf966d56d0": {
+      "name": "Baskets à scratch blanches"
+    },
+    "678373bb7134e71d": {
+      "name": "Baskets roses"
+    },
+    "3c5acd12e6e2d7de": {
+      "name": "Masque Aroz"
+    },
+    "4fea8b21041700fd": {
+      "name": "Sweat capuche gris"
+    },
+    "2d60b55fc7167d95": {
+      "name": "Chaussures bateau café"
+    },
+    "e2d69f22cb5653f5": {
+      "name": "Casquette branchée"
+    },
+    "110ff0c454074cfa": {
+      "name": "T-shirt lait Alpaj"
+    },
+    "9fa5cc8851fcf88c": {
+      "name": "Casquette baseball"
+    },
+    "0f00a6635aede845": {
+      "name": "Casque de hockey"
+    },
+    "f9ffbfce0e2875d0": {
+      "name": "Verres teintés"
+    },
+    "6f2d6bded7e3b5a3": {
+      "name": "Blouson mosaïque"
+    },
+    "eaff9715e83e69d6": {
+      "name": "Haut ananas"
+    },
+    "703d46b112a2fb1e": {
+      "name": "Sandales chunky cyan"
+    },
+    "4fbc8152a1d9b11c": {
+      "name": "Tri-shirt déchiré"
+    },
+    "95a7d0caf568a88b": {
+      "name": "Casque carapace"
+    },
+    "a64eaf2183a3df2a": {
+      "name": "Lunettes carrées Aroz"
+    },
+    "2134bc4107ef589f": {
+      "name": "Compensées carmin Aroz"
+    },
+    "f8d476712897b5ea": {
+      "name": "Chemisette à logos"
+    },
+    "bc5773c0d48ba324": {
+      "name": "Bob"
+    },
+    "4397b925c765efa4": {
+      "name": "Haut parachute grenat"
+    },
+    "f7360a8678a652e1": {
+      "name": "Anorak matcha"
+    },
+    "e592552a3149cbc2": {
+      "name": "Chemise splash"
+    },
+    "896386102c8cc7c9": {
+      "name": "Haut double Leviathus"
+    },
+    "aa220e98e0b8ce4d": {
+      "name": "T-shirt double vert"
+    },
+    "72d90ee8f6051b8e": {
+      "name": "Blouson aéré"
+    },
+    "eb19bc1bf079b53e": {
+      "name": "Casque pro"
+    },
+    "3a661f31ee2e6ae3": {
+      "name": "Sweat lamantin"
+    },
+    "215ca40180b6f437": {
+      "name": "Visière Friture"
+    },
+    "39bbd0d9f8a9be1e": {
+      "name": "Bonnet côtelé"
+    },
+    "154047abb13f296a": {
+      "name": "AL-GA 30XX"
+    },
+    "3165dd0fe53699ed": {
+      "name": "T-shirt OculR noir"
+    },
+    "4333c406473ac20d": {
+      "name": "Bottes de chasse"
+    },
+    "5f3cbcd31423e391": {
+      "name": "Chemise à carreaux"
+    },
+    "49df3a5d8d0a99ac": {
+      "name": "Claquettes jaunes Friture"
+    },
+    "fb978d294c4a18b9": {
+      "name": "Boléro négatif"
+    },
+    "dd87314a71de50ff": {
+      "name": "Masque Focus"
+    },
+    "926ada9976cdae43": {
+      "name": "Lunettes d'aviateur"
+    },
+    "97ed5418f991d678": {
+      "name": "Chemise mosaïque savane"
+    },
+    "9c3d6d6c10d9d41f": {
+      "name": "Gilet forestier kaki"
+    },
+    "c661525659d90ef4": {
+      "name": "Casquette filet Cubic"
+    },
+    "dfeb51ebc84513c4": {
+      "name": "Chemisette poulpe farniente"
+    },
+    "67a744219d496350": {
+      "name": "Baskets mandarine"
+    },
+    "8be6bc50a7bc8ab5": {
+      "name": "Parka fourrée arctique"
+    },
+    "1cf11459184751e4": {
+      "name": "Chaussures rando"
+    },
+    "df03a24d19aa6f8e": {
+      "name": "T-shirt bleu rétro"
+    },
+    "8ed3f04671809fb9": {
+      "name": "Pull requin"
+    },
+    "b192c92961b2adf6": {
+      "name": "Chemise mosaïque urbaine"
+    },
+    "809e99c2ffa7312a": {
+      "name": "T-shirt ophidien"
+    },
+    "c97a0167cc492b36": {
+      "name": "Sandales chunky orange"
+    },
+    "476e9139880248e4": {
+      "name": "T-shirt à collier Aroz"
+    },
+    "a4d6ce587f7547b4": {
+      "name": "Flèches ouvertes bleues"
+    },
+    "9aec8fb9cb1ba2b8": {
+      "name": "Blouson en cuir noir"
+    },
+    "7df1610b801fb8e5": {
+      "name": "Lunettes de natation"
+    },
+    "fb29dd121ab3b5f2": {
+      "name": "Blouson négatif"
+    },
+    "3b84e904cd60534c": {
+      "name": "Sweat ethnique magma"
+    },
+    "445ffa87c30bbac0": {
+      "name": "Casque écho Octa"
+    },
+    "662beb4fb9ea74f9": {
+      "name": "Casquette à rabats noire"
+    },
+    "15d0c6619faead78": {
+      "name": "Casque de receveur (dom.)"
+    },
+    "940500ce3bf4cc00": {
+      "name": "Turbo-tabis rouges"
+    },
+    "ff8cd1836a1d4fc2": {
+      "name": "Octaskets rouges"
+    },
+    "878e926050e1816b": {
+      "name": "Tri-shirt Octa"
+    },
+    "8bf529c3f3753265": {
+      "name": "Polo noir Ezko"
+    },
+    "e2a0872fdee7a498": {
+      "name": "Casque coloré"
+    },
+    "95b7d8bd81a014ae": {
+      "name": "Chemisette tropiques"
+    },
+    "f2184eafd208d20c": {
+      "name": "Chemisette de bowling"
+    },
+    "ed176e1f5f945985": {
+      "name": "Casque astro"
+    },
+    "4f4fc3a6e642be37": {
+      "name": "Chemise tache d'encre"
+    },
+    "77d5515a65d72500": {
+      "name": "Tandem Octacala"
+    },
+    "14c7c198c5f1332c": {
+      "name": "Haut pomme"
+    },
+    "580b51c0cb8c045b": {
+      "name": "Bonnet court"
+    },
+    "eb6566409e55ddad": {
+      "name": "T-shirt Abysma bleu"
+    },
+    "b4a91c3b5329437c": {
+      "name": "Doudoune négative"
+    },
+    "99108a6528e78424": {
+      "name": "T-shirt OculR bleu clair"
+    },
+    "94fa81f8a11b0a30": {
+      "name": "Anorak Alpaj"
+    },
+    "6da49b6929c446ee": {
+      "name": "Béret Aroz"
+    },
+    "a085384ce9c3e9ee": {
+      "name": "Compensées Tigre Aroz"
+    },
+    "bd7a4b5395750d95": {
+      "name": "Baskets montantes choco"
+    },
+    "8540e611a17cd249": {
+      "name": "T-shirt dégradé flammes"
+    },
+    "2f2e954b23c261c7": {
+      "name": "Casquette de cycliste"
+    },
+    "4301fb8489341eef": {
+      "name": "Casque de football Octa"
+    },
+    "9b8a23e17b1b5ea3": {
+      "name": "Bandana faune marine"
+    },
+    "d4d0bc79dce60c64": {
+      "name": "Souliers d'escalade été"
+    },
+    "591b7bcd94410bf0": {
+      "name": "Casquette légère"
+    },
+    "a217ef7797136fcb": {
+      "name": "T-shirt basique"
+    },
+    "29a7def9b876a301": {
+      "name": "Masque de peinture"
+    },
+    "e1f937486dd6b7c9": {
+      "name": "Masque OCTADUX"
+    },
+    "ca976a3bc9cd78b2": {
+      "name": "Sweat basket"
+    },
+    "972b9fce355daced": {
+      "name": "Bottes sécurité rouges"
+    },
+    "aa51588a1699ae25": {
+      "name": "T-shirt galaxie Cubic"
+    },
+    "38776da1845adf08": {
+      "name": "Cloche Friture"
+    },
+    "68a94c789b4c8b44": {
+      "name": "Bottines punk grenat"
+    },
+    "76f5e76c784b1c50": {
+      "name": "Lunettes de natation K"
+    },
+    "36e84fe6b7608c8c": {
+      "name": "Egings V rouges et blanches"
+    },
+    "405281a377614420": {
+      "name": "Casque de motocross"
+    },
+    "42ea283da9409cdb": {
+      "name": "T-shirt proie"
+    },
+    "3c90c890a335af86": {
+      "name": "Mocassins squale"
+    },
+    "7262e999c5bad9da": {
+      "name": "Gilet motif calamar"
+    },
+    "4faf2e67e092b400": {
+      "name": "Bandana crâne"
+    },
+    "c639924b729138ab": {
+      "name": "Sweat sportif Octa (ext.)"
+    },
+    "c21aaf1b52292dc7": {
+      "name": "Parka Focus INK"
+    },
+    "26136d489a89af87": {
+      "name": "Chapeau tulipe pare-soleil"
+    },
+    "5483b9aa63533859": {
+      "name": "Manteau forestier"
+    },
+    "dac35d4c46be1969": {
+      "name": "Bottes de pluie vertes"
+    },
+    "1c6debb9237e2890": {
+      "name": "Polaire toundra crème"
+    },
+    "94c1e453748a9abe": {
+      "name": "Pull grunge poignet bleu"
+    },
+    "95fcba8b9a39cd62": {
+      "name": "Bottines punk noires"
+    },
+    "1f6ddf2cf1d59bae": {
+      "name": "Sandales chaussettes fluo"
+    },
+    "69be0ed9f464ea4a": {
+      "name": "Chaussures à crampons"
+    },
+    "c2281bc39bd310d0": {
+      "name": "Lunettes rétro"
+    },
+    "17667e85698763c8": {
+      "name": "Chemisette baseball"
+    },
+    "37b13a41409cd558": {
+      "name": "Chapeau de cowboy orné"
+    },
+    "0316c51eca942a1c": {
+      "name": "Béret et lunettes Aroz"
+    },
+    "b443eba90e562d26": {
+      "name": "Richelieu semelle rouge"
+    },
+    "7866d2e458dcc9fa": {
+      "name": "Écharpe Alpaj"
+    },
+    "a80df2b5cf118944": {
+      "name": "T-shirt dégradé glace"
+    },
+    "94849c9f9b825920": {
+      "name": "Casquette pied-de-poulpe"
+    },
+    "417931be054a0f92": {
+      "name": "Masque Kalamarus Rex"
+    },
+    "b867088a8ddb9a80": {
+      "name": "Chaussures double boucle"
+    },
+    "6586ab2c5d8cd989": {
+      "name": "Casque de pompier"
+    },
+    "796fd2d7906261c9": {
+      "name": "Compensées blanches"
+    },
+    "5de5a3a955b0f195": {
+      "name": "Blouson université"
+    },
+    "0bd7ec5e419c3452": {
+      "name": "Casquette en jean"
+    },
+    "e3a023a3f503e0be": {
+      "name": "Anguilles vert fluo"
+    },
+    "1d3e46a11ffbec9c": {
+      "name": "T-shirt rayé pirate"
+    },
+    "87aa11437da121f4": {
+      "name": "Baskets translux"
+    },
+    "ab11b6ea4ebdade0": {
+      "name": "Pull manches cintrées négatif"
+    },
+    "99e79d22b382f957": {
+      "name": "T-shirt octarien"
+    },
+    "f09f6db7abb23197": {
+      "name": "Lunettes de soleil SV925"
+    },
+    "5cf438885bf2554f": {
+      "name": "Casque de skate"
+    },
+    "9c4320cc4dfec243": {
+      "name": "Sandales fluo"
+    },
+    "a3c11aa2e7cf664c": {
+      "name": "Richelieu encre-de-seiche"
+    },
+    "03ec7a070e37e788": {
+      "name": "T-shirt prédateur"
+    },
+    "367af2966d3db91b": {
+      "name": "Mocassins bleus"
+    },
+    "e8158157baabac9d": {
+      "name": "Haut double fléché"
+    },
+    "2e8ef62f986efb1a": {
+      "name": "Bottines punk blanches"
+    },
+    "7e360df7a2031adb": {
+      "name": "Gilet vert"
+    },
+    "1424ac52938446da": {
+      "name": "Chemise tache blanche"
+    },
+    "86ed2bb62a052e30": {
+      "name": "T-shirt arc-en-ciel Cubic"
+    },
+    "3875567d34d4b02e": {
+      "name": "Après-skis poudreuse"
+    },
+    "0c80632bd1cd6e33": {
+      "name": "Lunettes cyber"
+    },
+    "77ec26940c8cb823": {
+      "name": "Débardeur poulpe Aroz"
+    },
+    "d53fb73cf3178709": {
+      "name": "Casquette Sea Invader v.2"
+    },
+    "a4be5aeea14fb98e": {
+      "name": "T-shirt fléché rouge"
+    },
+    "18eb5bc19afe5630": {
+      "name": "Déguisement spatial"
+    },
+    "2e477937b45b9bf1": {
+      "name": "Bandeau de tennis"
+    },
+    "5d2dcaa61161c940": {
+      "name": "T-shirt bleu rétro"
+    },
+    "386633c7575f5799": {
+      "name": "Flexi-tabis wasabi"
+    },
+    "140bb5be8a10e415": {
+      "name": "T-shirt fléché rouge"
+    },
+    "8a06264363dc442e": {
+      "name": "Écran facialamar"
+    },
+    "c6943b3c0624caa6": {
+      "name": "T-shirt Abysma bleu"
+    },
+    "18ccd9c4c536cfcb": {
+      "name": "Bottes de chasse"
+    },
+    "a51018edf02ccd2b": {
+      "name": "Béret Aroz"
+    },
+    "9dec389c738b37e0": {
+      "name": "Masque OCTADUX"
+    },
+    "8a54d8320180ed80": {
+      "name": "Déguisement spatial"
+    },
+    "7c4e57ac7c8125ad": {
+      "name": "Casque à cornes"
+    },
+    "27cde5ac6a27fc42": {
+      "name": "T-shirt dégradé glace"
+    },
+    "3ae0b8c5b6a9c7d1": {
+      "name": "Baskets mandarine"
+    },
+    "205209ff92cf9649": {
+      "name": "Lunettes carrées Aroz"
+    },
+    "b1f0a05a6d48d75f": {
+      "name": "Visière Cubic"
+    },
+    "0eae7f8f26b324a3": {
+      "name": "T-shirt galaxie Cubic"
+    },
+    "d40177e7c95129c4": {
+      "name": "Orques crépuscule"
+    },
+    "1db8d62e28e3f777": {
+      "name": "Casque coloré"
+    },
+    "5e7cf04d1b4ebb65": {
+      "name": "Sweat jaune Kalamarus Rex"
+    },
+    "c437adc806514b68": {
+      "name": "Lunettes de natation K"
+    },
+    "c7f4f236b1b1acaf": {
+      "name": "Haut double blanc"
+    },
+    "ff07fc7fea090c5d": {
+      "name": "Casquette pied-de-poulpe"
+    },
+    "f76a40701374d87f": {
+      "name": "Chemise splash"
+    },
+    "d3aa78342476dabb": {
+      "name": "Bottes perle HU1T73"
+    },
+    "65f2389e2551aa9d": {
+      "name": "Chemisette blanche"
+    },
+    "27e59065162c99fd": {
+      "name": "Polaire toundra crème"
+    },
+    "0f0a9dc12a4785e3": {
+      "name": "Bob en jean"
+    },
+    "77a0a7e69e9cb3eb": {
+      "name": "Verres teintés"
+    },
+    "871a7c71df6c0c13": {
+      "name": "Blouson poisson-charge"
+    },
+    "8b44b1dce41b50b6": {
+      "name": "Masque Kalamarus Rex"
+    },
+    "56268700452c1b25": {
+      "name": "T-shirt noir"
+    },
+    "80f6cfc13e62e6be": {
+      "name": "Bandeau blanc"
+    },
+    "b7e40a7b549a79dd": {
+      "name": "Chemise mosaïque savane"
+    },
+    "9cea6b281c46f02d": {
+      "name": "T-shirt rayé marin"
+    },
+    "ec672b8e3a24967a": {
+      "name": "Flèches orange"
+    },
+    "7cf59e349730844e": {
+      "name": "Blouson en cuir noir"
+    },
+    "d51664ffba14f9e2": {
+      "name": "T-shirt prédateur"
+    },
+    "4ccf03623757040e": {
+      "name": "Chemisette poulpe farniente"
+    },
+    "043c63fb45d5e851": {
+      "name": "Lunettes de soleil 18 carats"
+    },
+    "28ff27092935457f": {
+      "name": "Chemise à carreaux"
+    },
+    "c77eecb20c1f5181": {
+      "name": "Bottes de moto"
+    },
+    "56fd188f51ae97fb": {
+      "name": "Chaussures bateau café"
+    },
+    "34b422786c86f418": {
+      "name": "Bottes de pluie vertes"
+    },
+    "cb0b7ab8e7295dbf": {
+      "name": "T-shirt 8 bits blanc"
+    },
+    "e0f4077174545fd4": {
+      "name": "T-shirt basique"
+    },
+    "31cca66cb8302359": {
+      "name": "Casquette à rabats noire"
+    },
+    "c21d764e16dbfdec": {
+      "name": "Parka fourrée arctique"
+    },
+    "cbefacb0a5df777a": {
+      "name": "Chukkas sable"
+    },
+    "89a2a0db33110dd2": {
+      "name": "Tennis montantes algue"
+    },
+    "e083c158245d4c48": {
+      "name": "Mocassins carnassier"
+    },
+    "3270135c65096897": {
+      "name": "Mocassins squale"
+    },
+    "d230f1d9b960725d": {
+      "name": "Casquette branchée"
+    },
+    "7e8413f7b3cf5ceb": {
+      "name": "Hippo noires"
+    },
+    "616574265163e7e3": {
+      "name": "Haut quadri DUX 08"
+    },
+    "9346b1b98476bbc1": {
+      "name": "Egings V rouges et blanches"
+    },
+    "847c2657f38e53ef": {
+      "name": "Haut à motif violet"
+    },
+    "7b028b5cc1b7867d": {
+      "name": "Chemise méduses"
+    },
+    "e23a3865c0477fe8": {
+      "name": "Casquette filet camouflage"
+    },
+    "45e49487d33db87f": {
+      "name": "Flèches délirium"
+    },
+    "c4bba67c76b56fa1": {
+      "name": "Bandeau de ping-pong"
+    },
+    "8a7b18e5ddaae50f": {
+      "name": "Maillot de cycliste"
+    },
+    "ae64690d1dab8d29": {
+      "name": "Hippo montantes violettes"
+    },
+    "4a6e438cb4859f08": {
+      "name": "Haut Kalamarus Rex"
+    },
+    "698e6beea41bd7f2": {
+      "name": "Maillot des Umibozu (dom.)"
+    },
+    "e84215bb7666d575": {
+      "name": "Anguilles vert fluo"
+    },
+    "c41670529c10fb74": {
+      "name": "Casquette baseball chaude"
+    },
+    "7b9a5f033307914c": {
+      "name": "Tennis édition limitée"
+    },
+    "52618e9157867562": {
+      "name": "Canotier"
+    },
+    "8ebfc778fd94f761": {
+      "name": "Sweat capuche gris"
+    },
+    "373e8fe2e4aaef53": {
+      "name": "Bonnet sports d'hiver"
+    },
+    "e806e700efbcc80a": {
+      "name": "Baskets à scratch blanches"
+    },
+    "e9eabd141adca3c8": {
+      "name": "Masque à gaz"
+    },
+    "6c75edfc2aec9aff": {
+      "name": "Casquette de cycliste"
+    },
+    "2e5784eabfaf365a": {
+      "name": "T-shirt jour de pluie"
+    },
+    "30b02d8f6e4ba5ce": {
+      "name": "Casquette à l'envers"
+    },
+    "e8c17867f35e97ba": {
+      "name": "Polo noir Ezko"
+    },
+    "b8d03155b8359cd4": {
+      "name": "Bottes de pluie cerise"
+    },
+    "85113506dad12892": {
+      "name": "Baskets roses"
+    },
+    "8bb8e35a0861301b": {
+      "name": "Anguilles violettes"
+    },
+    "1bc59e492b8e911b": {
+      "name": "T-shirt blanc"
+    },
+    "a21a2cbeefca9a17": {
+      "name": "Casque de receveur (dom.)"
+    },
+    "21121bbf04be0ce6": {
+      "name": "Richelieu semelle rouge"
+    },
+    "32fb257fbc67458c": {
+      "name": "Lunettes octogonales"
+    },
+    "9e941af8fd7f3a65": {
+      "name": "Claquettes rouges Friture"
+    },
+    "754cbff89db13c07": {
+      "name": "Sweat université gris"
+    },
+    "3223d4cf801cf75e": {
+      "name": "Bottines punk grenat"
+    },
+    "15986ad4b8822172": {
+      "name": "Casquette réacteur"
+    },
+    "30b54946c324ee87": {
+      "name": "Casque pro"
+    },
+    "be93570b3dfcda47": {
+      "name": "Maillot baseball long"
+    },
+    "e6b1d38ede3aa7d6": {
+      "name": "Lunettes rétro"
+    },
+    "a92b28638f891fd9": {
+      "name": "T-shirt rayé pirate"
+    },
+    "a333316891127558": {
+      "name": "Baskets à scratch rouges"
+    },
+    "cbf435379fe95dff": {
+      "name": "Tennis montantes rouges"
+    },
+    "541a455fbe3a624a": {
+      "name": "T-shirt Iormungand noir"
+    },
+    "dcb9dbc4b13d272a": {
+      "name": "Sweat lamantin"
+    },
+    "cab0f186ad1322fa": {
+      "name": "Chaussures rando exclusives"
+    },
+    "7715c2bcc13a974e": {
+      "name": "Tennis orange"
+    }
+  },
+  "powers": {
+    "032c2b30027d6a23": {
+      "name": "Encrémenteur (pr.)"
+    },
+    "294d158b20a03702": {
+      "name": "Come-back"
+    },
+    "8eff7c5906b17202": {
+      "name": "Ninjalamar"
+    },
+    "a6ee72ab2e279e1d": {
+      "name": "Turbo-calamar"
+    },
+    "793e8f393b093b33": {
+      "name": "Réception réussie"
+    },
+    "7491b2168b321d3e": {
+      "name": "Aérodynamisme"
+    },
+    "9a736dd26cc6d3c5": {
+      "name": "Course à pied"
+    },
+    "ea552d4a7c94a0eb": {
+      "name": "Super roulade"
+    },
+    "1a994b9f1d422b23": {
+      "name": "Arme spéciale +"
+    },
+    "4b8e1b77f6b1ef60": {
+      "name": "Inconnu"
+    },
+    "1406c4da9fe690c9": {
+      "name": "Encrémenteur (pr.)"
+    },
+    "c8179c066b561cd5": {
+      "name": "Come-back"
+    },
+    "0e71bff24c3f37ad": {
+      "name": "Ninjalamar"
+    },
+    "03c7b7bc6cb68512": {
+      "name": "Turbo-calamar"
+    },
+    "b4e72a2b9c9f3d53": {
+      "name": "Réception réussie"
+    },
+    "1f86150af97debf6": {
+      "name": "Aérodynamisme"
+    },
+    "16cbf780227d6f6d": {
+      "name": "Course à pied"
+    },
+    "c54714a0c4aa3e11": {
+      "name": "Super roulade"
+    },
+    "e2c02f122de2c567": {
+      "name": "Arme spéciale +"
+    },
+    "264ff06a6e99b11a": {
+      "name": "Inconnu"
+    },
+    "1d202ffb6e81bce5": {
+      "name": "Retour perdant"
+    },
+    "815a9a65c869e5d9": {
+      "name": "Filtre à secondaires"
+    },
+    "d419d93c9ca266f2": {
+      "name": "Pieds au sec"
+    },
+    "0e164aae93afae43": {
+      "name": "Baisse spéciale -"
+    },
+    "28c5ec4430082450": {
+      "name": "Sans temps morts"
+    },
+    "aedd94fe223261d5": {
+      "name": "Feu de l'action"
+    },
+    "c43ab03140bb13f2": {
+      "name": "Levée d'encre"
+    },
+    "6dcecca7e07e73c4": {
+      "name": "Jauge spéciale +"
+    },
+    "8afb83ffeb289865": {
+      "name": "Revanche"
+    },
+    "9d5a18e4c5e5645e": {
+      "name": "Chapeaux de roue"
+    },
+    "0e2ac5e15d77b2cb": {
+      "name": "Arme secondaire +"
+    },
+    "3820d64c12f27290": {
+      "name": "Démolition"
+    },
+    "8340c4eed8943fc7": {
+      "name": "Encrémenteur (sec.)"
+    },
+    "5602e981c1c00258": {
+      "name": "Encre thermique"
+    },
+    "44d2c5620c1d3c73": {
+      "name": "Justice"
+    },
+    "51f03088c1111fd7": {
+      "name": "Ultime sursaut"
+    },
+    "d00bc8d303659ec6": {
+      "name": "Levée d'encre"
+    },
+    "41a16a26faa38d13": {
+      "name": "Sans temps morts"
+    },
+    "bde0eb22530d4466": {
+      "name": "Jauge spéciale +"
+    },
+    "86cdcc0fd608423a": {
+      "name": "Super roulade"
+    },
+    "276cddac2f57fa12": {
+      "name": "Retour perdant"
+    },
+    "cd3ddfd6e986e696": {
+      "name": "Arme spéciale +"
+    },
+    "92122d477e563d7b": {
+      "name": "Pieds au sec"
+    },
+    "cef7771e1562e6f9": {
+      "name": "Inconnu"
+    },
+    "1d855c39cfd4d1ad": {
+      "name": "Filtre à secondaires"
+    },
+    "4eb2633ea2cc53c5": {
+      "name": "Arme secondaire +"
+    },
+    "65995d04d06440c3": {
+      "name": "Feu de l'action"
+    },
+    "57aceb0bcb925e93": {
+      "name": "Encrémenteur (sec.)"
+    },
+    "73e2e892e74ab1b9": {
+      "name": "Ultime sursaut"
+    },
+    "0c8e815c244cde48": {
+      "name": "Justice"
+    },
+    "620af3d72bd265ea": {
+      "name": "Turbo-calamar"
+    },
+    "870b81ce67189ad3": {
+      "name": "Revanche"
+    },
+    "8182fe5e6b07ef53": {
+      "name": "Encrémenteur (pr.)"
+    },
+    "3d1ad74f74989f8d": {
+      "name": "Aérodynamisme"
+    },
+    "fad0ac5cace2e2a4": {
+      "name": "Course à pied"
+    },
+    "cf48bc70458f9b0b": {
+      "name": "Encre thermique"
+    },
+    "98f9e51856a7a8fb": {
+      "name": "Ninjalamar"
+    },
+    "e6087224d046f0dc": {
+      "name": "Baisse spéciale -"
+    },
+    "009a41cd1f5702c0": {
+      "name": "Réception réussie"
+    },
+    "23fa65038ff7b3be": {
+      "name": "Come-back"
+    }
+  },
+  "festivals": {
+    "JUEA-00004": {
+      "title": "Quel est ton type de chocolat favori ?",
+      "teams": [
+        {
+          "teamName": "Chocolat noir"
+        },
+        {
+          "teamName": "Chocolat au lait"
+        },
+        {
+          "teamName": "Chocolat blanc"
+        }
+      ]
+    },
+    "JUEA-00003": {
+      "title": "Quelle est ta saveur préférée ?",
+      "teams": [
+        {
+          "teamName": "Épicé"
+        },
+        {
+          "teamName": "Sucré"
+        },
+        {
+          "teamName": "Acide"
+        }
+      ]
+    },
+    "JUEA-00002": {
+      "title": "Quel type de partenaire Pokémon préfères-tu ?",
+      "teams": [
+        {
+          "teamName": "Plante"
+        },
+        {
+          "teamName": "Feu"
+        },
+        {
+          "teamName": "Eau"
+        }
+      ]
+    },
+    "JUEA-00001": {
+      "title": "Qu'emporterais-tu sur une île déserte ?",
+      "teams": [
+        {
+          "teamName": "Outils"
+        },
+        {
+          "teamName": "Nourriture"
+        },
+        {
+          "teamName": "Jeux"
+        }
+      ]
+    }
+  }
 }
