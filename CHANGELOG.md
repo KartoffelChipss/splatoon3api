@@ -2,6 +2,15 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.3.0 - 2023-06-03
+
+### Added
+- Support for new maps and weapons added with "Sizzle Season"
+
+### Changed
+
+### Fixed
+
 ## 1.2.0 - 2023-03-13
 
 ### Added
