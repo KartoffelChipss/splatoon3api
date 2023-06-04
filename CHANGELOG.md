@@ -2,6 +2,23 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+---
+
+## 1.3.1 - 2023-06-04
+
+### Added
+- New method to get challenges
+- Added many new Languages with new language codes (old codes still work)
+
+### Changed
+- Changed language codes: [readme.md](./README.md#languages)
+
+### Fixed
+- Splatfest titles and team names now get translated
+- Salmonrun schedule now doesn't get added if there is a Big Run
+
+---
+
 ## 1.3.0 - 2023-06-03
 
 ### Added
@@ -10,6 +27,8 @@ Here, you will find all notabled changes that have been made to this project.
 ### Changed
 
 ### Fixed
+
+---
 
 ## 1.2.0 - 2023-03-13
 
@@ -21,6 +40,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 
+---
+
 ## 1.1.7 - 2022-12-30
 
 ### Added
@@ -29,6 +50,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Minor Changes to [readme.md](./README.md)
 
 ### Fixed
+
+---
 
 ## 1.1.6 - 2022-12-30
 
@@ -40,6 +63,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Added Splatfests to [readme.md](./README.md)
 
 ### Fixed
+
+---
 
 ## 1.1.5 - 2022-12-30
 
@@ -55,6 +80,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 
+---
+
 ## 1.1.4 - 2022-12-28
 
 ### Added
@@ -63,6 +90,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Minor changes to [readme.md](./README.md)
 
 ### Fixed
+
+---
 
 ## 1.1.3 - 2022-12-27
 
@@ -73,6 +102,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Removed folder "new"
 
 ### Fixed
+
+---
 
 ## 1.1.2 - 2022-12-27
 
@@ -89,6 +120,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 
+---
+
 ## 1.1.1 - 2022-12-13
 
 ### Added
@@ -97,6 +130,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Minor changes to [readme.md](./README.md)
 
 ### Fixed
+
+---
 
 ## 1.1.0 - 2022-12-13
 
@@ -109,6 +144,8 @@ Here, you will find all notabled changes that have been made to this project.
 ### Fixed
 - Fixed salmonrun
 
+---
+
 ## 1.0.4 - 2022-09-3
 
 ### Added
@@ -117,6 +154,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Changed `node-fetch` Version
 
 ### Fixed
+
+---
 
 ## 1.0.3 - 2022-09-3
 
@@ -127,6 +166,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 
+---
+
 ## 1.0.2 - 2022-09-2
 
 ### Added
@@ -136,6 +177,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 
+---
+
 ## 1.0.1 - 2022-09-2
 
 ### Added
@@ -144,6 +187,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Minor changed to [readme.md](./README.md)
 
 ### Fixed
+
+---
 
 ## 1.0.0 - 2022-09-2
 

@@ -1,11 +1,11 @@
 # Splatoon3api
 Splatoon3api is a simple library to get the current and next Splatoon 3 Maps (rotations), Salmonruns and Splatnet gear. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Splatoon3api is available in eight different languages ([List of available languages](#languages))
 
-[![npm](https://img.shields.io/npm/dm/splatoon3api?label=Downloads)](https://www.npmjs.com/package/splatoon3api) [![npm](https://img.shields.io/npm/v/splatoon3api?label=Version)](https://www.npmjs.com/package/splatoon3api) [![Discord](https://img.shields.io/discord/990295419005333554?color=%23738ADB&label=Discord)](https://discord.gg/KevMGSc4Mz)
+[![npm](https://img.shields.io/npm/dm/splatoon3api?label=Downloads)](https://www.npmjs.com/package/splatoon3api) [![npm](https://img.shields.io/npm/v/splatoon3api?label=Version)](https://www.npmjs.com/package/splatoon3api) [![Discord](https://img.shields.io/discord/990295419005333554?color=%23738ADB&label=Discord)](https://discord.com/invite/Cc76tYwXvy)
 
 Splatoon3api is now also supporting the new maps and X-Battles!
 
-If you have trouble with this package, feel free to ask me in my [Discord](https://discord.gg/KevMGSc4Mz).
+If you have trouble with this package, feel free to ask me in my [Discord](https://discord.com/invite/Cc76tYwXvy).
 
 ## Table of contents
  - [Installation](#installation)
@@ -14,6 +14,7 @@ If you have trouble with this package, feel free to ask me in my [Discord](https
     - [Current stages](#current-stages)
     - [Next stages](#next-stages)
     - [Salmonrun](#salmonrun-schedules)
+    - [Challenges](#challenges)
     - [Splatnet gear](#splatnet-gear)
     - [Upcoming Splatfests](#scheduled-splatfests)
     - [Past Splatfests](#past-splatfests)
@@ -28,19 +29,25 @@ npm install splatoon3api
 First, import the package like this:
 ```js
 const splatoon3api = require("splatoon3api");
-const Splatoon3 = new splatoon3api.Client("en");
+const Splatoon3 = new splatoon3api.Client("en-GB");
 ```
 
 ### Languages
-You can exchange the `en` for any other language in the list below:
-- `en` - English
-- `de` - German
-- `nl` - Dutch
-- `fr` - French
-- `es` - Spanish
-- `it` - Italian
-- `ru` - Russian
-- `jp` - Japanese
+You can exchange the `en-GB` for any other language in the list below:
+- `en-US` - English (US)
+- `en-GB` - English (GB)
+- `de-DE` - Deutsch
+- `nl-NL` - Nederlands
+- `fr-FR` - Français (FR)
+- `fr-CA` - Français (CA)
+- `es-ES` - Español (ES)
+- `es-MX` - Español (MX)
+- `it-IT` - Italiano
+- `ru-RU` - Русский
+- `ja-JP` - 日本語
+- `ko-KR` - 한국어
+- `zh-CN` - 中文(简体)
+- `zh-TW` - 中文(台灣)
 
 Once you have done this, you can use all the following functions as you like.
 
@@ -276,6 +283,58 @@ It should return something like this:
       "image":"https://splatoon3.ink/assets/splatnet/gear_img/205627105988cbb1f31e504cbf0874e5b5fb8c933f40da11fc4c66c4a0223a05_0.png"
    }
 }
+```
+---
+
+### Challenges
+To get the current Challenges, you can use the ``getChallenges()`` function:
+```js
+Splatoon3.getChallenges(res => {
+    console.log(res);
+});
+```
+It should return something like this:
+```js
+[
+   {
+      name: 'Trizookaracho',
+      desc: 'Trizooka-Trommelfeuer ohne Ende!',
+      eventRule: 'Das Treffen der Trizooka-Taktiker! Wer wischt mit seiner Wumme den Gegner weg?<br /><br />・ Nur Waffen-Sets mit der Trizooka als Spezialwaffe.<br />・ Die Spezialanzeige füllt sich rasch und ganz von selbst!<br />・ Nur Primäreffekte gelten! Sekundäreffekte sind inaktiv.',
+      gameRule: 'Turm-Kommando',
+      stages: [
+         {
+            name: 'Pinakoithek',
+            image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png'
+         },
+         {
+            name: 'Buckelwal-Piste',
+            image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/7b3cf118bd9f45d141cd6db0ee75b06e697fa83945c7fe1e6f8483de6a591f5f_1.png'
+         }
+      ],
+      timePeriods: [
+         {
+            startTime: '2023-06-06T02:00:00Z',
+            endTime: '2023-06-06T04:00:00Z'
+         },
+         {
+            startTime: '2023-06-06T10:00:00Z',
+            endTime: '2023-06-06T12:00:00Z'
+         },
+         {
+            startTime: '2023-06-06T18:00:00Z',
+            endTime: '2023-06-06T20:00:00Z'
+         }
+      ]
+   },
+  {
+    name: 'Probeklecks auf Arty-Art',
+    desc: 'Spaß und Chaos mit Zufallswaffen!',
+    eventRule: '„Mein ganzes Sortiment steht zur Verfügung! Ich hoffe, jeder findet neue Favoriten!“<br /> - Euer Arty<br /><br />・ Alle Spieler erhalten ein zufälliges Waffen-Set.<br />・ Arty verleiht sein ganzes Sortiment. Welche Waffen du bereits von ihm erworben hast, spielt keine Rolle!',
+    gameRule: 'Herrschaft',
+    stages: [ [Object], [Object] ],
+    timePeriods: [ [Object], [Object], [Object] ]
+  }
+]
 ```
 ---
 
