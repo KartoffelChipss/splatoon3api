@@ -10,6 +10,8 @@ const salmonGearURL = "https://splatoon3.ink/data/coop.json";
 const gearURL = "https://splatoon3.ink/data/gear.json";
 const festURL = "https://splatoon3.ink/data/festivals.json";
 
+const lennyWeaponsURL = "https://leanny.github.io/data/Mush/latest/WeaponInfo_Main.json";
+
 const gearTypeLang = require("./lang/gearTypeLang.json");
 
 function RGBAToHexA(rgba, forceRemoveAlpha = false) {
@@ -31,9 +33,61 @@ var wait = (ms) => {
     }
 }
 
+function getLennyLangString(lang) {
+    switch(lang.toLowerCase()) {
+        case "en-us":
+            return "USen";
+            break;
+        case "en-GB":
+            return "EUen"
+            break;
+        case "nl-nl":
+            return "EUnl"
+            break;
+        case "de-de":
+            return "EUde"
+            break;
+        case "fr-fr":
+            return "EUfr"
+            break;
+        case "fr-ca":
+            return "USfr"
+            break;
+        case "es-es":
+            return "EUes"
+            break;
+        case "es-mx":
+            return "USes"
+            break;
+        case "it-it":
+            return "EUit"
+            break;
+        case "ru-ru":
+            return "EUru"
+            break;
+        case "ja-jp":
+            return "JPja"
+            break;
+        case "ko-kr":
+            return "EUen"
+            break;
+        case "zh-cn":
+            return "EUen"
+            break;
+        case "zh-tw":
+            return "EUen"
+            break;
+        default:
+            return "EUen"
+            break;
+    }
+}
+
 class Client {
 	constructor(lang) {
 		if(!lang) {lang = "en-GB"}
+
+        this.lennyLang = "EUen";
 
         if (!compatibleLanguages.includes(lang)) {
             switch(lang.toLowerCase()) {
@@ -68,8 +122,11 @@ class Client {
         }
 
         this.lang = lang;
+
+        this.lennyLang = getLennyLangString(lang)
     
         this.langIsResolved = false;
+        this.lennyLangIsResolved = false;
 
         fetch(`https://splatoon3.ink/data/locale/${lang}.json`)
             .catch(err => console.error(err))
@@ -78,7 +135,49 @@ class Client {
                 this.langIsResolved = true;
                 this.translation = json;
             })
+        
+        fetch(`https://leanny.github.io/data/Languages/lang_dict_${this.lennyLang}.json`)
+            .catch(err => console.error(err))
+            .then(res => res.json())
+            .then(json => {
+                this.lennyLangIsResolved = true;
+                this.lennyTranslation = json;
+            })
 	}
+
+    getWeapons(callback) {
+		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        let timeOutTime = 0;
+        if (!this.lennyLangIsResolved) timeOutTime = 500;
+        setTimeout(() => {
+            fetch(lennyWeaponsURL)
+                .catch(err => console.error(err))
+                .then(res => res.json())
+                .then(json => {
+                    let translation = this.lennyTranslation
+                    let data = []
+
+                    json.forEach((weapon, index) => {
+                        let weaponObject = {
+                            name: this.lennyTranslation[weapon.Name],
+                            image: `https://leanny.github.io/splat3/images/weapon_flat/Path_Wst_${weapon.Name}.webp`,
+                            sub: {
+                                name: this.lennyTranslation[weapon.Sub],
+                                image: `https://leanny.github.io/splat3/images/subspe/Wsb_${weapon.Sub}00.webp`,
+                            },
+                            special: {
+                                name: this.lennyTranslation[weapon.Special],
+                                image: weapon.Special,
+                            }
+                        }
+
+                        data.push(weaponObject)
+                    })
+
+                    return callback(data);
+                })
+        }, timeOutTime)
+    }
 
 	getCurrentStages(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
