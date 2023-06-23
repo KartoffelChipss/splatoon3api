@@ -253,7 +253,34 @@ It should return something like this:
          weapons: [Object]
       }
    },
-   bigRunSchedules: {},
+   bigRunSchedules: {
+      '1': {
+         start_time: '2023-06-10T00:00:00Z',
+         end_time: '2023-06-12T00:00:00Z',
+         stage: {
+            name: 'Undertow Spillway',
+            image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/high_resolution/71c7076fc2d23f1833c923747e8582e29eb275bed96d8360aa5d0ed6ae069230_0.png'
+         },
+         weapons: {
+            '0': {
+               name: 'Random',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/ui_img/473fffb2442075078d8bb7125744905abdeae651b6a5b7453ae295582e45f7d1_0.png'
+            },
+            '1': {
+               name: 'Random',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/ui_img/473fffb2442075078d8bb7125744905abdeae651b6a5b7453ae295582e45f7d1_0.png'
+            },
+            '2': {
+               name: 'Random',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/ui_img/473fffb2442075078d8bb7125744905abdeae651b6a5b7453ae295582e45f7d1_0.png'
+            },
+            '3': {
+               name: 'Random',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/ui_img/473fffb2442075078d8bb7125744905abdeae651b6a5b7453ae295582e45f7d1_0.png'
+            }
+         }
+      }
+   },
    monthlyGear: {
       name: 'Aquanaut-Schiffchen',
       type: 'Kopf',
