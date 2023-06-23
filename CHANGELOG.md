@@ -4,6 +4,24 @@ Here, you will find all notabled changes that have been made to this project.
 
 ---
 
+## 1.4.0 - 2023-06-23
+
+```diff
+! If your app uses Data for Salmonruns, you will have to update your code!
+```
+
+### Added
+- Big Runs should work now but isn't tested yet
+
+### Changed
+- Restructured Salmonrun data to add Big Runs
+- Added weapons and stages to all Salmonruns
+
+### Fixed
+- Salmonruns now show up correctly
+
+---
+
 ## 1.3.1 - 2023-06-04
 
 ### Added

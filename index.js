@@ -372,90 +372,72 @@ class Client {
                 .then(res => res.json())
                 .then(json => {
                     let data = {};
-                    data.details = {
-                        0: {
-                            start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[0].startTime,
-                            end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[0].endTime,
-                            stage: {
-                                name: this.translation.stages[json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.coopStage.id].name,
-                                image: json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.coopStage.image.url
-                            },
-                            weapons: {
-                                0: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[0].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[0].image.url
+                    data.regularSchedules = {};
+
+                    json.data.coopGroupingSchedule.regularSchedules.nodes.forEach((node, index) => {
+                        if (json.data.coopGroupingSchedule.regularSchedules.nodes[index]) {
+                            data.regularSchedules[index] = {
+                                start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[index].startTime,
+                                end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[index].endTime,
+                                stage: {
+                                    name: this.translation.stages[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.coopStage.id].name,
+                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.coopStage.image.url
                                 },
-                                1: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[1].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[1].image.url
-                                },
-                                2: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[2].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[2].image.url
-                                },
-                                3: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[3].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[0].setting.weapons[3].image.url
-                                }
-                            }
-                        },
-                        1: {
-                            start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[1].startTime,
-                            end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[1].endTime,
-                            stage: {
-                                name: this.translation.stages[json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.coopStage.id].name,
-                                image: json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.coopStage.image.url
-                            },
-                            weapons: {
-                                0: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[0].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[0].image.url
-                                },
-                                1: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[1].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[1].image.url
-                                },
-                                    2: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[2].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[2].image.url
-                                },
-                                    3: {
-                                    name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[3].__splatoon3ink_id].name,
-                                    image: json.data.coopGroupingSchedule.regularSchedules.nodes[1].setting.weapons[3].image.url
+                                weapons: {
+                                    0: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[0].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[0].image.url
+                                    },
+                                    1: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[1].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[1].image.url
+                                    },
+                                        2: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[2].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[2].image.url
+                                    },
+                                        3: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[3].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[3].image.url
+                                    }
                                 }
                             }
                         }
-                    }
-                    data.next = {
-                        0: {
-                            start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[0].startTime,
-                            end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[0].endTime,
+                    })
+
+                    data.bigRunSchedules = {};
+
+                    json.data.coopGroupingSchedule.bigRunSchedules.nodes.forEach((node, index) => {
+                        if (json.data.coopGroupingSchedule.bigRunSchedules.nodes[index]) {
+                            data.bigRunSchedules[index] = {
+                                start_time: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].startTime,
+                                end_time:  json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].endTime,
+                                stage: {
+                                    name: this.translation.stages[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.coopStage.id].name,
+                                    image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.coopStage.image.url
+                                },
+                                weapons: {
+                                    0: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[0].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[0].image.url
+                                    },
+                                    1: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[1].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[1].image.url
+                                    },
+                                        2: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[2].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[2].image.url
+                                    },
+                                        3: {
+                                        name: this.translation.weapons[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[3].__splatoon3ink_id].name,
+                                        image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[3].image.url
+                                    }
+                                }
+                            }
                         }
-                    }
-                    if (json.data.coopGroupingSchedule.regularSchedules.nodes[1]) {
-                        data.next[3] = {
-                            start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[1].startTime,
-                            end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[1].endTime,
-                        }
-                    }
-                    if (json.data.coopGroupingSchedule.regularSchedules.nodes[2]) {
-                        data.next[3] = {
-                            start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[2].startTime,
-                            end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[2].endTime,
-                        }
-                    }
-                    if (json.data.coopGroupingSchedule.regularSchedules.nodes[3]) {
-                        data.next[3] = {
-                            start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[3].startTime,
-                            end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[3].endTime,
-                        }
-                    }
-                    if (json.data.coopGroupingSchedule.regularSchedules.nodes[4]) {
-                        data.next[4] = {
-                            start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[4].startTime,
-                            end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[4].endTime,
-                        }
-                    }
+                    })
+
                     fetch(salmonGearURL)
                         .catch(err => console.error(err))
                         .then(res => res.json())

@@ -201,86 +201,63 @@ Splatoon3.getSalmonRun(res => {
 It should return something like this:
 ```js
 {
-   "details":{
-      "0":{
-         "start_time":"2022-12-28T16:00:00Z",
-         "end_time":"2022-12-30T08:00:00Z",
-         "stage":{
-            "name":"Gone Fission Hydroplant",
-            "image":"https://splatoon3.ink/assets/splatnet/stage_img/icon/high_resolution/f1e4df4cff1dc5e0acc66a9654fecf949224f7e4f6bd36305d4600ac3fa3db7b_0.png"
+   regularSchedules: {
+      '0': {
+         start_time: '2023-06-22T00:00:00Z',
+         end_time: '2023-06-23T16:00:00Z',
+         stage: {
+            name: 'Salmoniden-Damm',
+            image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/high_resolution/be584c7c7f547b8cbac318617f646680541f88071bc71db73cd461eb3ea6326e_0.png'
          },
-         "weapons":{
-            "0":{
-               "name":"Sploosh-o-matic",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/6e58a0747ab899badcb6f351512c6034e0a49bd6453281f32c7f550a2132fd65_0.png"
+         weapons: {
+            '0': {
+               name: 'L3 Tintenwerfer',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/weapon_illust/96833fc0f74242cd2bc73b241aab8a00d499ce9f6557722ef6503e12af8979f4_0.png'
             },
-            "1":{
-               "name":"Carbon Roller",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/29358fd25b6ad1ba9e99f5721f0248af8bde7f1f757d00cbbc7a8a6be02a880d_0.png"
+            '1': {
+               name: 'Kosmo-Kleckser',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/weapon_illust/8034dd1acde77c1a2df32197c12faa5ba1d65b43d008edd1b40f16fa8d106944_0.png'
             },
-            "2":{
-               "name":"Rapid Blaster",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/0a929d514403d07e1543e638141ebace947ffd539f5f766b42f4d6577d40d7b8_0.png"
+            '2': {
+               name: 'Wannen-Schwapper',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/weapon_illust/0199e455872acba1ab8ef0040eca7f41afca48c1f9ad2c5d274323d6dbc49133_0.png'
             },
-            "3":{
-               "name":"Hydra Splatling",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/34fe0401b6f6a0b09839696fc820ece9570a9d56e3a746b65f0604dec91a9920_0.png"
+            '3': {
+               name: 'Tri-Stringer',
+               image: 'https://splatoon3.ink/assets/splatnet/v1/weapon_illust/676d9f49276f171a93ac06646c0fbdfbeb8c3d0284a057aee306404a6034ffef_0.png'
             }
          }
       },
-      "1":{
-         "start_time":"2022-12-30T08:00:00Z",
-         "end_time":"2023-01-01T00:00:00Z",
-         "stage":{
-            "name":"Marooner's Bay",
-            "image":"https://splatoon3.ink/assets/splatnet/stage_img/icon/high_resolution/1a29476c1ab5fdbc813e2df99cd290ce56dfe29755b97f671a7250e5f77f4961_0.png"
-         },
-         "weapons":{
-            "0":{
-               "name":"Luna Blaster",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/10d4a1584d1428cb164ddfbc5febc9b1e77fd05e2e9ed9de851838a94d202c15_0.png"
-            },
-            "1":{
-               "name":"Splattershot",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/e3874d7d504acf89488ad7f68d29a348caea1a41cd43bd9a272069b0c0466570_0.png"
-            },
-            "2":{
-               "name":"Dynamo Roller",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/18fdddee9c918842f076c10f12e46d891aca302d2677bf968ee2fe4e65b831a8_0.png"
-            },
-            "3":{
-               "name":"Splat Charger",
-               "image":"https://splatoon3.ink/assets/splatnet/weapon_illust/3f99800b569e286305669b7ab28dc3ff0f0b1b015600569d5ac30ab8a97047a0_0.png"
-            }
-         }
+      '1': {
+         start_time: '2023-06-23T16:00:00Z',
+         end_time: '2023-06-25T08:00:00Z',
+         stage: [Object],
+         weapons: [Object]
+      },
+      '2': {
+         start_time: '2023-06-25T08:00:00Z',
+         end_time: '2023-06-27T00:00:00Z',
+         stage: [Object],
+         weapons: [Object]
+      },
+      '3': {
+         start_time: '2023-06-27T00:00:00Z',
+         end_time: '2023-06-28T16:00:00Z',
+         stage: [Object],
+         weapons: [Object]
+      },
+      '4': {
+         start_time: '2023-06-28T16:00:00Z',
+         end_time: '2023-06-30T08:00:00Z',
+         stage: [Object],
+         weapons: [Object]
       }
    },
-   "next":{
-      "0":{
-         "start_time":"2022-12-28T16:00:00Z",
-         "end_time":"2022-12-30T08:00:00Z"
-      },
-      "1":{
-         "start_time":"2022-12-30T08:00:00Z",
-         "end_time":"2023-01-01T00:00:00Z"
-      },
-      "2":{
-         "start_time":"2023-01-01T00:00:00Z",
-         "end_time":"2023-01-02T16:00:00Z"
-      },
-      "3":{
-         "start_time":"2023-01-02T16:00:00Z",
-         "end_time":"2023-01-04T08:00:00Z"
-      },
-      "4":{
-         "start_time":"2023-01-04T08:00:00Z",
-         "end_time":"2023-01-06T00:00:00Z"
-      }
-   },
-   "monthlyGear":{
-      "name":"Astro Helm",
-      "type":"Headgear",
-      "image":"https://splatoon3.ink/assets/splatnet/gear_img/205627105988cbb1f31e504cbf0874e5b5fb8c933f40da11fc4c66c4a0223a05_0.png"
+   bigRunSchedules: {},
+   monthlyGear: {
+      name: 'Aquanaut-Schiffchen',
+      type: 'Kopf',
+      image: 'https://splatoon3.ink/assets/splatnet/v1/gear_img/36c8f7ca8dd42b60ca114b51b88fba5f0d21434b56b8f9d95e8c4f3c5ab097ee_0.png'
    }
 }
 ```
