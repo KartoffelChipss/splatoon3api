@@ -128,21 +128,24 @@ class Client {
         this.langIsResolved = false;
         this.lennyLangIsResolved = false;
 
-        fetch(`https://splatoon3.ink/data/locale/${lang}.json`)
-            .catch(err => console.error(err))
-            .then(res => res.json())
-            .then(json => {
-                this.langIsResolved = true;
-                this.translation = json;
-            })
-        
+        this.langPromise = new Promise((resolve, reject) => {
+            fetch(`https://splatoon3.ink/data/locale/${lang}.json`)
+                .catch(err => console.error(err))
+                .then(res => res.json())
+                .then(json => {
+                    this.langIsResolved = true;
+                    this.translation = json;
+                    resolve(json);
+                })
+        })
+
         fetch(`https://leanny.github.io/data/Languages/lang_dict_${this.lennyLang}.json`)
-            .catch(err => console.error(err))
-            .then(res => res.json())
-            .then(json => {
-                this.lennyLangIsResolved = true;
-                this.lennyTranslation = json;
-            })
+                .catch(err => console.error(err))
+                .then(res => res.json())
+                .then(json => {
+                    this.lennyLangIsResolved = true;
+                    this.lennyTranslation = json;
+                })
 	}
 
     getWeapons(callback) {
@@ -181,149 +184,183 @@ class Client {
 
 	getCurrentStages(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.langIsResolved) timeOutTime = 500;
-        setTimeout(() => {
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        //setTimeout(() => {
+        this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
                     let translation = this.translation
                     let data = {};
-                    data.regular = {
-                        start_time: json.data.regularSchedules.nodes[0].startTime,
-                        end_time: json.data.regularSchedules.nodes[0].endTime,
-                        stage1: {
-                            name: translation.stages[json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[0].id].name,
-                            image: json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[0].image.url
-                        },
-                        stage2: {
-                        name: translation.stages[json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[1].id].name,
-                            image: json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[1].image.url
-                        },
-                        rules: translation.rules[json.data.regularSchedules.nodes[0].regularMatchSetting.vsRule.id].name
+
+                    if (json.data.regularSchedules.nodes[0].regularMatchSetting) {
+                        data.regular = {
+                            start_time: json.data.regularSchedules.nodes[0].startTime,
+                            end_time: json.data.regularSchedules.nodes[0].endTime,
+                            stage1: {
+                                name: translation.stages[json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[0].id].name,
+                                image: json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[0].image.url
+                            },
+                            stage2: {
+                            name: translation.stages[json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[1].id].name,
+                                image: json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[1].image.url
+                            },
+                            rules: translation.rules[json.data.regularSchedules.nodes[0].regularMatchSetting.vsRule.id].name
+                        }
+                    } else {
+                        data.regular = null;
                     }
-                    data.ranked = {
-                        series: {
-                            start_time: json.data.bankaraSchedules.nodes[0].startTime,
-                            end_time: json.data.bankaraSchedules.nodes[0].endTime,
+
+                    if (json.data.bankaraSchedules.nodes[0].bankaraMatchSettings) {
+                        data.ranked = {
+                            series: {
+                                start_time: json.data.bankaraSchedules.nodes[0].startTime,
+                                end_time: json.data.bankaraSchedules.nodes[0].endTime,
+                                stage1: {
+                                    name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[0].id].name,
+                                    image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[0].image.url
+                                },
+                                stage2: {
+                                    name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[1].id].name,
+                                    image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[1].image.url
+                                },
+                                rules: translation.rules[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsRule.id].name
+                            },
+                            open: {
+                                start_time: json.data.bankaraSchedules.nodes[0].startTime,
+                                end_time: json.data.bankaraSchedules.nodes[0].endTime,
+                                stage1: {
+                                    name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[0].id].name,
+                                    image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[0].image.url
+                                },
+                                stage2: {
+                                    name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[1].id].name,
+                                    image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[1].image.url
+                                },
+                                rules: translation.rules[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsRule.id].name
+                            }
+                        }
+                    } else {
+                        data.ranked = null;
+                    }
+
+                    if (json.data.xSchedules.nodes[0].xMatchSetting) {
+                        data.xbattle = {
+                            start_time: json.data.xSchedules.nodes[0].startTime,
+                            end_time: json.data.xSchedules.nodes[0].endTime,
                             stage1: {
-                                name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[0].id].name,
-                                image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[0].image.url
+                                name: translation.stages[json.data.xSchedules.nodes[0].xMatchSetting.vsStages[0].id].name,
+                                image: json.data.xSchedules.nodes[0].xMatchSetting.vsStages[0].image.url
                             },
                             stage2: {
-                                name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[1].id].name,
-                                image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsStages[1].image.url
+                                name: translation.stages[json.data.xSchedules.nodes[0].xMatchSetting.vsStages[1].id].name,
+                                image: json.data.xSchedules.nodes[0].xMatchSetting.vsStages[1].image.url
                             },
-                            rules: translation.rules[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[0].vsRule.id].name
-                        },
-                        open: {
-                            start_time: json.data.bankaraSchedules.nodes[0].startTime,
-                            end_time: json.data.bankaraSchedules.nodes[0].endTime,
-                            stage1: {
-                                name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[0].id].name,
-                                image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[0].image.url
-                            },
-                            stage2: {
-                                name: translation.stages[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[1].id].name,
-                                image: json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsStages[1].image.url
-                            },
-                            rules: translation.rules[json.data.bankaraSchedules.nodes[0].bankaraMatchSettings[1].vsRule.id].name
+                            rules: translation.rules[json.data.xSchedules.nodes[0].xMatchSetting.vsRule.id].name
                         }
-                        }
-                    data.xbattle = {
-                        start_time: json.data.xSchedules.nodes[0].startTime,
-                        end_time: json.data.xSchedules.nodes[0].endTime,
-                        stage1: {
-                            name: translation.stages[json.data.xSchedules.nodes[0].xMatchSetting.vsStages[0].id].name,
-                            image: json.data.xSchedules.nodes[0].xMatchSetting.vsStages[0].image.url
-                        },
-                        stage2: {
-                            name: translation.stages[json.data.xSchedules.nodes[0].xMatchSetting.vsStages[1].id].name,
-                            image: json.data.xSchedules.nodes[0].xMatchSetting.vsStages[1].image.url
-                        },
-                        rules: translation.rules[json.data.xSchedules.nodes[0].xMatchSetting.vsRule.id].name
+                    } else {
+                        data.xbattle = null;
                     }
 
                     return callback(data);
                 });
-        }, timeOutTime)
+        //}, timeOutTime)
+        });
 	}
 
 	getNextStages(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.langIsResolved) timeOutTime = 500;
-        setTimeout(() => {
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        //setTimeout(() => {
+        this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
                     let data = {};
-                    data.regular = {
-                        start_time: json.data.regularSchedules.nodes[1].startTime,
-                        end_time: json.data.regularSchedules.nodes[1].endTime,
-                        stage1: {
-                            name: this.translation.stages[json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[0].id].name,
-                            image: json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[0].image.url
-                        },
-                        stage2: {
-                        name: this.translation.stages[json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[1].id].name,
-                            image: json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[1].image.url
-                        },
-                        rules: this.translation.rules[json.data.regularSchedules.nodes[1].regularMatchSetting.vsRule.id].name
+                    if (json.data.regularSchedules.nodes[0].regularMatchSetting) {
+                        data.regular = {
+                            start_time: json.data.regularSchedules.nodes[1].startTime,
+                            end_time: json.data.regularSchedules.nodes[1].endTime,
+                            stage1: {
+                                name: this.translation.stages[json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[0].id].name,
+                                image: json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[0].image.url
+                            },
+                            stage2: {
+                            name: this.translation.stages[json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[1].id].name,
+                                image: json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[1].image.url
+                            },
+                            rules: this.translation.rules[json.data.regularSchedules.nodes[1].regularMatchSetting.vsRule.id].name
+                        }
+                    } else {
+                        data.regular = null;
                     }
-                    data.ranked = {
-                    series: {
-                        start_time: json.data.bankaraSchedules.nodes[1].startTime,
-                        end_time: json.data.bankaraSchedules.nodes[1].endTime,
-                        stage1: {
-                            name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[0].id].name,
-                            image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[0].image.url
-                        },
-                        stage2: {
-                            name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[1].id].name,
-                            image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[1].image.url
-                        },
-                        rules: this.translation.rules[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsRule.id].name
-                    },
-                    open: {
-                        start_time: json.data.bankaraSchedules.nodes[1].startTime,
-                        end_time: json.data.bankaraSchedules.nodes[1].endTime,
-                        stage1: {
-                            name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[0].id].name,
-                            image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[0].image.url
-                        },
-                        stage2: {
-                            name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[1].id].name,
-                            image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[1].image.url
-                        },
-                        rules: this.translation.rules[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsRule.id].name
+
+                    if (json.data.bankaraSchedules.nodes[0].bankaraMatchSettings) {
+                        data.ranked = {
+                            series: {
+                                start_time: json.data.bankaraSchedules.nodes[1].startTime,
+                                end_time: json.data.bankaraSchedules.nodes[1].endTime,
+                                stage1: {
+                                    name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[0].id].name,
+                                    image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[0].image.url
+                                },
+                                stage2: {
+                                    name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[1].id].name,
+                                    image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsStages[1].image.url
+                                },
+                                rules: this.translation.rules[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[0].vsRule.id].name
+                            },
+                            open: {
+                                start_time: json.data.bankaraSchedules.nodes[1].startTime,
+                                end_time: json.data.bankaraSchedules.nodes[1].endTime,
+                                stage1: {
+                                    name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[0].id].name,
+                                    image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[0].image.url
+                                },
+                                stage2: {
+                                    name: this.translation.stages[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[1].id].name,
+                                    image: json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsStages[1].image.url
+                                },
+                                rules: this.translation.rules[json.data.bankaraSchedules.nodes[1].bankaraMatchSettings[1].vsRule.id].name
+                            }
+                        }
+                    } else {
+                        data.ranked = null;
                     }
-                    }
-                    data.xbattle = {
-                        start_time: json.data.xSchedules.nodes[1].startTime,
-                        end_time: json.data.xSchedules.nodes[1].endTime,
-                        stage1: {
-                            name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[0].id].name,
-                            image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[0].image.url
-                        },
-                        stage2: {
-                        name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].id].name,
-                            image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].image.url
-                        },
-                        rules: this.translation.rules[json.data.xSchedules.nodes[1].xMatchSetting.vsRule.id].name
+
+                    if (json.data.xSchedules.nodes[0].xMatchSetting) {
+                        data.xbattle = {
+                            start_time: json.data.xSchedules.nodes[1].startTime,
+                            end_time: json.data.xSchedules.nodes[1].endTime,
+                            stage1: {
+                                name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[0].id].name,
+                                image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[0].image.url
+                            },
+                            stage2: {
+                            name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].id].name,
+                                image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].image.url
+                            },
+                            rules: this.translation.rules[json.data.xSchedules.nodes[1].xMatchSetting.vsRule.id].name
+                        }
+                    } else {
+                        data.xbattle = null;
                     }
                     return callback(data);
                 });
-        }, timeOutTime)
+        //}, timeOutTime)
+        })
 	}
 
     getChallenges(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.langIsResolved) timeOutTime = 500;
-        setTimeout(() => {
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        //setTimeout(() => {
+        this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
@@ -364,9 +401,9 @@ class Client {
 
 	getSalmonRun(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.langIsResolved) timeOutTime = 500;
-        setTimeout(() => {
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
@@ -451,14 +488,16 @@ class Client {
                             return callback(data);
                         });
                 });
-        }, timeOutTime)
+        //}, timeOutTime)
+        })
     }
 
     getSplatnetGear(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.langIsResolved) timeOutTime = 500;
-        setTimeout(() => {
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        //setTimeout(() => {
+        this.langPromise.then((langData) => {
             fetch(gearURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
@@ -670,14 +709,15 @@ class Client {
 
                     return callback(data);
                 });
-        }, timeOutTime)
+        //}, timeOutTime)
+        })
 	}
 
     getUpcomingSplatfests(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.langIsResolved) timeOutTime = 500;
-        setTimeout(() => {
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        this.langPromise.then((langData) => {
             fetch(festURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
@@ -724,9 +764,9 @@ class Client {
 
     getPastSplatfests(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.langIsResolved) timeOutTime = 500;
-        setTimeout(() => {
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        this.langPromise.then((langData) => {
             fetch(festURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
@@ -804,7 +844,60 @@ class Client {
 
                     return callback(data);
                 });
-        }, timeOutTime)
+        })
+    }
+
+    getCurrentSplatfest(callback) {
+		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        // let timeOutTime = 0;
+        // if (!this.langIsResolved) timeOutTime = 500;
+        this.langPromise.then((langData) => {
+            fetch(festURL)
+                .catch(err => console.error(err))
+                .then(res => res.json())
+                .then(json => {
+                    let data = {};
+
+                    Object.keys(json).forEach(region => {
+                        data[region] = {};
+                        json[region].data.festRecords.nodes.forEach(fest => {
+                            if (fest.state === "CLOSED") return;
+
+                            data[region] = {
+                                title: this.translation.festivals[fest.__splatoon3ink_id].title,
+                                startTime: fest.startTime,
+                                endTime: fest.endTime,
+                                state: fest.state,
+                                teams: {
+                                    0: {
+                                        teamName: this.translation.festivals[fest.__splatoon3ink_id].teams[0].teamName,
+                                        image: fest.teams[0].image.url,
+                                        color: `rgba(${fest.teams[0].color.r * 255}, ${fest.teams[0].color.g * 255}, ${fest.teams[0].color.b * 255}, ${fest.teams[0].color.a})`,
+                                        colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[0].color.r * 255)}, ${Math.floor(fest.teams[0].color.g * 255)}, ${Math.floor(fest.teams[0].color.b * 255)}, ${Math.floor(fest.teams[0].color.a)})`),
+                                        role: fest.teams[0].role,
+                                    },
+                                    1: {
+                                        teamName: this.translation.festivals[fest.__splatoon3ink_id].teams[1].teamName,
+                                        image: fest.teams[1].image.url,
+                                        color: `rgba(${fest.teams[1].color.r * 255}, ${fest.teams[1].color.g * 255}, ${fest.teams[1].color.b * 255}, ${fest.teams[1].color.a})`,
+                                        colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[1].color.r * 255)}, ${Math.floor(fest.teams[1].color.g * 255)}, ${Math.floor(fest.teams[1].color.b * 255)}, ${Math.floor(fest.teams[1].color.a)})`),
+                                        role: fest.teams[1].role,
+                                    },
+                                    2: {
+                                        teamName: this.translation.festivals[fest.__splatoon3ink_id].teams[2].teamName,
+                                        image: fest.teams[2].image.url,
+                                        color: `rgba(${fest.teams[2].color.r * 255}, ${fest.teams[2].color.g * 255}, ${fest.teams[2].color.b * 255}, ${fest.teams[2].color.a})`,
+                                        colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[2].color.r * 255)}, ${Math.floor(fest.teams[2].color.g * 255)}, ${Math.floor(fest.teams[2].color.b * 255)}, ${Math.floor(fest.teams[2].color.a)})`),
+                                        role: fest.teams[2].role,
+                                    }
+                                }
+                            }
+                        })
+                    })
+
+                    return callback(data);
+                });
+        })
     }
 }
 

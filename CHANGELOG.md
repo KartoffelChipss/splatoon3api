@@ -4,6 +4,19 @@ Here, you will find all notabled changes that have been made to this project.
 
 ---
 
+## 1.4.1 - 2023-07-16
+
+### Added
+- Method to get current Splatfest
+
+### Changed
+- Current and next stages now returns `null` if theres a Splatfest happening
+
+### Fixed
+- Fixed translation not loading fast enogh
+
+---
+
 ## 1.4.0 - 2023-06-23
 
 ```diff

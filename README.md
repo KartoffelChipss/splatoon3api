@@ -16,8 +16,10 @@ If you have trouble with this package, feel free to ask me in my [Discord](https
     - [Salmonrun](#salmonrun-schedules)
     - [Challenges](#challenges)
     - [Splatnet gear](#splatnet-gear)
-    - [Upcoming Splatfests](#scheduled-splatfests)
-    - [Past Splatfests](#past-splatfests)
+    - [Splatfests](#splatfests)
+      - [Current Splatfests](#current-splatfest)
+      - [Upcoming Splatfests](#scheduled-splatfests)
+      - [Past Splatfests](#past-splatfests)
 - [Change Log](#change-log)
 
 ### Installation
@@ -353,219 +355,139 @@ Splatoon3.getSplatnetGear(res => {
 It should return something like this:
 ```js
 {
-   "featuredBrand":{
-      "name":"SquidForce",
-      "banner":"https://splatoon3.ink/assets/splatnet/carousel_img/9ec8a5b980418ad42b25a23ff7ed0417fa2dbd96d52976d55e33b2738a63aef5_0.png",
-      "usualPower":{
-         "name":"Ink Resistance Up",
-         "image":"https://splatoon3.ink/assets/splatnet/skill_img/db36f7e89194ed642f53465abfa449669031a66d7538135c703d3f7d41f99c0d_0.png"
+   featuredBrand:{
+      name:"SquidForce",
+      banner:"https://splatoon3.ink/assets/splatnet/carousel_img/9ec8a5b980418ad42b25a23ff7ed0417fa2dbd96d52976d55e33b2738a63aef5_0.png",
+      usualPower:{
+         name:"Ink Resistance Up",
+         image:"https://splatoon3.ink/assets/splatnet/skill_img/db36f7e89194ed642f53465abfa449669031a66d7538135c703d3f7d41f99c0d_0.png"
       },
-      "saleEnd":"2022-12-30T00:00:00Z",
-      "brandGears":{
-         "0":{
-            "name":"White Headband",
-            "typ":"Headgear",
-            "image":"https://splatoon3.ink/assets/splatnet/gear_img/9970e78730016ca786353edf5de46e3f9c72f01ec1ac65bde2331f5b78eeb8c1_0.png",
-            "primaryGearPower":{
-               "name":"Comeback",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/748c101d23261aee8404c573a947ffc7e116a8da588c7371c40c4f2af6a05a19_0.png"
+      saleEnd:"2022-12-30T00:00:00Z",
+      brandGears:{
+         0: {
+            name:"White Headband",
+            typ:"Headgear",
+            image:"https://splatoon3.ink/assets/splatnet/gear_img/9970e78730016ca786353edf5de46e3f9c72f01ec1ac65bde2331f5b78eeb8c1_0.png",
+            primaryGearPower:{
+               name:"Comeback",
+               image:"https://splatoon3.ink/assets/splatnet/skill_img/748c101d23261aee8404c573a947ffc7e116a8da588c7371c40c4f2af6a05a19_0.png"
             },
-            "additionalGearPowers":[
+            additionalGearPowers:[
                {
-                  "name":"Unknown",
-                  "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
+                  name:"Unknown",
+                  image:"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
                }
             ],
-            "price":750,
-            "saleEnd":"2022-12-30T00:00:00Z"
+            price:750,
+            saleEnd:"2022-12-30T00:00:00Z"
          },
-         "1":{
-            "name":"Tri-Octo Tee",
-            "typ":"Clothing",
-            "image":"https://splatoon3.ink/assets/splatnet/gear_img/203f2d96ae136516a9976a832a761599c30038d0af777a42ad15c46cc3e35a16_0.png",
-            "primaryGearPower":{
-               "name":"Ninja Squid",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/2c0ef71abfb3efe0e67ab981fc9cd46efddcaf93e6e20da96980079f8509d05d_0.png"
-            },
-            "additionalGearPowers":[
-               {
-                  "name":"Unknown",
-                  "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-               }
-            ],
-            "price":750,
-            "saleEnd":"2022-12-30T00:00:00Z"
+         1: [Object],
+         2: [Object]
+      }
+   },
+   limitedGear:{
+      0:{
+         name:"Black Polo",
+         typ:"Clothing",
+         image:"https://splatoon3.ink/assets/splatnet/gear_img/3518171a2249d21477fc492e5fc1662677530d7640a2af3d190b2a6f6168555d_0.png",
+         primaryGearPower:{
+            name:"Haunt",
+            image:"https://splatoon3.ink/assets/splatnet/skill_img/de15cad48e5f23d147449c70ee4e2973118959a1a115401561e90fc65b53311b_0.png"
          },
-         "2":{
-            "name":"Painter's Mask",
-            "typ":"Headgear",
-            "image":"https://splatoon3.ink/assets/splatnet/gear_img/921755ccd3f0dac0afde15b8684dea095e14068ae204febd0beb7c1d039b5676_0.png",
-            "primaryGearPower":{
-               "name":"Special Charge Up",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/e8668a2af7259be74814a9e453528a3e9773435a34177617a45bbf79ad0feb17_0.png"
-            },
-            "additionalGearPowers":[
-               {
-                  "name":"Unknown",
-                  "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-               },
-               {
-                  "name":"Unknown",
-                  "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-               }
-            ],
-            "price":9000,
-            "saleEnd":"2022-12-30T00:00:00Z"
+         additionalGearPowers:[
+            {
+               name:"Unknown",
+               image:"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
+            }
+         ],
+         price:1250,
+         saleEnd:"2022-12-30T00:00:00Z",
+         brand:{
+            name:"Zekko",
+            image:"https://splatoon3.ink/assets/splatnet/brand_img/2d12e99ea10566aeb91543d4b95f4b91709551dd3eab66c2216e26b382f89229_0.png"
+         }
+      },
+      1: [Object],
+      2: [Object],
+      3: [Object],
+      4: [Object],
+      5: [Object]
+   }
+}
+```
+
+---
+
+## Splatfests
+
+### Current Splatfest
+To get the current Splatfest, you can use the `getCurrentSplatfest()` function:
+```js
+Splatoon3.getCurrentSplatfest(res => {
+    console.log(res);
+});
+```
+
+#### Splatfests are divided into those four regions:
+- **US:** The Americas, Australia, New Zealand
+- **EU:** Europe
+- **JP:** Japan
+- **AP:** Hong Kong, South Korea (Asia/Pacific)
+
+Please note that the hexcolors may differ a little from the real colors. If you want the most accurate colors, you should use RGBA.
+
+It should return something like this:
+```js
+{
+   US: {
+      title: 'Which flavor of ice cream is best?',
+      startTime: '2023-07-15T00:00:00Z',
+      endTime: '2023-07-17T00:00:00Z',
+      state: 'SECOND_HALF',
+      teams: {
+         '0': {
+            teamName: '',
+            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1juea-icecreama8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png',
+            color: 'rgba(204.00000306, 167.000005155, 112.00000095, 1)',
+            colorHEX: '#cca770ff',
+            role: null
+         },
+         '1': {
+            teamName: '',
+            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1/juea-icecream/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png',
+            color: 'rgba(188.00000409, 109.000008825, 116.99999301, 1)',
+            colorHEX: '#bc6d74ff',
+            role: null
+         },
+         '2': {
+            teamName: '',
+            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1/juea-icecream/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png',
+            color: 'rgba(42.000005009999995, 194.00000364, 158.000020875, 1)',
+            colorHEX: '#2ac29eff',
+            role: null
          }
       }
    },
-   "limitedGear":{
-      "0":{
-         "name":"Black Polo",
-         "typ":"Clothing",
-         "image":"https://splatoon3.ink/assets/splatnet/gear_img/3518171a2249d21477fc492e5fc1662677530d7640a2af3d190b2a6f6168555d_0.png",
-         "primaryGearPower":{
-            "name":"Haunt",
-            "image":"https://splatoon3.ink/assets/splatnet/skill_img/de15cad48e5f23d147449c70ee4e2973118959a1a115401561e90fc65b53311b_0.png"
-         },
-         "additionalGearPowers":[
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            }
-         ],
-         "price":1250,
-         "saleEnd":"2022-12-30T00:00:00Z",
-         "brand":{
-            "name":"Zekko",
-            "image":"https://splatoon3.ink/assets/splatnet/brand_img/2d12e99ea10566aeb91543d4b95f4b91709551dd3eab66c2216e26b382f89229_0.png"
-         }
-      },
-      "1":{
-         "name":"White 8-Bit FishFry",
-         "typ":"Clothing",
-         "image":"https://splatoon3.ink/assets/splatnet/gear_img/0ebc7b54299e1f269f6581ed0783e76249e69b542dbb33ac1e23773e4472c5c8_0.png",
-         "primaryGearPower":{
-            "name":"Special Power Up",
-            "image":"https://splatoon3.ink/assets/splatnet/skill_img/fba267bd56f536253a6bcce1e919d8a48c2b793c1b554ac968af8d2068b22cab_0.png"
-         },
-         "additionalGearPowers":[
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            }
-         ],
-         "price":2000,
-         "saleEnd":"2022-12-30T04:00:00Z",
-         "brand":{
-            "name":"Firefin",
-            "image":"https://splatoon3.ink/assets/splatnet/brand_img/d24063d70a2f91ba89ac3e109e492efde75351b2735bf532c1f5285aab3fe299_0.png"
-         }
-      },
-      "2":{
-         "name":"Rugby King 08",
-         "typ":"Clothing",
-         "image":"https://splatoon3.ink/assets/splatnet/gear_img/faa679a1cb88dc61aa739be96d65846bd51fda65717b0a0c92b6113c070a16d2_0.png",
-         "primaryGearPower":{
-            "name":"Special Saver",
-            "image":"https://splatoon3.ink/assets/splatnet/skill_img/e3154ab67494df2793b72eabf912104c21fbca71e540230597222e766756b3e4_0.png"
-         },
-         "additionalGearPowers":[
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            },
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            }
-         ],
-         "price":6400,
-         "saleEnd":"2022-12-30T08:00:00Z",
-         "brand":{
-            "name":"Enperry",
-            "image":"https://splatoon3.ink/assets/splatnet/brand_img/bc215963d1a424a5f9707d565f07a5bcf79e19cde17372a9a6a914cd986f7fc9_0.png"
-         }
-      },
-      "3":{
-         "name":"Navy Red-Soled Wingtips",
-         "typ":"Shoes",
-         "image":"https://splatoon3.ink/assets/splatnet/gear_img/208974a079935bac5a0af6b1b71e7e31d4b0b53faf5e1984b131eb13f7f12750_0.png",
-         "primaryGearPower":{
-            "name":"Special Saver",
-            "image":"https://splatoon3.ink/assets/splatnet/skill_img/e3154ab67494df2793b72eabf912104c21fbca71e540230597222e766756b3e4_0.png"
-         },
-         "additionalGearPowers":[
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            },
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            }
-         ],
-         "price":9200,
-         "saleEnd":"2022-12-30T12:00:00Z",
-         "brand":{
-            "name":"Rockenberg",
-            "image":"https://splatoon3.ink/assets/splatnet/brand_img/3f572aafe18399d97020bfb198f6f6d5ffeb57a0d9f082d780c635507393ca7c_0.png"
-         }
-      },
-      "4":{
-         "name":"Khaki Ranger Vest",
-         "typ":"Clothing",
-         "image":"https://splatoon3.ink/assets/splatnet/gear_img/ab73195e3c0ecf0dd3b65464afd627b1ee3ef1bf39624cc4c5a5157bcb9bfa88_0.png",
-         "primaryGearPower":{
-            "name":"Ink Recovery Up",
-            "image":"https://splatoon3.ink/assets/splatnet/skill_img/29b845ea895b931bfaf895e0161aeb47166cbf05f94f04601769c885d019073b_0.png"
-         },
-         "additionalGearPowers":[
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            },
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            }
-         ],
-         "price":8400,
-         "saleEnd":"2022-12-30T16:00:00Z",
-         "brand":{
-            "name":"Inkline",
-            "image":"https://splatoon3.ink/assets/splatnet/brand_img/b7721cb9eafab52885c463b2bacf32ec0844834e9ac3f62230606de83497a1da_0.png"
-         }
-      },
-      "5":{
-         "name":"Barazushi Wrap",
-         "typ":"Clothing",
-         "image":"https://splatoon3.ink/assets/splatnet/gear_img/ef70c91fe43b4ccc9e129cd5fa31c6cd76f391e652570ed6a1d91c9452c71890_0.png",
-         "primaryGearPower":{
-            "name":"Ink Recovery Up",
-            "image":"https://splatoon3.ink/assets/splatnet/skill_img/29b845ea895b931bfaf895e0161aeb47166cbf05f94f04601769c885d019073b_0.png"
-         },
-         "additionalGearPowers":[
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            },
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            },
-            {
-               "name":"Unknown",
-               "image":"https://splatoon3.ink/assets/splatnet/skill_img/dc937b59892604f5a86ac96936cd7ff09e25f18ae6b758e8014a24c7fa039e91_0.png"
-            }
-         ],
-         "price":10800,
-         "saleEnd":"2022-12-30T20:00:00Z",
-         "brand":{
-            "name":"Barazushi",
-            "image":"https://splatoon3.ink/assets/splatnet/brand_img/d614cbb672fe000ee39c1919e5b034f2e55b702cafaff1a7cc5f37dcf7ad1024_0.png"
-         }
-      }
+   EU: {
+      title: 'Which flavor of ice cream is best?',
+      startTime: '2023-07-15T00:00:00Z',
+      endTime: '2023-07-17T00:00:00Z',
+      state: 'SECOND_HALF',
+      teams: { '0': [Object], '1': [Object], '2': [Object] }
+   },
+   JP: {
+      title: 'Which flavor of ice cream is best?',
+      startTime: '2023-07-15T00:00:00Z',
+      endTime: '2023-07-17T00:00:00Z',
+      state: 'SECOND_HALF',
+      teams: { '0': [Object], '1': [Object], '2': [Object] }
+   },
+   AP: {
+      title: 'Which flavor of ice cream is best?',
+      startTime: '2023-07-15T00:00:00Z',
+      endTime: '2023-07-17T00:00:00Z',
+      state: 'SECOND_HALF',
+      teams: { '0': [Object], '1': [Object], '2': [Object] }
    }
 }
 ```
@@ -586,7 +508,7 @@ Splatoon3.getUpcomingSplatfests(res => {
 - **JP:** Japan
 - **AP:** Hong Kong, South Korea (Asia/Pacific)
 
-Please note, that the Hexcolors can be a bit off the real colors. If you want the most accurate colors, you should use RGBA.
+Please note that the hexcolors may differ a little from the real colors. If you want the most accurate colors, you should use RGBA.
 
 It should return something like this:
 ```js
@@ -718,7 +640,7 @@ Splatoon3.getPastSplatfests(res => {
 - **JP:** Japan
 - **AP:** Hong Kong, South Korea (Asia/Pacific)
 
-Please note, that the Hexcolors can be a bit off the real colors. If you want the most accurate colors, you should use RGBA.
+Please note that the hexcolors may differ a little from the real colors. If you want the most accurate colors, you should use RGBA.
 
 It should return something like this:
 ```js
