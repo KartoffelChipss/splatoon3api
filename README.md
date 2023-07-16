@@ -76,7 +76,8 @@ It should return something like this:
       name: 'Sturgeon Shipyard',
       image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/48684c69d5c5a4ffaf16b712a4895545a8d01196115d514fc878ce99863bb3e9_1.png'
     },
-    rules: 'Turf War'
+    rules: 'Turf War',
+   rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
   },
   ranked: {
     series: {
@@ -90,7 +91,8 @@ It should return something like this:
           name: 'Wahoo World',
           image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
       },
-      rules: 'Splat Zones'
+      rules: 'Splat Zones',
+   rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
     },
     open: {
       start_time: '2022-10-02T16:00:00Z',
@@ -103,7 +105,8 @@ It should return something like this:
           name: 'Mahi-Mahi Resort',
           image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/8273118c1ffe1bf6fe031c7d8c9795dab52632c9b76e8e9f01f644ac5ae0ccc0_1.png'
       },
-      rules: 'Rainmaker'
+      rules: 'Rainmaker',
+   rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
     }
   },
   xbattle: {
@@ -117,10 +120,34 @@ It should return something like this:
       name: 'Wahoo World',
       image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
     },
-    rules: 'Rainmaker'
+    rules: 'Rainmaker',
+   rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
+  },
+  festSchedule: {
+    start_time: '2023-07-16T18:00:00Z',
+    end_time: '2023-07-16T20:00:00Z',
+    stage1: {
+      name: 'Kusaya-Quellen',
+      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/cd84d711b47a424334569ac20f33f8e0ab6a652dc07854dcd36508a0081e9034_1.png'
+    },
+    stage2: {
+      name: 'Pinakoithek',
+      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png'
+    },
+    rules: 'Turf War',
+   rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
+  },
+  triColorStage: {
+    start_time: '2023-07-15T00:00:00Z',
+    end_time: '2023-07-17T00:00:00Z',
+    name: 'Barnacle & Dime',
+    image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/high_resolution/f70e9f5af477a39ccfab631bfb81c9e2cedb4cd0947fe260847c214a6d23695f_0.png',
+    rulesImg: "https://file.strassburger.org/tricolor.svg",
   }
 }
 ```
+
+If a certain schedule is not available (e.g. regular schedules during a splatfest), it returns `null`.
 
 ---
 
@@ -146,7 +173,8 @@ It should return something like this:
       name: 'Wahoo World',
       image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
     },
-    rules: 'Turf War'
+    rules: 'Turf War',
+    rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
   },
   ranked: {
     series: {
@@ -160,7 +188,8 @@ It should return something like this:
           name: 'MakoMart',
           image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/a8ba96c3dbd015b7bc6ea4fa067245c4e9aee62b6696cb41e02d35139dd21fe7_1.png'
       },
-      rules: 'Tower Control'
+      rules: 'Tower Control',
+      rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
     },
     open: {
       start_time: '2022-10-02T18:00:00Z',
@@ -173,7 +202,8 @@ It should return something like this:
           name: 'Sturgeon Shipyard',
           image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/48684c69d5c5a4ffaf16b712a4895545a8d01196115d514fc878ce99863bb3e9_1.png'
       },
-      rules: 'Clam Blitz'
+      rules: 'Clam Blitz',
+      rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
     }
   },
   xbattle: {
@@ -187,10 +217,35 @@ It should return something like this:
       name: 'Inkblot Art Academy',
       image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/40aba8b36a9439e2d670fde5b3478819ea8a94f9e503b9d783248a5716786f35_1.png'
     },
-    rules: 'Clam Blitz'
+    rules: 'Clam Blitz',
+    rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
+  },
+  festSchedule: {
+    start_time: '2023-07-16T22:00:00Z',
+    end_time: '2023-07-17T00:00:00Z',
+    stage1: {
+      name: 'Hagglefish Market',
+      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/8dc2f16d39c630bab40cead5b2485ca3559e829d0d3de0c2232c7a62fefb5fa9_1.png'
+    },
+    stage2: {
+      name: 'Wahoo World',
+      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+    },
+    rules: 'Turf War',
+    rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
+  },
+  triColorStage: {
+    start_time: '2023-07-15T00:00:00Z',
+    end_time: '2023-07-17T00:00:00Z',
+    name: 'Barnacle & Dime',
+    image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/high_resolution/f70e9f5af477a39ccfab631bfb81c9e2cedb4cd0947fe260847c214a6d23695f_0.png',
+    rulesImg: "https://file.strassburger.org/tricolor.svg",
   }
 }
 ```
+
+If a certain schedule is not available (e.g. regular schedules during a splatfest), it returns `null`.
+
 ---
 
 ### Salmonrun Schedules
@@ -307,6 +362,7 @@ It should return something like this:
       desc: 'Trizooka-Trommelfeuer ohne Ende!',
       eventRule: 'Das Treffen der Trizooka-Taktiker! Wer wischt mit seiner Wumme den Gegner weg?<br /><br />・ Nur Waffen-Sets mit der Trizooka als Spezialwaffe.<br />・ Die Spezialanzeige füllt sich rasch und ganz von selbst!<br />・ Nur Primäreffekte gelten! Sekundäreffekte sind inaktiv.',
       gameRule: 'Turm-Kommando',
+      gameRuleImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry',
       stages: [
          {
             name: 'Pinakoithek',
@@ -337,6 +393,7 @@ It should return something like this:
     desc: 'Spaß und Chaos mit Zufallswaffen!',
     eventRule: '„Mein ganzes Sortiment steht zur Verfügung! Ich hoffe, jeder findet neue Favoriten!“<br /> - Euer Arty<br /><br />・ Alle Spieler erhalten ein zufälliges Waffen-Set.<br />・ Arty verleiht sein ganzes Sortiment. Welche Waffen du bereits von ihm erworben hast, spielt keine Rolle!',
     gameRule: 'Herrschaft',
+    gameRuleImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry',
     stages: [ [Object], [Object] ],
     timePeriods: [ [Object], [Object], [Object] ]
   }
