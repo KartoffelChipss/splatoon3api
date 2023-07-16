@@ -4,6 +4,19 @@ Here, you will find all notabled changes that have been made to this project.
 
 ---
 
+## 1.4.2 - 2023-07-16
+
+### Added
+
+### Changed
+- Removed `getWeapons` method
+
+### Fixed
+- Fixed `getChallenges` timeout
+- Removed unnecessary comments
+
+---
+
 ## 1.4.1 - 2023-07-16
 
 ### Added

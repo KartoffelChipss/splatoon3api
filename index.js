@@ -14,6 +14,8 @@ const lennyWeaponsURL = "https://leanny.github.io/data/Mush/latest/WeaponInfo_Ma
 
 const gearTypeLang = require("./lang/gearTypeLang.json");
 
+
+// https://stackoverflow.com/a/73401564
 function RGBAToHexA(rgba, forceRemoveAlpha = false) {
     return "#" + rgba.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
         .split(',') // splits them at ","
@@ -29,7 +31,7 @@ var wait = (ms) => {
     const start = Date.now();
     let now = start;
     while (now - start < ms) {
-      now = Date.now();
+        now = Date.now();
     }
 }
 
@@ -85,7 +87,9 @@ function getLennyLangString(lang) {
 
 class Client {
 	constructor(lang) {
-		if(!lang) {lang = "en-GB"}
+		if(!lang || typeof lang != 'string' || !lang.includes("-")) lang = "en-GB";
+
+        lang = lang.split("-")[0].toLowerCase() + "-" + lang.split("-")[1].toUpperCase()
 
         this.lennyLang = "EUen";
 
@@ -139,54 +143,50 @@ class Client {
                 })
         })
 
-        fetch(`https://leanny.github.io/data/Languages/lang_dict_${this.lennyLang}.json`)
-                .catch(err => console.error(err))
-                .then(res => res.json())
-                .then(json => {
-                    this.lennyLangIsResolved = true;
-                    this.lennyTranslation = json;
-                })
+        // fetch(`https://leanny.github.io/data/Languages/lang_dict_${this.lennyLang}.json`)
+        //         .catch(err => console.error(err))
+        //         .then(res => res.json())
+        //         .then(json => {
+        //             this.lennyLangIsResolved = true;
+        //             this.lennyTranslation = json;
+        //         })
 	}
 
-    getWeapons(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        let timeOutTime = 0;
-        if (!this.lennyLangIsResolved) timeOutTime = 500;
-        setTimeout(() => {
-            fetch(lennyWeaponsURL)
-                .catch(err => console.error(err))
-                .then(res => res.json())
-                .then(json => {
-                    let translation = this.lennyTranslation
-                    let data = []
+    // getWeapons(callback) {
+	// 	if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+    //     let timeOutTime = 0;
+    //     if (!this.lennyLangIsResolved) timeOutTime = 500;
+    //     setTimeout(() => {
+    //         fetch(lennyWeaponsURL)
+    //             .catch(err => console.error(err))
+    //             .then(res => res.json())
+    //             .then(json => {
+    //                 let translation = this.lennyTranslation
+    //                 let data = []
 
-                    json.forEach((weapon, index) => {
-                        let weaponObject = {
-                            name: this.lennyTranslation[weapon.Name],
-                            image: `https://leanny.github.io/splat3/images/weapon_flat/Path_Wst_${weapon.Name}.webp`,
-                            sub: {
-                                name: this.lennyTranslation[weapon.Sub],
-                                image: `https://leanny.github.io/splat3/images/subspe/Wsb_${weapon.Sub}00.webp`,
-                            },
-                            special: {
-                                name: this.lennyTranslation[weapon.Special],
-                                image: weapon.Special,
-                            }
-                        }
+    //                 json.forEach((weapon, index) => {
+    //                     let weaponObject = {
+    //                         name: this.lennyTranslation[weapon.Name],
+    //                         image: `https://leanny.github.io/splat3/images/weapon_flat/Path_Wst_${weapon.Name}.webp`,
+    //                         sub: {
+    //                             name: this.lennyTranslation[weapon.Sub],
+    //                             image: `https://leanny.github.io/splat3/images/subspe/Wsb_${weapon.Sub}00.webp`,
+    //                         },
+    //                         special: {
+    //                             name: this.lennyTranslation[weapon.Special],
+    //                             image: weapon.Special,
+    //                         }
+    //                     }
 
-                        data.push(weaponObject)
-                    })
-
-                    return callback(data);
-                })
-        }, timeOutTime)
-    }
+    //                     data.push(weaponObject)
+    //                 })
+    //                 return callback(data);
+    //             })
+    //     }, timeOutTime)
+    // }
 
 	getCurrentStages(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        // let timeOutTime = 0;
-        // if (!this.langIsResolved) timeOutTime = 500;
-        //setTimeout(() => {
         this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
@@ -266,15 +266,11 @@ class Client {
 
                     return callback(data);
                 });
-        //}, timeOutTime)
         });
 	}
 
 	getNextStages(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        // let timeOutTime = 0;
-        // if (!this.langIsResolved) timeOutTime = 500;
-        //setTimeout(() => {
         this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
@@ -351,15 +347,11 @@ class Client {
                     }
                     return callback(data);
                 });
-        //}, timeOutTime)
         })
 	}
 
     getChallenges(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        // let timeOutTime = 0;
-        // if (!this.langIsResolved) timeOutTime = 500;
-        //setTimeout(() => {
         this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
@@ -396,7 +388,7 @@ class Client {
 
                     return callback(data);
                 });
-        }, timeOutTime)
+        })
 	}
 
 	getSalmonRun(callback) {
@@ -488,15 +480,11 @@ class Client {
                             return callback(data);
                         });
                 });
-        //}, timeOutTime)
         })
     }
 
     getSplatnetGear(callback) {
 		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-        // let timeOutTime = 0;
-        // if (!this.langIsResolved) timeOutTime = 500;
-        //setTimeout(() => {
         this.langPromise.then((langData) => {
             fetch(gearURL)
                 .catch(err => console.error(err))
@@ -709,7 +697,6 @@ class Client {
 
                     return callback(data);
                 });
-        //}, timeOutTime)
         })
 	}
 
