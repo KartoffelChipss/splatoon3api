@@ -17,8 +17,8 @@ const gearTypeLang = require("./lang/gearTypeLang.json");
 const ruleImg_turfwar = "https://splatoon3.ink/assets/regular.81d2e9e4.svg";
 const ruleImg_rainmaker = "https://splatoon3.ink/assets/hoko.e3dce940.svg";
 const ruleImg_clamblitz = "https://splatoon3.ink/assets/asari.83043125.svg";
-const ruleImg_splatzones = "https://file.strassburger.org/splatzones.svg";
-const ruleImg_towercontrol = "https://file.strassburger.org/towercontrol.svg";
+const ruleImg_splatzones = "https://splatoon3.ink/assets/area.02968ae6.svg";
+const ruleImg_towercontrol = "https://splatoon3.ink/assets/yagura.3d64cf2c.svg";
 
 function getImageFromRuleId(ruleId) {
     if (ruleId === "VnNSdWxlLTQ=") return ruleImg_clamblitz;

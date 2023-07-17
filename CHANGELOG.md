@@ -2,6 +2,17 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.4.4 - 2023-07-17
+
+### Added
+
+### Changed
+- Changed splatzones and towercontrol images
+
+### Fixed
+
+---
+
 ---
 
 ## 1.4.3 - 2023-07-16
