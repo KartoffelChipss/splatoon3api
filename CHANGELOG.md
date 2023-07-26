@@ -2,6 +2,17 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.4.5 - 2023-07-17
+
+### Added
+- Added `getStages()` method to get all upcoming stages for each gamemode
+
+### Changed
+
+### Fixed
+
+---
+
 ## 1.4.4 - 2023-07-17
 
 ### Added

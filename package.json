@@ -1,6 +1,6 @@
 {
   "name": "splatoon3api",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A simple Method to get current and next Splatoon 3 maps, Salmonrun Schedules and Splatnet gear",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,16 @@
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.7"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/KartoffelChipss/splatoon3api/issues "
+  },
+  "homepage": "https://www.npmjs.com/package/splatoon3api",
+  "readme": "README.md",
+  "funding": [
+    {
+      "type": "buymeacoffee",
+      "url": "https://www.buymeacoffee.com/kartoffelchips"
+    }
+  ]
 }

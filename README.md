@@ -1,18 +1,22 @@
 # Splatoon3api
-Splatoon3api is a simple library to get the current and next Splatoon 3 Maps (rotations), Salmonruns and Splatnet gear. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). It is an updated and modified version of [vincent-coding's Splatoon2api](https://github.com/vincent-coding/Splatoon2api). Splatoon3api is available in eight different languages ([List of available languages](#languages))
+Splatoon3api is a simple library to get the current and next Splatoon 3 Maps (rotations), Salmonruns, Challenges, Splatfests and Splatnet gear. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). Splatoon3api is available in eight different languages ([List of available languages](#languages))
 
 [![npm](https://img.shields.io/npm/dm/splatoon3api?label=Downloads)](https://www.npmjs.com/package/splatoon3api) [![npm](https://img.shields.io/npm/v/splatoon3api?label=Version)](https://www.npmjs.com/package/splatoon3api) [![Discord](https://img.shields.io/discord/990295419005333554?color=%23738ADB&label=Discord)](https://discord.com/invite/Cc76tYwXvy)
 
-Splatoon3api is now also supporting the new maps and X-Battles!
-
 If you have trouble with this package, feel free to ask me in my [Discord](https://discord.com/invite/Cc76tYwXvy).
+
+If you would like to support the development of this package, please consider buying me a tea!
+
+<a href="https://www.buymeacoffee.com/kartoffelchips"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=🍵&slug=kartoffelchips&button_colour=40DCA5&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" height="38px"/></a>
 
 ## Table of contents
  - [Installation](#installation)
  - [Usage](#usage)
     - [Languages](#languages)
-    - [Current stages](#current-stages)
-    - [Next stages](#next-stages)
+    - [Stages](#all-stages)
+      - [All Stages](#all-stages)
+      - [Current stages](#current-stages)
+      - [Next stages](#next-stages)
     - [Salmonrun](#salmonrun-schedules)
     - [Challenges](#challenges)
     - [Splatnet gear](#splatnet-gear)
@@ -55,6 +59,155 @@ Once you have done this, you can use all the following functions as you like.
 
 ---
 
+### All Stages
+To get 11 upcoming and the current stages for Turf War, Ranked, XBattle, and Splatfest, you can use the `getStages()` function:
+```js
+Splatoon3.getStages(res => {
+  console.log(res);
+});
+```
+It should return something like this:
+```js
+{
+  regular: [
+    {
+      start_time: '2023-07-26T06:00:00Z',
+      end_time: '2023-07-26T08:00:00Z',
+      stage1: {
+         name: 'Scorch Gorge',
+         image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png'
+      },
+      stage2: {
+         name: 'Wahoo World',
+         image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+      },
+      rules: 'Turf War',
+      rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
+    },
+    {
+      start_time: '2023-07-26T08:00:00Z',
+      end_time: '2023-07-26T10:00:00Z',
+      stage1: [Object],
+      stage2: [Object],
+      rules: 'Turf War',
+      rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
+    },
+    {
+      start_time: '2023-07-26T10:00:00Z',
+      end_time: '2023-07-26T12:00:00Z',
+      stage1: [Object],
+      stage2: [Object],
+      rules: 'Turf War',
+      rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
+    },
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object]
+  ],
+  ranked: [
+    { 
+      series: {
+         start_time: '2022-10-02T16:00:00Z',
+         end_time: '2022-10-02T18:00:00Z',
+         stage1: {
+            name: 'Scorch Gorge',
+            image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png'
+         },
+         stage2: {
+            name: 'Wahoo World',
+            image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+         },
+         rules: 'Splat Zones',
+         rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
+      },
+      open: {
+         start_time: '2022-10-02T16:00:00Z',
+         end_time: '2022-10-02T18:00:00Z',
+         stage1: {
+            name: 'Undertow Spillway',
+            image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/9b1c17b2075479d0397d2fb96efbc6fa3a28900712920e5fe1e9dfc59c6abc5c_1.png'
+         },
+         stage2: {
+            name: 'Mahi-Mahi Resort',
+            image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/8273118c1ffe1bf6fe031c7d8c9795dab52632c9b76e8e9f01f644ac5ae0ccc0_1.png'
+         },
+         rules: 'Rainmaker',
+         rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
+      }
+   },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] },
+    { series: [Object], open: [Object] }
+  ],
+  xbattle: [
+    {
+      start_time: '2023-07-26T06:00:00Z',
+      end_time: '2023-07-26T08:00:00Z',
+      stage1: {
+         name: 'Scorch Gorge',
+         image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/35f9ca08ccc2bf759774ab2cb886567c117b9287875ca92fb590c1294ddcdc1e_1.png'
+      },
+      stage2: {
+         name: 'Wahoo World',
+         image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+      },
+      rules: 'Tower Control',
+      rulesImg: 'https://splatoon3.ink/assets/yagura.3d64cf2c.svg'
+    },
+    {
+      start_time: '2023-07-26T08:00:00Z',
+      end_time: '2023-07-26T10:00:00Z',
+      stage1: [Object],
+      stage2: [Object],
+      rules: 'Splat Zones',
+      rulesImg: 'https://splatoon3.ink/assets/area.02968ae6.svg'
+    },
+    {
+      start_time: '2023-07-26T10:00:00Z',
+      end_time: '2023-07-26T12:00:00Z',
+      stage1: [Object],
+      stage2: [Object],
+      rules: 'Rainmaker',
+      rulesImg: 'https://splatoon3.ink/assets/hoko.e3dce940.svg'
+    },
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object],
+    [Object]
+  ],
+  festSchedule: [
+    null, null, null,
+    null, null, null,
+    null, null, null,
+    null, null, null
+  ],
+  triColorStage: null
+}
+```
+
+If a certain schedule is not available (e.g. regular schedules during a splatfest), it returns `null`.
+
+---
+
 ### Current Stages
 To get the current Turf War and Ranked maps, you can use the `getCurrentStages()` function:
 ```js
@@ -92,7 +245,7 @@ It should return something like this:
           image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
       },
       rules: 'Splat Zones',
-   rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
+      rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
     },
     open: {
       start_time: '2022-10-02T16:00:00Z',
@@ -106,7 +259,7 @@ It should return something like this:
           image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/8273118c1ffe1bf6fe031c7d8c9795dab52632c9b76e8e9f01f644ac5ae0ccc0_1.png'
       },
       rules: 'Rainmaker',
-   rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
+      rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
     }
   },
   xbattle: {
