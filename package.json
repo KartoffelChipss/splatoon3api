@@ -1,6 +1,6 @@
 {
   "name": "splatoon3api",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "A simple Method to get current and next Splatoon 3 maps, Salmonrun Schedules and Splatnet gear",
   "main": "index.js",
   "scripts": {

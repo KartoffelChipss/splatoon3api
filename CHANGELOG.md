@@ -2,6 +2,17 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.4.6 - 2023-09-08
+
+### Added
+
+### Changed
+
+### Fixed
+- Fixed Tricolor stage name bug
+
+---
+
 ## 1.4.5 - 2023-07-17
 
 ### Added
