@@ -32,12 +32,6 @@
   },
   "homepage": "https://www.npmjs.com/package/splatoon3api",
   "readme": "README.md",
-  "funding": [
-    {
-      "type": "buymeacoffee",
-      "url": "https://www.buymeacoffee.com/kartoffelchips"
-    }
-  ],
   "devDependencies": {
     "ts-migrate": "^0.1.35"
   }
