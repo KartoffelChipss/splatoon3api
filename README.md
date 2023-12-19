@@ -7,8 +7,6 @@ If you have trouble with this package, feel free to ask me in my [Discord](https
 
 If you would like to support the development of this package, please consider buying me a tea!
 
-<a href="https://www.buymeacoffee.com/kartoffelchips"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=🍵&slug=kartoffelchips&button_colour=40DCA5&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" height="38px"/></a>
-
 ## Table of contents
  - [Installation](#installation)
  - [Usage](#usage)
