@@ -2,6 +2,15 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.4.8 - 2023-12-28
+
+### Added
+
+### Changed
+
+### Fixed
+- Fixed current Splatfests not returning anything
+
 ## 1.4.7 - 2023-12-28
 
 ### Added

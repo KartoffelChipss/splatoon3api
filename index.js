@@ -1098,6 +1098,8 @@ class Client {
                             }
                         })
                     })
+
+                    return callback(data);
                 });
         })
     }
