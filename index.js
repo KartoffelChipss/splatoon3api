@@ -983,12 +983,12 @@ class Client {
                             if (fest.state !== "CLOSED") return;
 
                             data[region].push({
-                                title: this.translation.festivals[fest.__splatoon3ink_id].title,
+                                title: this.translation.festivals[fest.__splatoon3ink_id]?.title ?? "",
                                 startTime: fest.startTime,
                                 endTime: fest.endTime,
                                 teams: {
                                     0: {
-                                        teamName: this.translation.festivals[fest.__splatoon3ink_id].teams[0].teamName,
+                                        teamName: this.translation.festivals[fest.__splatoon3ink_id]?.teams[0]?.teamName ?? "",
                                         image: fest.teams[0].image.url,
                                         color: `rgba(${fest.teams[0].color.r * 255}, ${fest.teams[0].color.g * 255}, ${fest.teams[0].color.b * 255}, ${fest.teams[0].color.a})`,
                                         colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[0].color.r * 255)}, ${Math.floor(fest.teams[0].color.g * 255)}, ${Math.floor(fest.teams[0].color.b * 255)}, ${Math.floor(fest.teams[0].color.a)})`),
@@ -1006,7 +1006,7 @@ class Client {
                                         }
                                     },
                                     1: {
-                                        teamName: this.translation.festivals[fest.__splatoon3ink_id].teams[1].teamName,
+                                        teamName: this.translation.festivals[fest.__splatoon3ink_id]?.teams[1]?.teamName ?? "",
                                         image: fest.teams[1].image.url,
                                         color: `rgba(${fest.teams[1].color.r * 255}, ${fest.teams[1].color.g * 255}, ${fest.teams[1].color.b * 255}, ${fest.teams[1].color.a})`,
                                         colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[1].color.r * 255)}, ${Math.floor(fest.teams[1].color.g * 255)}, ${Math.floor(fest.teams[1].color.b * 255)}, ${Math.floor(fest.teams[1].color.a)})`),
@@ -1024,7 +1024,7 @@ class Client {
                                         }
                                     },
                                     2: {
-                                        teamName: this.translation.festivals[fest.__splatoon3ink_id].teams[2].teamName,
+                                        teamName: this.translation.festivals[fest.__splatoon3ink_id]?.teams[2]?.teamName ?? "",
                                         image: fest.teams[2].image.url,
                                         color: `rgba(${fest.teams[2].color.r * 255}, ${fest.teams[2].color.g * 255}, ${fest.teams[2].color.b * 255}, ${fest.teams[2].color.a})`,
                                         colorHEX: RGBAToHexA(`rgba(${Math.floor(fest.teams[2].color.r * 255)}, ${Math.floor(fest.teams[2].color.g * 255)}, ${Math.floor(fest.teams[2].color.b * 255)}, ${Math.floor(fest.teams[2].color.a)})`),

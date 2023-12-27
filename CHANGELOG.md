@@ -2,6 +2,15 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.4.7 - 2023-12-28
+
+### Added
+
+### Changed
+
+### Fixed
+- Fixed possible missing translations for Splatfests
+
 ## 1.4.6 - 2023-09-08
 
 ### Added
