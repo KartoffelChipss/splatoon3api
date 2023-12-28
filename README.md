@@ -874,7 +874,9 @@ It should return something like this:
                   "regularContributionRatio":0.33411,
                   "isRegularContributionTop":false,
                   "proModeContributionRatio":0.33591,
-                  "isProModeContributionTop":false
+                  "isProModeContributionTop":false,
+                  "tricolorContributionRatio": 0.32641000000000003,
+                  "isTricolorContributionRatioTop": false
                }
             },
             "1":{
@@ -892,7 +894,9 @@ It should return something like this:
                   "regularContributionRatio":0.32751,
                   "isRegularContributionTop":false,
                   "proModeContributionRatio":0.30551,
-                  "isProModeContributionTop":false
+                  "isProModeContributionTop":false,
+                  "tricolorContributionRatio": 0.32891000000000004,
+                  "isTricolorContributionRatioTop": false
                }
             },
             "2":{
@@ -910,7 +914,9 @@ It should return something like this:
                   "regularContributionRatio":0.33841,
                   "isRegularContributionTop":true,
                   "proModeContributionRatio":0.35861,
-                  "isProModeContributionTop":true
+                  "isProModeContributionTop":true,
+                  "tricolorContributionRatio": 0.34471,
+                  "isTricolorContributionRatioTop": true
                }
             }
          }

@@ -1003,6 +1003,8 @@ class Client {
                                             isRegularContributionTop: fest.teams[0].result.isRegularContributionRatioTop,
                                             proModeContributionRatio: fest.teams[0].result.challengeContributionRatio,
                                             isProModeContributionTop: fest.teams[0].result.isChallengeContributionRatioTop,
+                                            tricolorContributionRatio: fest.teams[0].result.tricolorContributionRatio,
+                                            isTricolorContributionRatioTop: fest.teams[0].result.isTricolorContributionRatioTop,
                                         }
                                     },
                                     1: {
@@ -1021,6 +1023,8 @@ class Client {
                                             isRegularContributionTop: fest.teams[1].result.isRegularContributionRatioTop,
                                             proModeContributionRatio: fest.teams[1].result.challengeContributionRatio,
                                             isProModeContributionTop: fest.teams[1].result.isChallengeContributionRatioTop,
+                                            tricolorContributionRatio: fest.teams[1].result.tricolorContributionRatio,
+                                            isTricolorContributionRatioTop: fest.teams[1].result.isTricolorContributionRatioTop,
                                         }
                                     },
                                     2: {
@@ -1039,6 +1043,8 @@ class Client {
                                             isRegularContributionTop: fest.teams[2].result.isRegularContributionRatioTop,
                                             proModeContributionRatio: fest.teams[2].result.challengeContributionRatio,
                                             isProModeContributionTop: fest.teams[2].result.isChallengeContributionRatioTop,
+                                            tricolorContributionRatio: fest.teams[2].result.tricolorContributionRatio,
+                                            isTricolorContributionRatioTop: fest.teams[2].result.isTricolorContributionRatioTop,
                                         }
                                     }
                                 }
