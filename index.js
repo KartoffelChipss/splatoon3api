@@ -2,15 +2,15 @@ const fetch = require('node-fetch/');
 // If the above does not work, use this instead:
 // const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
+/**
+ * @typedef {'de-DE' | 'en-GB' | 'en-US' | 'es-ES' | 'es-MX' | 'fr-FR' | 'fr-CA' | 'it-IT' | 'ja-JP' | 'ko-KR' | 'nl-NL' | 'ru-RU' | 'zh-CN' | 'zh-TW'} Lang
+ */
 const compatibleLanguages = ["de-DE", "en-GB", "en-US", "es-ES", "es-MX", "fr-FR", "fr-CA", "it-IT", "ja-JP", "ko-KR", "nl-NL", "ru-RU", "zh-CN", "zh-TW"];
-const oldCompatibleLanguages = ["en", "de", "nl", "fr", "es", "it", "ru", "jp"];
 
 const schedulesURL = "https://splatoon3.ink/data/schedules.json";
 const salmonGearURL = "https://splatoon3.ink/data/coop.json";
 const gearURL = "https://splatoon3.ink/data/gear.json";
 const festURL = "https://splatoon3.ink/data/festivals.json";
-
-const lennyWeaponsURL = "https://leanny.github.io/data/Mush/latest/WeaponInfo_Main.json";
 
 const gearTypeLang = require("./lang/gearTypeLang.json");
 
@@ -40,74 +40,18 @@ function RGBAToHexA(rgba, forceRemoveAlpha = false) {
         .join("") // Puts the array to togehter to a string
 }
 
-var wait = (ms) => {
-    const start = Date.now();
-    let now = start;
-    while (now - start < ms) {
-        now = Date.now();
-    }
-}
-
-function getLennyLangString(lang) {
-    switch(lang.toLowerCase()) {
-        case "en-us":
-            return "USen";
-            break;
-        case "en-GB":
-            return "EUen"
-            break;
-        case "nl-nl":
-            return "EUnl"
-            break;
-        case "de-de":
-            return "EUde"
-            break;
-        case "fr-fr":
-            return "EUfr"
-            break;
-        case "fr-ca":
-            return "USfr"
-            break;
-        case "es-es":
-            return "EUes"
-            break;
-        case "es-mx":
-            return "USes"
-            break;
-        case "it-it":
-            return "EUit"
-            break;
-        case "ru-ru":
-            return "EUru"
-            break;
-        case "ja-jp":
-            return "JPja"
-            break;
-        case "ko-kr":
-            return "EUen"
-            break;
-        case "zh-cn":
-            return "EUen"
-            break;
-        case "zh-tw":
-            return "EUen"
-            break;
-        default:
-            return "EUen"
-            break;
-    }
-}
-
 class Client {
-	constructor(lang) {
-		if(!lang || typeof lang != 'string' || !lang.includes("-")) lang = "en-GB";
+
+    /**
+     * @param {Lang} lang - The language for map names, challenge descriptions etc.
+     */
+    constructor(lang) {
+        if (!lang || typeof lang != 'string' || !lang.includes("-")) lang = "en-GB";
 
         lang = lang.split("-")[0].toLowerCase() + "-" + lang.split("-")[1].toUpperCase()
 
-        this.lennyLang = "EUen";
-
         if (!compatibleLanguages.includes(lang)) {
-            switch(lang.toLowerCase()) {
+            switch (lang.toLowerCase()) {
                 case "en":
                     lang = "en-GB";
                     break;
@@ -140,10 +84,7 @@ class Client {
 
         this.lang = lang;
 
-        this.lennyLang = getLennyLangString(lang)
-    
         this.langIsResolved = false;
-        this.lennyLangIsResolved = false;
 
         this.langPromise = new Promise((resolve, reject) => {
             fetch(`https://splatoon3.ink/data/locale/${lang}.json`)
@@ -155,51 +96,77 @@ class Client {
                     resolve(json);
                 })
         })
+    }
 
-        // fetch(`https://leanny.github.io/data/Languages/lang_dict_${this.lennyLang}.json`)
-        //         .catch(err => console.error(err))
-        //         .then(res => res.json())
-        //         .then(json => {
-        //             this.lennyLangIsResolved = true;
-        //             this.lennyTranslation = json;
-        //         })
-	}
+    /**
+     * @typedef {'Turf War' | 'Splat Zones' | 'Rainmaker' | 'Clam Blitz'} SplatRules
+     */
 
-    // getWeapons(callback) {
-	// 	if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
-    //     let timeOutTime = 0;
-    //     if (!this.lennyLangIsResolved) timeOutTime = 500;
-    //     setTimeout(() => {
-    //         fetch(lennyWeaponsURL)
-    //             .catch(err => console.error(err))
-    //             .then(res => res.json())
-    //             .then(json => {
-    //                 let translation = this.lennyTranslation
-    //                 let data = []
+    /**
+     * @typedef {'US' | 'EU' | 'JP' | 'AP'} FestRegion
+     */
 
-    //                 json.forEach((weapon, index) => {
-    //                     let weaponObject = {
-    //                         name: this.lennyTranslation[weapon.Name],
-    //                         image: `https://leanny.github.io/splat3/images/weapon_flat/Path_Wst_${weapon.Name}.webp`,
-    //                         sub: {
-    //                             name: this.lennyTranslation[weapon.Sub],
-    //                             image: `https://leanny.github.io/splat3/images/subspe/Wsb_${weapon.Sub}00.webp`,
-    //                         },
-    //                         special: {
-    //                             name: this.lennyTranslation[weapon.Special],
-    //                             image: weapon.Special,
-    //                         }
-    //                     }
+    /**
+     * @typedef {Object} SplatGearpower
+     * @property {string} name - The name of the power
+     * @property {string} image - The URL for the icon of the power
+     */
 
-    //                     data.push(weaponObject)
-    //                 })
-    //                 return callback(data);
-    //             })
-    //     }, timeOutTime)
-    // }
+    /**
+     * @typedef {Object} SplatStage
+     * @property {string} name - The name of the map.
+     * @property {string} image - URL of the preview image.
+     */
 
+    /**
+     * @typedef {Object} SplatTricolorStage
+     * @property {string} start_time - The time when the rotation starts (e.g. "2022-10-02T16:00:00Z")
+     * @property {string} end_time - The time when the rotation ends
+     * @property {string} name - The name of the map.
+     * @property {string} image - URL of the preview image.
+     * @property {string} rulesImg - Url for the rules logo
+     */
+
+    /**
+     * @typedef {Object} SplatRotation
+     * @property {string} start_time - The time when the rotation starts (e.g. "2022-10-02T16:00:00Z")
+     * @property {string} end_time - The time when the rotation ends
+     * @property {SplatStage} stage1 - First map
+     * @property {SplatStage} stage2 - Second map
+     * @property {SplatRules} rules - The game rules (e.g. "Rainmaker")
+     * @property {string} rulesImg - Url for the rules logo
+     */
+
+    /**
+     * @typedef {Object} RankedModes
+     * @property {SplatRotation} series - The series rotations
+     * @property {SplatRotation} open - The open rotations
+     */
+
+    /**
+     * @typedef {Object} StagesResponse
+     * @property {SplatRotation} regular - Regular Battle rotation
+     * @property {RankedModes} ranked - Ranked Battle rotations
+     * @property {SplatRotation} xbattle - X-Battle rotation
+     * @property {SplatRotation} festSchedule - Normal fest schedules (Returns null if no stages available)
+     * @property {SplatTricolorStage} triColorStage - Tricolor stage (Returns null if no stages available)
+     */
+
+    /**
+     * @typedef {Object} AllStagesResponse
+     * @property {SplatRotation[]} regular - Regular Battle rotation
+     * @property {RankedModes[]} ranked - Ranked Battle rotations
+     * @property {SplatRotation[]} xbattle - X-Battle rotation
+     * @property {SplatRotation[]} festSchedule - Normal fest schedules (Returns null if no stages available)
+     * @property {SplatTricolorStage} triColorStage - Tricolor stage (Returns null if no stages available)
+     */
+
+    /**
+     * Get 11 upcoming and the current Turf War, Ranked and XBattle maps
+     * @param {function(AllStagesResponse)} callback - The callback function
+     */
     getStages(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
@@ -223,7 +190,7 @@ class Client {
                                     image: node.regularMatchSetting.vsStages[0].image.url
                                 },
                                 stage2: {
-                                name: translation.stages[node.regularMatchSetting.vsStages[1].id].name,
+                                    name: translation.stages[node.regularMatchSetting.vsStages[1].id].name,
                                     image: node.regularMatchSetting.vsStages[1].image.url
                                 },
                                 rules: translation.rules[node.regularMatchSetting.vsRule.id].name,
@@ -328,10 +295,14 @@ class Client {
                     return callback(data);
                 });
         });
-	}
+    }
 
-	getCurrentStages(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+    /**
+     * Get the current Turf War, Ranked and XBattle maps
+     * @param {function(StagesResponse)} callback - The callback function
+     */
+    getCurrentStages(callback) {
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
@@ -349,7 +320,7 @@ class Client {
                                 image: json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[0].image.url
                             },
                             stage2: {
-                            name: translation.stages[json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[1].id].name,
+                                name: translation.stages[json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[1].id].name,
                                 image: json.data.regularSchedules.nodes[0].regularMatchSetting.vsStages[1].image.url
                             },
                             rules: translation.rules[json.data.regularSchedules.nodes[0].regularMatchSetting.vsRule.id].name,
@@ -447,10 +418,14 @@ class Client {
                     return callback(data);
                 });
         });
-	}
+    }
 
-	getNextStages(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+    /**
+     * Get the upcoming Turf War, Ranked and XBattle maps
+     * @param {function(StagesResponse)} callback - The callback function
+     */
+    getNextStages(callback) {
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
@@ -466,7 +441,7 @@ class Client {
                                 image: json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[0].image.url
                             },
                             stage2: {
-                            name: this.translation.stages[json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[1].id].name,
+                                name: this.translation.stages[json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[1].id].name,
                                 image: json.data.regularSchedules.nodes[1].regularMatchSetting.vsStages[1].image.url
                             },
                             rules: this.translation.rules[json.data.regularSchedules.nodes[1].regularMatchSetting.vsRule.id].name,
@@ -520,7 +495,7 @@ class Client {
                                 image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[0].image.url
                             },
                             stage2: {
-                            name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].id].name,
+                                name: this.translation.stages[json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].id].name,
                                 image: json.data.xSchedules.nodes[1].xMatchSetting.vsStages[1].image.url
                             },
                             rules: this.translation.rules[json.data.xSchedules.nodes[1].xMatchSetting.vsRule.id].name,
@@ -539,7 +514,7 @@ class Client {
                                 image: json.data.festSchedules.nodes[1].festMatchSetting.vsStages[0].image.url
                             },
                             stage2: {
-                            name: this.translation.stages[json.data.festSchedules.nodes[1].festMatchSetting.vsStages[1].id].name,
+                                name: this.translation.stages[json.data.festSchedules.nodes[1].festMatchSetting.vsStages[1].id].name,
                                 image: json.data.festSchedules.nodes[1].festMatchSetting.vsStages[1].image.url
                             },
                             rules: this.translation.rules[json.data.festSchedules.nodes[1].festMatchSetting.vsRule.id].name,
@@ -564,10 +539,31 @@ class Client {
                     return callback(data);
                 });
         })
-	}
+    }
 
+    /**
+     * @typedef {Object} ChallengeTimePeriod
+     * @property {string} startTime - The time when the callenge starts (e.g. "2022-10-02T16:00:00Z")
+     * @property {string} endTime - The time when the callenge ends (e.g. "2022-10-02T16:00:00Z")
+     */
+
+    /**
+     * @typedef {Object} SplatChallenge
+     * @property {string} name - The name of the Challenge.
+     * @property {string} desc - The Description of the Challenge.
+     * @property {string} eventRule - The Rules of the Challenge.
+     * @property {SplatRules} gameRule - The game rules (e.g. "Rainmaker")
+     * @property {string} gameRuleImg - Url for the rules logo
+     * @property {SplatStage[]} stages - The stages you will be able to play on
+     * @property {ChallengeTimePeriod[]} timePeriods - The time periods in wich the Challenge will be available
+     */
+
+    /**
+     * Get the current challenges
+     * @param {function(SplatChallenge[])} callback - The callback function
+     */
     getChallenges(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         this.langPromise.then((langData) => {
             fetch(schedulesURL)
                 .catch(err => console.error(err))
@@ -606,10 +602,42 @@ class Client {
                     return callback(data);
                 });
         })
-	}
+    }
 
-	getSalmonRun(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+    /**
+     * @typedef {Object} SalmonMonthlygear
+     * @property {string} name - The name of the gear
+     * @property {string} type - The type of the gear (e.g. Headgear)
+     * @property {string} image - An image of the gear
+     */
+
+    /**
+     * @typedef {Object} SalmonRunWeapon
+     * @property {string} name - The name of the weapon.
+     * @property {string} image - The URL to the weapon image.
+     */
+
+    /**
+     * @typedef {Object} SalmonSchedule
+     * @property {string} start_time - The time when the Salmon run starts (e.g. 2023-06-22T00:00:00Z)
+     * @property {string} end_time - The time when the Salmon run ends (e.g. 2023-06-22T00:00:00Z)
+     * @property {SplatStage} stage - The salmon run stage
+     * @property {Object.<string, SalmonRunWeapon>} weapons - The weapons available
+     */
+
+    /**
+     * @typedef {Object} SalmonResult
+     * @property {Object.<string, SalmonSchedule>} regularSchedules - The regular schedules
+     * @property {Object.<string, SalmonSchedule>} bigRunSchedules - The big run schedules if there are any
+     * @property {SalmonMonthlygear} monthlyGear - The gear from salmonrun, that is available this month
+     */
+
+    /**
+     * To get the current and next Salmonruns Schedules
+     * @param {function(SalmonResult)} callback - The callback function
+     */
+    getSalmonRun(callback) {
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         // let timeOutTime = 0;
         // if (!this.langIsResolved) timeOutTime = 500;
         this.langPromise.then((langData) => {
@@ -624,7 +652,7 @@ class Client {
                         if (json.data.coopGroupingSchedule.regularSchedules.nodes[index]) {
                             data.regularSchedules[index] = {
                                 start_time: json.data.coopGroupingSchedule.regularSchedules.nodes[index].startTime,
-                                end_time:  json.data.coopGroupingSchedule.regularSchedules.nodes[index].endTime,
+                                end_time: json.data.coopGroupingSchedule.regularSchedules.nodes[index].endTime,
                                 stage: {
                                     name: this.translation.stages[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.coopStage.id].name,
                                     image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.coopStage.image.url
@@ -638,11 +666,11 @@ class Client {
                                         name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[1].__splatoon3ink_id].name,
                                         image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[1].image.url
                                     },
-                                        2: {
+                                    2: {
                                         name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[2].__splatoon3ink_id].name,
                                         image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[2].image.url
                                     },
-                                        3: {
+                                    3: {
                                         name: this.translation.weapons[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[3].__splatoon3ink_id].name,
                                         image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.weapons[3].image.url
                                     }
@@ -657,7 +685,7 @@ class Client {
                         if (json.data.coopGroupingSchedule.bigRunSchedules.nodes[index]) {
                             data.bigRunSchedules[index] = {
                                 start_time: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].startTime,
-                                end_time:  json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].endTime,
+                                end_time: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].endTime,
                                 stage: {
                                     name: this.translation.stages[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.coopStage.id].name,
                                     image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.coopStage.image.url
@@ -671,11 +699,11 @@ class Client {
                                         name: this.translation.weapons[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[1].__splatoon3ink_id].name,
                                         image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[1].image.url
                                     },
-                                        2: {
+                                    2: {
                                         name: this.translation.weapons[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[2].__splatoon3ink_id].name,
                                         image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[2].image.url
                                     },
-                                        3: {
+                                    3: {
                                         name: this.translation.weapons[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[3].__splatoon3ink_id].name,
                                         image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.weapons[3].image.url
                                     }
@@ -700,8 +728,56 @@ class Client {
         })
     }
 
+    /**
+     * @typedef {Object} SplatnetGearFeatured
+     * @property {string} name - The name of the gear item
+     * @property {string} type - The type of the gear item
+     * @property {string} image - The URL for the image of the gear item
+     * @property {SplatGearpower} primaryGearPower - The primary gear power
+     * @property {SplatGearpower[]} additionalGearPowers - Additional gear powers
+     * @property {number} price - The price of the gear item
+     * @property {string} saleEnd - Time when the item isn't for sale anymore (e.g. "2022-12-30T00:00:00Z")
+     */
+
+    /**
+     * @typedef {Object} Brand
+     * @property {string} name - The name of the brand
+     * @property {string} tyimagepe - The URL for the logo of the brand
+     */
+
+    /**
+     * @typedef {Object} SplatnetGear
+     * @property {string} name - The name of the gear item
+     * @property {string} type - The type of the gear item
+     * @property {string} image - The URL for the image of the gear item
+     * @property {SplatGearpower} primaryGearPower - The primary gear power
+     * @property {SplatGearpower[]} additionalGearPowers - Additional gear powers
+     * @property {number} price - The price of the gear item
+     * @property {string} saleEnd - Time when the item isn't for sale anymore (e.g. "2022-12-30T00:00:00Z")
+     * @property {Brand} brand - Time when the item isn't for sale anymore (e.g. "2022-12-30T00:00:00Z")
+     */
+
+    /**
+     * @typedef {Object} SplatnetFeaturedBrand
+     * @property {string} name - The name of the featured brand
+     * @property {string} banner - The URL for the banner image of the featured brand
+     * @property {SplatGearpower} usualPower - Most common power for that gear item
+     * @property {string} saleEnd - Time when the sale ends (e.g. "2022-12-30T00:00:00Z")
+     * @property {Object.<string, SplatnetGearFeatured>} brandGears - The gear items being sold
+     */
+
+    /**
+     * @typedef {Object} SplatnetResult
+     * @property {SplatnetFeaturedBrand} featuredBrand - The featured brand
+     * @property {Object.<string, SplatnetGear>} limitedGear - The gear items being sold
+     */
+
+    /**
+     * Get the current gear that is available in the splatnet shop
+     * @param {function(SplatnetResult)} callback - The callback function
+     */
     getSplatnetGear(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         this.langPromise.then((langData) => {
             fetch(gearURL)
                 .catch(err => console.error(err))
@@ -719,7 +795,8 @@ class Client {
                         brandGears: {
                             0: {
                                 name: this.translation.gear[json.data.gesotown.pickupBrand.brandGears[0].gear.__splatoon3ink_id].name,
-                                typ: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[0].gear.__typename],
+                                typ: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[0].gear.__typename],// Just still there for backwards compatibility
+                                type: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[0].gear.__typename],
                                 image: json.data.gesotown.pickupBrand.brandGears[0].gear.image.url,
                                 primaryGearPower: {
                                     name: this.translation.powers[json.data.gesotown.pickupBrand.brandGears[0].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -731,7 +808,8 @@ class Client {
                             },
                             1: {
                                 name: this.translation.gear[json.data.gesotown.pickupBrand.brandGears[1].gear.__splatoon3ink_id].name,
-                                typ: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[1].gear.__typename],
+                                typ: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[1].gear.__typename],// Just still there for backwards compatibility
+                                type: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[1].gear.__typename],
                                 image: json.data.gesotown.pickupBrand.brandGears[1].gear.image.url,
                                 primaryGearPower: {
                                     name: this.translation.powers[json.data.gesotown.pickupBrand.brandGears[1].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -743,7 +821,8 @@ class Client {
                             },
                             2: {
                                 name: this.translation.gear[json.data.gesotown.pickupBrand.brandGears[2].gear.__splatoon3ink_id].name,
-                                typ: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[2].gear.__typename],
+                                typ: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[2].gear.__typename],// Just still there for backwards compatibility
+                                type: gearTypeLang[this.lang][json.data.gesotown.pickupBrand.brandGears[2].gear.__typename],
                                 image: json.data.gesotown.pickupBrand.brandGears[2].gear.image.url,
                                 primaryGearPower: {
                                     name: this.translation.powers[json.data.gesotown.pickupBrand.brandGears[2].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -779,7 +858,8 @@ class Client {
                     data.limitedGear = {
                         0: {
                             name: this.translation.gear[json.data.gesotown.limitedGears[0].gear.__splatoon3ink_id].name,
-                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[0].gear.__typename],
+                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[0].gear.__typename],// Just still there for backwards compatibility
+                            type: gearTypeLang[this.lang][json.data.gesotown.limitedGears[0].gear.__typename],
                             image: json.data.gesotown.limitedGears[0].gear.image.url,
                             primaryGearPower: {
                                 name: this.translation.powers[json.data.gesotown.limitedGears[0].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -795,7 +875,8 @@ class Client {
                         },
                         1: {
                             name: this.translation.gear[json.data.gesotown.limitedGears[1].gear.__splatoon3ink_id].name,
-                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[1].gear.__typename],
+                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[1].gear.__typename],// Just still there for backwards compatibility
+                            type: gearTypeLang[this.lang][json.data.gesotown.limitedGears[1].gear.__typename],
                             image: json.data.gesotown.limitedGears[1].gear.image.url,
                             primaryGearPower: {
                                 name: this.translation.powers[json.data.gesotown.limitedGears[1].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -811,7 +892,8 @@ class Client {
                         },
                         2: {
                             name: this.translation.gear[json.data.gesotown.limitedGears[2].gear.__splatoon3ink_id].name,
-                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[2].gear.__typename],
+                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[2].gear.__typename],// Just still there for backwards compatibility
+                            type: gearTypeLang[this.lang][json.data.gesotown.limitedGears[2].gear.__typename],
                             image: json.data.gesotown.limitedGears[2].gear.image.url,
                             primaryGearPower: {
                                 name: this.translation.powers[json.data.gesotown.limitedGears[2].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -827,7 +909,8 @@ class Client {
                         },
                         3: {
                             name: this.translation.gear[json.data.gesotown.limitedGears[3].gear.__splatoon3ink_id].name,
-                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[3].gear.__typename],
+                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[3].gear.__typename],// Just still there for backwards compatibility
+                            type: gearTypeLang[this.lang][json.data.gesotown.limitedGears[3].gear.__typename],
                             image: json.data.gesotown.limitedGears[3].gear.image.url,
                             primaryGearPower: {
                                 name: this.translation.powers[json.data.gesotown.limitedGears[3].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -843,7 +926,8 @@ class Client {
                         },
                         4: {
                             name: this.translation.gear[json.data.gesotown.limitedGears[4].gear.__splatoon3ink_id].name,
-                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[4].gear.__typename],
+                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[4].gear.__typename],// Just still there for backwards compatibility
+                            type: gearTypeLang[this.lang][json.data.gesotown.limitedGears[4].gear.__typename],
                             image: json.data.gesotown.limitedGears[4].gear.image.url,
                             primaryGearPower: {
                                 name: this.translation.powers[json.data.gesotown.limitedGears[4].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -859,7 +943,8 @@ class Client {
                         },
                         5: {
                             name: this.translation.gear[json.data.gesotown.limitedGears[5].gear.__splatoon3ink_id].name,
-                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[5].gear.__typename],
+                            typ: gearTypeLang[this.lang][json.data.gesotown.limitedGears[5].gear.__typename],// Just still there for backwards compatibility
+                            type: gearTypeLang[this.lang][json.data.gesotown.limitedGears[5].gear.__typename],
                             image: json.data.gesotown.limitedGears[5].gear.image.url,
                             primaryGearPower: {
                                 name: this.translation.powers[json.data.gesotown.limitedGears[5].gear.primaryGearPower.__splatoon3ink_id].name,
@@ -915,10 +1000,38 @@ class Client {
                     return callback(data);
                 });
         })
-	}
+    }
 
+    /**
+     * @typedef {Object} FestTeam
+     * @property {string} teamName - The name of the team.
+     * @property {string} image - The URL to the team image.
+     * @property {string} color - The RGBA color representation of the team.
+     * @property {string} colorHEX - The HEX color representation of the team.
+     */
+
+    /**
+     * @typedef {Object} FestSchedule
+     * @property {string} title - The title of the festival.
+     * @property {string} startTime - The start time of the festival.
+     * @property {string} endTime - The end time of the festival.
+     * @property {Object.<string, FestTeam>} teams - An object where keys are team IDs (as strings) and values are FestTeam objects.
+     */
+
+    /**
+     * @typedef {Object} FestData
+     * @property {FestSchedule[]} US - An array of festival schedules for the US region.
+     * @property {FestSchedule[]} EU - An array of festival schedules for the EU region.
+     * @property {FestSchedule[]} JP - An array of festival schedules for the JP region.
+     * @property {FestSchedule[]} AP - An array of festival schedules for the AP region.
+     */
+
+    /**
+     * Get already scheduled Splatfests
+     * @param {function(FestData)} callback - The callback function.
+     */
     getUpcomingSplatfests(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         // let timeOutTime = 0;
         // if (!this.langIsResolved) timeOutTime = 500;
         this.langPromise.then((langData) => {
@@ -966,8 +1079,54 @@ class Client {
         })
     }
 
+    /**
+     * @typedef {Object} PastFestTeamResults
+     * @property {boolean} isWinner - Indicates whether the team is the winner.
+     * @property {number} conchShellsRatio - The ratio of conch shells.
+     * @property {boolean} conchShellsTop - Indicates whether the team is top in conch shells.
+     * @property {number} voteRatio - The voting ratio.
+     * @property {boolean} isVoteTop - Indicates whether the team is top in voting.
+     * @property {number} regularContributionRatio - The ratio of regular contributions.
+     * @property {boolean} isRegularContributionTop - Indicates whether the team is top in regular contributions.
+     * @property {number} proModeContributionRatio - The ratio of pro mode contributions.
+     * @property {boolean} isProModeContributionTop - Indicates whether the team is top in pro mode contributions.
+     * @property {number} tricolorContributionRatio - The ratio of tricolor contributions.
+     * @property {boolean} isTricolorContributionRatioTop - Indicates whether the team is top in tricolor contributions.
+     */
+
+    /**
+     * @typedef {Object} PastFestTeam
+     * @property {string} teamName - The name of the team.
+     * @property {string} image - The URL to the team image.
+     * @property {string} color - The RGBA color representation of the team.
+     * @property {string} colorHEX - The HEX color representation of the team.
+     * @property {string} role - The role of the team (e.g., ATTACK, DEFENSE).
+     * @property {PastFestTeamResults} results - The results of the team.
+     */
+
+    /**
+     * @typedef {Object} PastFestSchedule
+     * @property {string} title - The title of the festival.
+     * @property {string} startTime - The start time of the festival.
+     * @property {string} endTime - The end time of the festival.
+     * @property {Object.<string, PastFestTeam>} teams - An object or array where keys are team IDs (as strings or numbers)
+     * and values are FestTeam objects.
+     */
+
+    /**
+     * @typedef {Object} PastFestData
+     * @property {PastFestSchedule[]} US - An array of festival schedules for the US region.
+     * @property {PastFestSchedule[]} EU - An array of festival schedules for the EU region.
+     * @property {PastFestSchedule[]} JP - An array of festival schedules for the JP region.
+     * @property {PastFestSchedule[]} AP - An array of festival schedules for the AP region.
+     */
+
+    /**
+     * Get past Splatfests
+     * @param {function(PastFestData)} callback - The callback function.
+     */
     getPastSplatfests(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         // let timeOutTime = 0;
         // if (!this.langIsResolved) timeOutTime = 500;
         this.langPromise.then((langData) => {
@@ -1057,8 +1216,20 @@ class Client {
         })
     }
 
+    /**
+     * @typedef {Object} CurrentFestData
+     * @property {FestSchedule} US - The festival schedule for the US region.
+     * @property {FestSchedule} EU - The festival schedule for the EU region.
+     * @property {FestSchedule} JP - The festival schedule for the JP region.
+     * @property {FestSchedule} AP - The festival schedule for the AP region.
+     */
+
+    /**
+     * Get the current Splatfest
+     * @param {function(CurrentFestData)} callback - The callback function.
+     */
     getCurrentSplatfest(callback) {
-		if(!callback) {return console.log("Splatoon3api - Please enter a function!")};
+        if (!callback) { return console.log("Splatoon3api - Please enter a function!") };
         // let timeOutTime = 0;
         // if (!this.langIsResolved) timeOutTime = 500;
         this.langPromise.then((langData) => {
@@ -1112,4 +1283,4 @@ class Client {
 }
 
 
-module.exports = {Client: Client}
+module.exports = { Client: Client }

@@ -2,6 +2,19 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.5.0 - 2023-12-29
+
+### Added
+- Added JSDoc Comments for a better developer experience
+
+### Changed
+
+### Fixed
+- Removed unnecessary Code
+- Removed old unused lang files
+- Cleaned up Code
+- Fixed typo (typ -> type)
+
 ## 1.4.9 - 2023-12-28
 
 ### Added

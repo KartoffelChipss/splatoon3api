@@ -574,7 +574,7 @@ It should return something like this:
       brandGears:{
          0: {
             name:"White Headband",
-            typ:"Headgear",
+            type:"Headgear",
             image:"https://splatoon3.ink/assets/splatnet/gear_img/9970e78730016ca786353edf5de46e3f9c72f01ec1ac65bde2331f5b78eeb8c1_0.png",
             primaryGearPower:{
                name:"Comeback",
@@ -596,7 +596,7 @@ It should return something like this:
    limitedGear:{
       0:{
          name:"Black Polo",
-         typ:"Clothing",
+         type:"Clothing",
          image:"https://splatoon3.ink/assets/splatnet/gear_img/3518171a2249d21477fc492e5fc1662677530d7640a2af3d190b2a6f6168555d_0.png",
          primaryGearPower:{
             name:"Haunt",
