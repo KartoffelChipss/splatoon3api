@@ -2,6 +2,16 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.5.1 - 2024-01-16
+
+### Added
+- Differentiating between regular and challenge fest schedules
+
+### Changed
+
+### Fixed
+- Fixed feststages returning null even if there are rotations
+
 ## 1.5.0 - 2023-12-29
 
 ### Added

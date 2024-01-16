@@ -193,11 +193,63 @@ It should return something like this:
     [Object]
   ],
   festSchedule: [
-    null, null, null,
-    null, null, null,
-    null, null, null,
-    null, null, null
-  ],
+   {
+      challenge: {
+         start_time: '2024-01-14T16:00:00Z',
+         end_time: '2024-01-14T18:00:00Z',
+         stage1: {
+            name: 'Wahoo World',
+            image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+         },
+         stage2: {
+            name: 'Wahoo World',
+            image: 'https://splatoon3.ink/assets/splatnet/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+         },
+         rules: 'Turf War',
+         rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+         festMode: 'CHALLENGE'
+      },
+      regular: {
+         start_time: '2024-01-14T16:00:00Z',
+         end_time: '2024-01-14T18:00:00Z',
+         stage1: [Object],
+         stage2: [Object],
+         rules: 'Turf War',
+         rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+         festMode: 'REGULAR'
+      }
+   },
+   {
+      challenge: {
+         start_time: '2024-01-14T18:00:00Z',
+         end_time: '2024-01-14T20:00:00Z',
+         stage1: [Object],
+         stage2: [Object],
+         rules: 'Turf War',
+         rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+         festMode: 'CHALLENGE'
+      },
+      regular: {
+         start_time: '2024-01-14T18:00:00Z',
+         end_time: '2024-01-14T20:00:00Z',
+         stage1: [Object],
+         stage2: [Object],
+         rules: 'Turf War',
+         rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+         festMode: 'REGULAR'
+      }
+   },
+   [Object],
+   [Object],
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+   ],
   triColorStage: null
 }
 ```
@@ -275,19 +327,37 @@ It should return something like this:
    rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
   },
   festSchedule: {
-    start_time: '2023-07-16T18:00:00Z',
-    end_time: '2023-07-16T20:00:00Z',
-    stage1: {
-      name: 'Kusaya-Quellen',
-      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/cd84d711b47a424334569ac20f33f8e0ab6a652dc07854dcd36508a0081e9034_1.png'
-    },
-    stage2: {
-      name: 'Pinakoithek',
-      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png'
-    },
-    rules: 'Turf War',
-   rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
-  },
+   challenge: {
+      start_time: '2024-01-14T18:00:00Z',
+      end_time: '2024-01-14T20:00:00Z',
+      stage1: {
+         name: 'Hagglefish Market',
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/8dc2f16d39c630bab40cead5b2485ca3559e829d0d3de0c2232c7a62fefb5fa9_1.png'
+      },
+      stage2: {
+         name: 'Sturgeon Shipyard',
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/48684c69d5c5a4ffaf16b712a4895545a8d01196115d514fc878ce99863bb3e9_1.png'
+      },
+      rules: 'Turf War',
+      rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+      festMode: 'CHALLENGE'
+   },
+   regular: {
+      start_time: '2024-01-14T18:00:00Z',
+      end_time: '2024-01-14T20:00:00Z',
+      stage1: {
+         name: "Museum d'Alfonsino",
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png'
+      },
+      stage2: {
+         name: 'Wahoo World',
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+      },
+      rules: 'Turf War',
+      rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+      festMode: 'REGULAR'
+   }
+   },
   triColorStage: {
     start_time: '2023-07-15T00:00:00Z',
     end_time: '2023-07-17T00:00:00Z',
@@ -372,19 +442,37 @@ It should return something like this:
     rulesImg: 'here would mormally be the image url but I currently can\'t be fucked finding the right url sry'
   },
   festSchedule: {
-    start_time: '2023-07-16T22:00:00Z',
-    end_time: '2023-07-17T00:00:00Z',
-    stage1: {
-      name: 'Hagglefish Market',
-      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/8dc2f16d39c630bab40cead5b2485ca3559e829d0d3de0c2232c7a62fefb5fa9_1.png'
-    },
-    stage2: {
-      name: 'Wahoo World',
-      image: 'https://splatoon3.ink/assets/splatnet/v1/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
-    },
-    rules: 'Turf War',
-    rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg'
-  },
+   challenge: {
+      start_time: '2024-01-14T18:00:00Z',
+      end_time: '2024-01-14T20:00:00Z',
+      stage1: {
+         name: 'Hagglefish Market',
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/8dc2f16d39c630bab40cead5b2485ca3559e829d0d3de0c2232c7a62fefb5fa9_1.png'
+      },
+      stage2: {
+         name: 'Sturgeon Shipyard',
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/48684c69d5c5a4ffaf16b712a4895545a8d01196115d514fc878ce99863bb3e9_1.png'
+      },
+      rules: 'Turf War',
+      rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+      festMode: 'CHALLENGE'
+   },
+   regular: {
+      start_time: '2024-01-14T18:00:00Z',
+      end_time: '2024-01-14T20:00:00Z',
+      stage1: {
+         name: "Museum d'Alfonsino",
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/b9d8cfa186d197a27e075600a107c99d9e21646d116730f0843e0fff0aaba7dd_1.png'
+      },
+      stage2: {
+         name: 'Wahoo World',
+         image: 'https://splatoon3.ink/assets/splatnet/v2/stage_img/icon/low_resolution/61ea801fa4ed32360dcaf83986222ded46a72dbf56194acc6d0cf4659a92ba85_1.png'
+      },
+      rules: 'Turf War',
+      rulesImg: 'https://splatoon3.ink/assets/regular.81d2e9e4.svg',
+      festMode: 'REGULAR'
+   }
+   },
   triColorStage: {
     start_time: '2023-07-15T00:00:00Z',
     end_time: '2023-07-17T00:00:00Z',

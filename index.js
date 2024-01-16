@@ -138,6 +138,23 @@ class Client {
      */
 
     /**
+     * @typedef {Object} FestMatchSetting
+     * @property {FestRotation} regular - Regular rotation
+     * @property {FestRotation} challenge - Challenge rotation
+     */
+
+    /**
+     * @typedef {Object} FestRotation
+     * @property {string} start_time - The time when the rotation starts (e.g. "2022-10-02T16:00:00Z")
+     * @property {string} end_time - The time when the rotation ends
+     * @property {SplatStage} stage1 - First map
+     * @property {SplatStage} stage2 - Second map
+     * @property {SplatRules} rules - The game rules (e.g. "Rainmaker")
+     * @property {string} rulesImg - Url for the rules logo
+     * @property {string} festMode - challenge or regular
+     */
+
+    /**
      * @typedef {Object} RankedModes
      * @property {SplatRotation} series - The series rotations
      * @property {SplatRotation} open - The open rotations
@@ -148,7 +165,7 @@ class Client {
      * @property {SplatRotation} regular - Regular Battle rotation
      * @property {RankedModes} ranked - Ranked Battle rotations
      * @property {SplatRotation} xbattle - X-Battle rotation
-     * @property {SplatRotation} festSchedule - Normal fest schedules (Returns null if no stages available)
+     * @property {FestMatchSetting} festSchedule - Normal fest schedules (Returns null if no stages available)
      * @property {SplatTricolorStage} triColorStage - Tricolor stage (Returns null if no stages available)
      */
 
@@ -157,7 +174,7 @@ class Client {
      * @property {SplatRotation[]} regular - Regular Battle rotation
      * @property {RankedModes[]} ranked - Ranked Battle rotations
      * @property {SplatRotation[]} xbattle - X-Battle rotation
-     * @property {SplatRotation[]} festSchedule - Normal fest schedules (Returns null if no stages available)
+     * @property {FestMatchSetting[]} festSchedule - Normal fest schedules (Returns null if no stages available)
      * @property {SplatTricolorStage} triColorStage - Tricolor stage (Returns null if no stages available)
      */
 
@@ -260,21 +277,28 @@ class Client {
                     });
 
                     json.data.festSchedules.nodes.forEach((node, index) => {
-                        if (node.festMatchSetting) {
-                            data.festSchedule.push({
-                                start_time: node.startTime,
-                                end_time: node.endTime,
-                                stage1: {
-                                    name: translation.stages[node.festMatchSetting.vsStages[0].id].name,
-                                    image: node.festMatchSetting.vsStages[0].image.url
-                                },
-                                stage2: {
-                                    name: translation.stages[node.festMatchSetting.vsStages[1].id].name,
-                                    image: node.festMatchSetting.vsStages[1].image.url
-                                },
-                                rules: translation.rules[node.festMatchSetting.vsRule.id].name,
-                                rulesImg: getImageFromRuleId(node.festMatchSetting.vsRule.id),
-                            });
+                        if (node.festMatchSettings) {
+                            let returnObj = {};
+
+                            for (let setting of node.festMatchSettings) {
+                                returnObj[setting.festMode.toLowerCase()] = {
+                                    start_time: node.startTime,
+                                    end_time: node.endTime,
+                                    stage1: {
+                                        name: translation.stages[setting.vsStages[0].id].name,
+                                        image: setting.vsStages[0].image.url
+                                    },
+                                    stage2: {
+                                        name: translation.stages[setting.vsStages[1].id].name,
+                                        image: setting.vsStages[1].image.url
+                                    },
+                                    rules: translation.rules[setting.vsRule.id].name,
+                                    rulesImg: getImageFromRuleId(setting.vsRule.id),
+                                    festMode: setting.festMode,
+                                }
+                            }
+
+                            data.festSchedule.push(returnObj);
                         } else {
                             data.festSchedule.push(null);
                         }
@@ -384,21 +408,29 @@ class Client {
                         data.xbattle = null;
                     }
 
-                    if (json.data.festSchedules.nodes[0].festMatchSetting) {
-                        data.festSchedule = {
-                            start_time: json.data.festSchedules.nodes[0].startTime,
-                            end_time: json.data.festSchedules.nodes[0].endTime,
-                            stage1: {
-                                name: translation.stages[json.data.festSchedules.nodes[0].festMatchSetting.vsStages[0].id].name,
-                                image: json.data.festSchedules.nodes[0].festMatchSetting.vsStages[0].image.url
-                            },
-                            stage2: {
-                                name: translation.stages[json.data.festSchedules.nodes[0].festMatchSetting.vsStages[1].id].name,
-                                image: json.data.festSchedules.nodes[0].festMatchSetting.vsStages[1].image.url
-                            },
-                            rules: translation.rules[json.data.festSchedules.nodes[0].festMatchSetting.vsRule.id].name,
-                            rulesImg: getImageFromRuleId(json.data.festSchedules.nodes[0].festMatchSetting.vsRule.id),
+                    if (json.data.festSchedules.nodes[0].festMatchSettings) {
+                        let node = json.data.festSchedules.nodes[0];
+                        let returnObj = {};
+
+                        for (let setting of node.festMatchSettings) {
+                            returnObj[setting.festMode.toLowerCase()] = {
+                                start_time: node.startTime,
+                                end_time: node.endTime,
+                                stage1: {
+                                    name: this.translation.stages[setting.vsStages[0].id].name,
+                                    image: setting.vsStages[0].image.url
+                                },
+                                stage2: {
+                                    name: this.translation.stages[setting.vsStages[1].id].name,
+                                    image: setting.vsStages[1].image.url
+                                },
+                                rules: this.translation.rules[setting.vsRule.id].name,
+                                rulesImg: getImageFromRuleId(setting.vsRule.id),
+                                festMode: setting.festMode,
+                            }
                         }
+
+                        data.festSchedule = returnObj;
                     } else {
                         data.festSchedule = null;
                     }
@@ -505,21 +537,29 @@ class Client {
                         data.xbattle = null;
                     }
 
-                    if (json.data.festSchedules.nodes[1].festMatchSetting) {
-                        data.festSchedule = {
-                            start_time: json.data.festSchedules.nodes[1].startTime,
-                            end_time: json.data.festSchedules.nodes[1].endTime,
-                            stage1: {
-                                name: this.translation.stages[json.data.festSchedules.nodes[1].festMatchSetting.vsStages[0].id].name,
-                                image: json.data.festSchedules.nodes[1].festMatchSetting.vsStages[0].image.url
-                            },
-                            stage2: {
-                                name: this.translation.stages[json.data.festSchedules.nodes[1].festMatchSetting.vsStages[1].id].name,
-                                image: json.data.festSchedules.nodes[1].festMatchSetting.vsStages[1].image.url
-                            },
-                            rules: this.translation.rules[json.data.festSchedules.nodes[1].festMatchSetting.vsRule.id].name,
-                            rulesImg: getImageFromRuleId(json.data.festSchedules.nodes[1].festMatchSetting.vsRule.id),
+                    if (json.data.festSchedules.nodes[1].festMatchSettings) {
+                        let node = json.data.festSchedules.nodes[1];
+                        let returnObj = {};
+
+                        for (let setting of node.festMatchSettings) {
+                            returnObj[setting.festMode.toLowerCase()] = {
+                                start_time: node.startTime,
+                                end_time: node.endTime,
+                                stage1: {
+                                    name: this.translation.stages[setting.vsStages[0].id].name,
+                                    image: setting.vsStages[0].image.url
+                                },
+                                stage2: {
+                                    name: this.translation.stages[setting.vsStages[1].id].name,
+                                    image: setting.vsStages[1].image.url
+                                },
+                                rules: this.translation.rules[setting.vsRule.id].name,
+                                rulesImg: getImageFromRuleId(setting.vsRule.id),
+                                festMode: setting.festMode,
+                            }
                         }
+
+                        data.festSchedule = returnObj;
                     } else {
                         data.festSchedule = null;
                     }
