@@ -1,11 +1,9 @@
 # Splatoon3api
 Splatoon3api is a simple library to get the current and next Splatoon 3 Maps (rotations), Salmonruns, Challenges, Splatfests and Splatnet gear. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). Splatoon3api is available in eight different languages ([List of available languages](#languages))
 
-[![npm](https://img.shields.io/npm/dm/splatoon3api?label=Downloads)](https://www.npmjs.com/package/splatoon3api) [![npm](https://img.shields.io/npm/v/splatoon3api?label=Version)](https://www.npmjs.com/package/splatoon3api) [![Discord](https://img.shields.io/discord/990295419005333554?color=%23738ADB&label=Discord)](https://discord.com/invite/Cc76tYwXvy)
+[![npm](https://img.shields.io/npm/dm/splatoon3api?label=Downloads)](https://www.npmjs.com/package/splatoon3api) [![npm](https://img.shields.io/npm/v/splatoon3api?label=Version)](https://www.npmjs.com/package/splatoon3api) [![discord](https://dcbadge.vercel.app/api/server/Cc76tYwXvy?style=flat&theme=default-inverted)](https://discord.com/invite/Cc76tYwXvy)
 
 If you have trouble with this package, feel free to ask me in my [Discord](https://discord.com/invite/Cc76tYwXvy).
-
-If you would like to support the development of this package, please consider buying me a tea!
 
 ## Table of contents
  - [Installation](#installation)
