@@ -2,6 +2,17 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.6.0 - 2024-01-29
+
+### Added
+- All functions now also return a Promise
+
+### Changed
+- Improved code readability and structure
+- Split functions into multiple files
+
+### Fixed
+
 ## 1.5.1 - 2024-01-16
 
 ### Added

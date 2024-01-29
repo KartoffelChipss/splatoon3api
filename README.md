@@ -30,11 +30,33 @@ Simply execute the following command in your commandline:
 npm install splatoon3api
 ```
 ### Usage
-First, import the package like this:
+Import the package like this:
 ```js
 const splatoon3api = require("splatoon3api");
 const Splatoon3 = new splatoon3api.Client("en-GB");
 ```
+
+You have multiple options to use the functions:
+
+1. Using a callback function:
+   ```js
+   Splatoon3.getStages(res => {
+      console.log(res);
+   });
+   ```
+
+2. Using the `.then()` method:
+   ```js
+   Splatoon3.getStages().then(res => {
+      console.log(res);
+   });
+   ```
+
+3. Using `await` in an async context:
+   ```js
+   const res = await Splatoon3.getStages();
+   console.log(res);
+   ```
 
 ### Languages
 You can exchange the `en-GB` for any other language in the list below:

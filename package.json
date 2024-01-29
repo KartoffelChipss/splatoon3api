@@ -1,8 +1,8 @@
 {
   "name": "splatoon3api",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "A simple Method to get current and next Splatoon 3 maps, Salmonrun Schedules and Splatnet gear",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "node ./testapp/index.js"
   },
@@ -20,8 +20,11 @@
     "splatoon3.ink",
     "rotation",
     "schedule",
+    "schedules",
     "salmonrun",
-    "turfwar"
+    "turfwar",
+    "splatfest",
+    "splatfests"
   ],
   "license": "MIT",
   "dependencies": {
