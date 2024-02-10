@@ -13,6 +13,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 
+---
+
 ## 1.5.1 - 2024-01-16
 
 ### Added
@@ -22,6 +24,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 - Fixed feststages returning null even if there are rotations
+
+---
 
 ## 1.5.0 - 2023-12-29
 
@@ -36,6 +40,8 @@ Here, you will find all notabled changes that have been made to this project.
 - Cleaned up Code
 - Fixed typo (typ -> type)
 
+---
+
 ## 1.4.9 - 2023-12-28
 
 ### Added
@@ -44,6 +50,8 @@ Here, you will find all notabled changes that have been made to this project.
 ### Changed
 
 ### Fixed
+
+---
 
 ## 1.4.8 - 2023-12-28
 
@@ -54,6 +62,8 @@ Here, you will find all notabled changes that have been made to this project.
 ### Fixed
 - Fixed current Splatfests not returning anything
 
+---
+
 ## 1.4.7 - 2023-12-28
 
 ### Added
@@ -62,6 +72,8 @@ Here, you will find all notabled changes that have been made to this project.
 
 ### Fixed
 - Fixed possible missing translations for Splatfests
+
+---
 
 ## 1.4.6 - 2023-09-08
 
@@ -93,8 +105,6 @@ Here, you will find all notabled changes that have been made to this project.
 - Changed splatzones and towercontrol images
 
 ### Fixed
-
----
 
 ---
 
