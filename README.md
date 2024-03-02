@@ -17,7 +17,7 @@ If you have trouble with this package, feel free to ask me in my [Discord](https
     - [Challenges](#challenges)
     - [Splatnet gear](#splatnet-gear)
     - [Splatfests](#splatfests)
-      - [Current Splatfests](#current-splatfest)
+      - [Currently running Splatfests](#currently-running-splatfest)
       - [Upcoming Splatfests](#scheduled-splatfests)
       - [Past Splatfests](#past-splatfests)
 - [Change Log](#change-log)
@@ -736,10 +736,10 @@ It should return something like this:
 
 ## Splatfests
 
-### Current Splatfest
-To get the current Splatfest, you can use the `getCurrentSplatfest()` function:
+### Currently running Splatfest
+To get the currenttly running Splatfest, you can use the `getRunningSplatfests()` function:
 ```js
-Splatoon3.getCurrentSplatfest(res => {
+Splatoon3.getRunningSplatfests(res => {
     console.log(res);
 });
 ```
@@ -755,56 +755,64 @@ Please note that the hexcolors may differ a little from the real colors. If you 
 It should return something like this:
 ```js
 {
-   US: {
-      title: 'Which flavor of ice cream is best?',
-      startTime: '2023-07-15T00:00:00Z',
-      endTime: '2023-07-17T00:00:00Z',
-      state: 'SECOND_HALF',
+  US: [
+    {
+      title: "What's the best day of the weekend?",
+      startTime: '2024-02-17T00:00:00Z',
+      endTime: '2024-02-19T00:00:00Z',
+      state: 'FIRST_HALF',
       teams: {
          '0': {
-            teamName: '',
-            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1juea-icecreama8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png',
-            color: 'rgba(204.00000306, 167.000005155, 112.00000095, 1)',
-            colorHEX: '#cca770ff',
+            teamName: 'Friday',
+            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1/uea-weekend/a8e4c17157cd31507a9b7f4b6267d5caa0bdee317044d55a96c5496bb42228b6_0.png',
+            color: 'rgba(180.00000434999998, 145.000006635, 9.000000421500001, 1)',
+            colorHEX: '#b49109ff',
             role: null
          },
          '1': {
-            teamName: '',
-            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1/juea-icecream/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png',
-            color: 'rgba(188.00000409, 109.000008825, 116.99999301, 1)',
-            colorHEX: '#bc6d74ff',
+            teamName: 'Saturday',
+            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1/uea-weekend/b3bb3b4aba5b1bd4a63c897dfe4d4b3676707aa6dac39222d761bfae9fb864b1_0.png',
+            color: 'rgba(43.000012755, 81.99999503999999, 180.999989145, 1)',
+            colorHEX: '#2b51b4ff',
             role: null
          },
          '2': {
-            teamName: '',
-            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1/juea-icecream/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png',
-            color: 'rgba(42.000005009999995, 194.00000364, 158.000020875, 1)',
-            colorHEX: '#2ac29eff',
+            teamName: 'Sunday',
+            image: 'https://splatoon3.ink/assets/splatnet/resources/fest/v1/uea-weekend/c0276e2a150b4a61bcc46fca84c2aaef3bd09aa8e2e78baa4158e894c1685563_0.png',
+            color: 'rgba(171.000020325, 62.0000115, 40.000012725, 1)',
+            colorHEX: '#ab3e28ff',
             role: null
          }
       }
-   },
-   EU: {
-      title: 'Which flavor of ice cream is best?',
-      startTime: '2023-07-15T00:00:00Z',
-      endTime: '2023-07-17T00:00:00Z',
-      state: 'SECOND_HALF',
-      teams: { '0': [Object], '1': [Object], '2': [Object] }
-   },
-   JP: {
-      title: 'Which flavor of ice cream is best?',
-      startTime: '2023-07-15T00:00:00Z',
-      endTime: '2023-07-17T00:00:00Z',
-      state: 'SECOND_HALF',
-      teams: { '0': [Object], '1': [Object], '2': [Object] }
-   },
-   AP: {
-      title: 'Which flavor of ice cream is best?',
-      startTime: '2023-07-15T00:00:00Z',
-      endTime: '2023-07-17T00:00:00Z',
-      state: 'SECOND_HALF',
-      teams: { '0': [Object], '1': [Object], '2': [Object] }
-   }
+    }
+  ],
+  EU: [
+    {
+      title: "What's the best day of the weekend?",
+      startTime: '2024-02-17T00:00:00Z',
+      endTime: '2024-02-19T00:00:00Z',
+      state: 'FIRST_HALF',
+      teams: [Object]
+    }
+  ],
+  JP: [
+    {
+      title: '',
+      startTime: '2024-02-17T00:00:00Z',
+      endTime: '2024-02-19T00:00:00Z',
+      state: 'FIRST_HALF',
+      teams: [Object]
+    }
+  ],
+  AP: [
+    {
+      title: "What's the best day of the weekend?",
+      startTime: '2024-02-17T00:00:00Z',
+      endTime: '2024-02-19T00:00:00Z',
+      state: 'FIRST_HALF',
+      teams: [Object]
+    }
+  ]
 }
 ```
 

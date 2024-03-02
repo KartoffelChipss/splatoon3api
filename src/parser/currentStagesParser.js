@@ -85,14 +85,14 @@ function parse(json, translation) {
                 start_time: node.startTime,
                 end_time: node.endTime,
                 stage1: {
-                    name: this.translation.stages[setting.vsStages[0].id].name,
+                    name: translation.stages[setting.vsStages[0].id].name,
                     image: setting.vsStages[0].image.url
                 },
                 stage2: {
-                    name: this.translation.stages[setting.vsStages[1].id].name,
+                    name: translation.stages[setting.vsStages[1].id].name,
                     image: setting.vsStages[1].image.url
                 },
-                rules: this.translation.rules[setting.vsRule.id].name,
+                rules: translation.rules[setting.vsRule.id].name,
                 rulesImg: getImageFromRuleId(setting.vsRule.id),
                 festMode: setting.festMode,
             }
@@ -107,7 +107,7 @@ function parse(json, translation) {
         data.triColorStage = {
             start_time: json.data.currentFest.startTime,
             end_time: json.data.currentFest.endTime,
-            name: this.translation.stages[json.data.currentFest.tricolorStage.id]?.name,
+            name: translation.stages[json.data.currentFest.tricolorStage.id]?.name,
             image: json.data.currentFest.tricolorStage.image.url,
             rulesImg: "https://file.strassburger.org/tricolor.svg",
         }

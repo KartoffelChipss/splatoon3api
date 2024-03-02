@@ -1,19 +1,22 @@
 const fetch = require('node-fetch/');
 // If the above does not work, use this instead:
 // const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const formatLang = require("./utils.js").formatLang;
+const { formatLang, formatOptions } = require("./utils.js");
 
-const schedulesURL = "https://splatoon3.ink/data/schedules.json";
-const salmonGearURL = "https://splatoon3.ink/data/coop.json";
-const gearURL = "https://splatoon3.ink/data/gear.json";
-const festURL = "https://splatoon3.ink/data/festivals.json";
+let schedulesURL = "https://splatoon3.ink/data/schedules.json";
+let salmonGearURL = "https://splatoon3.ink/data/coop.json";
+let gearURL = "https://splatoon3.ink/data/gear.json";
+let festURL = "https://splatoon3.ink/data/festivals.json";
 
 class Client {
     /**
-     * @param {import('./types').Lang} [lang] - The language for map names, challenge descriptions etc.
+     * @param {import('./types').Lang} [lang="en-US"] - The language for map names, challenge descriptions etc.
+     * @param {import('./types').Options} [options] - The options for the client
      */
-    constructor(lang) {
+    constructor(lang = "en-US", options = {}) {
         this.lang = formatLang(lang);
+
+        this.options = formatOptions(options);
 
         this.langPromise = new Promise((resolve, reject) => {
             fetch(`https://splatoon3.ink/data/locale/${this.lang}.json`)
@@ -40,7 +43,7 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(schedulesURL)
+            fetch(this.options.schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
@@ -64,7 +67,7 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(schedulesURL)
+            fetch(this.options.schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
@@ -88,7 +91,7 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(schedulesURL)
+            fetch(this.options.schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
@@ -112,7 +115,7 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(schedulesURL)
+            fetch(this.options.schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
@@ -136,11 +139,11 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(schedulesURL)
+            fetch(this.options.schedulesURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
-                    require("./parser/salmonRunParser.js")(json, this.translation, salmonGearURL, (data) => {
+                    require("./parser/salmonRunParser.js")(json, this.translation, this.options.salmonGearURL, (data) => {
                         return callback(data);
                     });
                 });
@@ -161,7 +164,7 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(gearURL)
+            fetch(this.options.gearURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
@@ -185,7 +188,7 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(festURL)
+            fetch(this.options.festURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
@@ -209,7 +212,7 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(festURL)
+            fetch(this.options.festURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
@@ -220,7 +223,7 @@ class Client {
     }
 
     /**
-     * Get the current Splatfest
+     * @deprecated This method is deprecated and will be removed in the next major version. Use {@link getRunningSplatfests} instead!
      * @param {import('./types').CurrentFestDataCallback} callback - The callback function.
      * @returns {Promise<import('./types').CurrentFestData>} - The promise
      */
@@ -233,11 +236,35 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(festURL)
+            fetch(this.options.festURL)
                 .catch(err => console.error(err))
                 .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/splatfests/currentSplatfestsParser.js")(json, this.translation);
+                    return callback(data);
+                });
+        })
+    }
+
+    /**
+     * Get the currently running Splatfests
+     * @param {import('./types').FestDataCallback} callback - The callback function.
+     * @returns {Promise<import('./types').FestData>} - The promise
+     */
+    getRunningSplatfests(callback) {
+        if (!callback) {
+            return new Promise((resolve, reject) => {
+                this.getRunningSplatfests((res) => {
+                    resolve(res);
+                })
+            })
+        };
+        this.langPromise.then((langData) => {
+            fetch(this.options.festURL)
+                .catch(err => console.error(err))
+                .then(res => res.json())
+                .then(json => {
+                    const data = require("./parser/splatfests/runningSplatfestsParser.js")(json, this.translation);
                     return callback(data);
                 });
         })

@@ -2,6 +2,22 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.6.2 - 2024-03-02
+
+### Added
+- New getRunningSplatfests method (Replacing getCurrentSplatfest)
+- Added options parameter to the constructor (Only for testing purposes for now)
+- Added additional keywords to readme
+
+### Changed
+- getCurrentSplatfest is now deprecated and won't be supported in future versions
+
+### Fixed
+- Currentstages translation fixed
+- Current/RunningSplatfests undefined translation fixed
+
+---
+
 ## 1.6.0 - 2024-01-29
 
 ### Added

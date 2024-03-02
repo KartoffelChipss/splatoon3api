@@ -38,10 +38,6 @@ function RGBAToHexA(rgba, forceRemoveAlpha = false) {
 }
 
 /**
- * @typedef {'de-DE' | 'en-GB' | 'en-US' | 'es-ES' | 'es-MX' | 'fr-FR' | 'fr-CA' | 'it-IT' | 'ja-JP' | 'ko-KR' | 'nl-NL' | 'ru-RU' | 'zh-CN' | 'zh-TW'} Lang
- */
-
-/**
  * Format the lang input
  * @param {string} lang - The lang string to format
  * @returns {Lang} - The formatted language string
@@ -74,8 +70,32 @@ function formatLang(lang) {
     return lang;
 }
 
+/**
+ * Format the options input
+ * @param {import('./types').Options} options - The options to format
+ * @returns {import('./types').Options} - The formatted options
+ */
+function formatOptions(options) {
+    const {
+        schedulesURL = "https://splatoon3.ink/data/schedules.json",
+        salmonGearURL = "https://splatoon3.ink/data/coop.json",
+        gearURL = "https://splatoon3.ink/data/gear.json",
+        festURL = "https://splatoon3.ink/data/festivals.json",
+        userAgent = undefined,
+    } = options;
+
+    return {
+        schedulesURL,
+        salmonGearURL,
+        gearURL,
+        festURL,
+        userAgent,
+    };
+}
+
 module.exports = {
     getImageFromRuleId,
     RGBAToHexA,
     formatLang,
+    formatOptions,
 };

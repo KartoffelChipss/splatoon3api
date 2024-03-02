@@ -3,12 +3,13 @@ const { RGBAToHexA } = require("../../utils.js");
 function parse(json, translation) {
     let data = {};
 
-    Object.keys(json).forEach(region => {
-        data[region] = {};
+    for (let region in json) {
+        data[region] = [];
+
         json[region].data.festRecords.nodes.forEach(fest => {
             if (fest.state === "CLOSED") return;
 
-            data[region] = {
+            data[region].push({
                 title: translation.festivals[fest.__splatoon3ink_id]?.title ?? "",
                 startTime: fest.startTime,
                 endTime: fest.endTime,
@@ -36,9 +37,10 @@ function parse(json, translation) {
                         role: fest.teams[2].role,
                     }
                 }
-            }
+            });
         })
-    })
+    }
+
     return data;
 };
 

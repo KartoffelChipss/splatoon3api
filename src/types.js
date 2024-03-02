@@ -11,6 +11,15 @@
  */
 
 /**
+ * @typedef {Object} Options
+ * @property {string} schedulesURL - The URL to the schedules JSON file
+ * @property {string} salmonGearURL - The URL to the salmon run gear JSON file
+ * @property {string} gearURL - The URL to the gear JSON file
+ * @property {string} festURL - The URL to the festivals JSON file
+ * @property {string} userAgent - The user agent to use for the requests
+ */
+
+/**
  * @typedef {Object} SplatGearpower
  * @property {string} name - The name of the power
  * @property {string} image - The URL for the icon of the power
