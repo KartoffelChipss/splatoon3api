@@ -1,3 +1,6 @@
+const NodeCache = require("node-cache");
+const cache = new NodeCache();
+
 const ruleImg_turfwar = "https://splatoon3.ink/assets/regular.81d2e9e4.svg";
 const ruleImg_rainmaker = "https://splatoon3.ink/assets/hoko.e3dce940.svg";
 const ruleImg_clamblitz = "https://splatoon3.ink/assets/asari.83043125.svg";
@@ -82,6 +85,10 @@ function formatOptions(options) {
         gearURL = "https://splatoon3.ink/data/gear.json",
         festURL = "https://splatoon3.ink/data/festivals.json",
         userAgent = undefined,
+        cache = {
+            enabled: true,
+            ttl: 60
+        }
     } = options;
 
     return {
@@ -90,7 +97,39 @@ function formatOptions(options) {
         gearURL,
         festURL,
         userAgent,
+        cache
     };
+}
+
+/**
+ * Fetch data from the URL
+ * @param {string} url 
+ * @param {import('./types').Options} options 
+ */
+function fetchData(url, options) {
+    return new Promise((resolve, reject) => {
+        const cachedData = cache.get(url);
+
+        if (cachedData !== undefined) {
+            resolve(cachedData);
+            return;
+        }
+
+        fetch(url, { method: "GET", headers: { "User-Agent": options.userAgent } })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(json => {
+                if (options.cache.enabled) cache.set(url, json, options.cache.ttl || 60);
+                resolve(json);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
 }
 
 module.exports = {
@@ -98,4 +137,5 @@ module.exports = {
     RGBAToHexA,
     formatLang,
     formatOptions,
+    fetchData
 };

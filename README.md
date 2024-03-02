@@ -9,6 +9,7 @@ If you have trouble with this package, feel free to ask me in my [Discord](https
  - [Installation](#installation)
  - [Usage](#usage)
     - [Languages](#languages)
+    - [Options](#options)
     - [Stages](#all-stages)
       - [All Stages](#all-stages)
       - [Current stages](#current-stages)
@@ -74,6 +75,20 @@ You can exchange the `en-GB` for any other language in the list below:
 - `zh-TW` - 中文(台灣)
 
 Once you have done this, you can use all the following functions as you like.
+
+### Options
+
+When instantiating the constructor, you have the option to provide additional options.
+
+```js
+const Splatoon3 = new splatoon3api.Client("en-GB", {
+   userAgent: "MyApp/1.0 (contact@example.com)", // Make sure to include your app's name and a contact method
+   cache: {
+      enabled: true,
+      ttl: 60, // The time in seconds that the API responses will live in the cache
+   }
+});
+```
 
 ---
 

@@ -2,6 +2,20 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.6.3 - 2024-03-03
+
+### Added
+- Added optional caching (can configured in the options)
+- Added `userAgent` option to set a custom user agent for the requests
+- Added automated testing
+
+### Changed
+- Unified fetch methods
+
+### Fixed
+
+---
+
 ## 1.6.2 - 2024-03-02
 
 ### Added

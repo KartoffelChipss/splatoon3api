@@ -17,6 +17,13 @@
  * @property {string} gearURL - The URL to the gear JSON file
  * @property {string} festURL - The URL to the festivals JSON file
  * @property {string} userAgent - The user agent to use for the requests
+ * @property {CacheOptions} cache - The cache options
+ */
+
+/**
+ * @typedef {Object} CacheOptions
+ * @property {boolean} [enabled] - Whether to enable the cache
+ * @property {number} [ttl] - The time to live for the cache
  */
 
 /**

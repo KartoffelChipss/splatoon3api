@@ -1,12 +1,7 @@
 const fetch = require('node-fetch/');
 // If the above does not work, use this instead:
 // const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { formatLang, formatOptions } = require("./utils.js");
-
-let schedulesURL = "https://splatoon3.ink/data/schedules.json";
-let salmonGearURL = "https://splatoon3.ink/data/coop.json";
-let gearURL = "https://splatoon3.ink/data/gear.json";
-let festURL = "https://splatoon3.ink/data/festivals.json";
+const { formatLang, formatOptions, fetchData } = require("./utils.js");
 
 class Client {
     /**
@@ -21,7 +16,10 @@ class Client {
         this.langPromise = new Promise((resolve, reject) => {
             fetch(`https://splatoon3.ink/data/locale/${this.lang}.json`)
                 .catch(err => console.error(err))
-                .then(res => res.json())
+                .then(res => {
+                    if (!res || !res.ok) throw new Error("Network response was not ok while loading lang file!");
+                    return res.json();
+                })
                 .then(json => {
                     this.translation = { ...json, gearType: require("./gearTypeLang.json")[this.lang]};
                     resolve(this.translation);
@@ -43,9 +41,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.schedulesURL)
+            fetchData(this.options.schedulesURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/allStagesParser.js")(json, this.translation);
                     return callback(data);
@@ -67,9 +64,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.schedulesURL)
+            fetchData(this.options.schedulesURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/currentStagesParser.js")(json, this.translation);
                     return callback(data);
@@ -91,9 +87,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.schedulesURL)
+            fetchData(this.options.schedulesURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/nextStagesParser.js")(json, this.translation);
                     return callback(data);
@@ -115,9 +110,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.schedulesURL)
+            fetchData(this.options.schedulesURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/challengesParser.js")(json, this.translation);
                     return callback(data);
@@ -139,9 +133,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.schedulesURL)
+            fetchData(this.options.schedulesURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     require("./parser/salmonRunParser.js")(json, this.translation, this.options.salmonGearURL, (data) => {
                         return callback(data);
@@ -164,9 +157,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.gearURL)
+            fetchData(this.options.gearURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/splatNetGearParser.js")(json, this.translation);
                     return callback(data);
@@ -188,9 +180,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.festURL)
+            fetchData(this.options.festURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/splatfests/upcomingSplatfestsParser.js")(json, this.translation);
                     return callback(data);
@@ -212,9 +203,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.festURL)
+            fetchData(this.options.festURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/splatfests/pastSplatfestsParser.js")(json, this.translation);
                     return callback(data);
@@ -236,9 +226,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.festURL)
+            fetchData(this.options.festURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/splatfests/currentSplatfestsParser.js")(json, this.translation);
                     return callback(data);
@@ -260,9 +249,8 @@ class Client {
             })
         };
         this.langPromise.then((langData) => {
-            fetch(this.options.festURL)
+            fetchData(this.options.festURL, this.options)
                 .catch(err => console.error(err))
-                .then(res => res.json())
                 .then(json => {
                     const data = require("./parser/splatfests/runningSplatfestsParser.js")(json, this.translation);
                     return callback(data);
