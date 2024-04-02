@@ -1,5 +1,5 @@
 # Splatoon3api
-Splatoon3api is a simple library to get the current and next Splatoon 3 Maps (rotations), Salmonruns, Challenges, Splatfests and Splatnet gear. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). Splatoon3api is available in eight different languages ([List of available languages](#languages))
+Splatoon3api is a simple library to get the current and next Splatoon 3 Maps (rotations), Salmonruns, Challenges, Splatfests and Splatnet gear. This package uses the data from [splatoon3.ink](https://splatoon3.ink/). Splatoon3api is available in 14 different languages ([List of available languages](#languages))
 
 [![npm](https://img.shields.io/npm/dm/splatoon3api?label=Downloads)](https://www.npmjs.com/package/splatoon3api) [![npm](https://img.shields.io/npm/v/splatoon3api?label=Version)](https://www.npmjs.com/package/splatoon3api) [![discord](https://dcbadge.vercel.app/api/server/Cc76tYwXvy?style=flat&theme=default-inverted)](https://discord.com/invite/Cc76tYwXvy)
 
@@ -58,7 +58,7 @@ You have multiple options to use the functions:
    ```
 
 ### Languages
-You can exchange the `en-GB` for any other language in the list below:
+You can exchange `en-GB` for any other language in the list below:
 - `en-US` - English (US)
 - `en-GB` - English (GB)
 - `de-DE` - Deutsch
@@ -74,11 +74,9 @@ You can exchange the `en-GB` for any other language in the list below:
 - `zh-CN` - 中文(简体)
 - `zh-TW` - 中文(台灣)
 
-Once you have done this, you can use all the following functions as you like.
-
 ### Options
 
-When instantiating the constructor, you have the option to provide additional options.
+When instantiating the constructor, you can provide additional options:
 
 ```js
 const Splatoon3 = new splatoon3api.Client("en-GB", {
@@ -89,6 +87,8 @@ const Splatoon3 = new splatoon3api.Client("en-GB", {
    }
 });
 ```
+
+Once you have done this, you can use all the following functions as you like.
 
 ---
 

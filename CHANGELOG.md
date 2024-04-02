@@ -2,6 +2,18 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 1.6.4 - 2024-03-03
+
+### Added
+- .npmignore file to ignore test files
+
+### Changed
+- Changed some weird articulation in the readme
+
+### Fixed
+
+---
+
 ## 1.6.3 - 2024-03-03
 
 ### Added
