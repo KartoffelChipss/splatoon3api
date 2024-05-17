@@ -119,7 +119,7 @@ function parse(json, translation) {
         data.triColorStage = {
             start_time: json.data.currentFest.startTime,
             end_time: json.data.currentFest.endTime,
-            name: this.translation.stages[json.data.currentFest.tricolorStage.id]?.name,
+            name: translation.stages[json.data.currentFest.tricolorStage.id]?.name,
             image: json.data.currentFest.tricolorStage.image.url,
             rulesImg: "https://file.strassburger.org/tricolor.svg",
         }
