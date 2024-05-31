@@ -14,11 +14,11 @@ function parse(json, translation) {
                 start_time: node.startTime,
                 end_time: node.endTime,
                 stage1: {
-                    name: translation.stages[node.regularMatchSetting.vsStages[0].id].name,
+                    name: translation.stages[node.regularMatchSetting.vsStages[0].id]?.name,
                     image: node.regularMatchSetting.vsStages[0].image.url
                 },
                 stage2: {
-                    name: translation.stages[node.regularMatchSetting.vsStages[1].id].name,
+                    name: translation.stages[node.regularMatchSetting.vsStages[1].id]?.name,
                     image: node.regularMatchSetting.vsStages[1].image.url
                 },
                 rules: translation.rules[node.regularMatchSetting.vsRule.id].name,
@@ -36,11 +36,11 @@ function parse(json, translation) {
                     start_time: node.startTime,
                     end_time: node.endTime,
                     stage1: {
-                        name: translation.stages[node.bankaraMatchSettings[0].vsStages[0].id].name,
+                        name: translation.stages[node.bankaraMatchSettings[0].vsStages[0].id]?.name,
                         image: node.bankaraMatchSettings[0].vsStages[0].image.url
                     },
                     stage2: {
-                        name: translation.stages[node.bankaraMatchSettings[0].vsStages[1].id].name,
+                        name: translation.stages[node.bankaraMatchSettings[0].vsStages[1].id]?.name,
                         image: node.bankaraMatchSettings[0].vsStages[1].image.url
                     },
                     rules: translation.rules[node.bankaraMatchSettings[0].vsRule.id].name,
@@ -50,11 +50,11 @@ function parse(json, translation) {
                     start_time: node.startTime,
                     end_time: node.endTime,
                     stage1: {
-                        name: translation.stages[node.bankaraMatchSettings[1].vsStages[0].id].name,
+                        name: translation.stages[node.bankaraMatchSettings[1].vsStages[0].id]?.name,
                         image: node.bankaraMatchSettings[1].vsStages[0].image.url
                     },
                     stage2: {
-                        name: translation.stages[node.bankaraMatchSettings[1].vsStages[1].id].name,
+                        name: translation.stages[node.bankaraMatchSettings[1].vsStages[1].id]?.name,
                         image: node.bankaraMatchSettings[1].vsStages[1].image.url
                     },
                     rules: translation.rules[node.bankaraMatchSettings[1].vsRule.id].name,
@@ -72,11 +72,11 @@ function parse(json, translation) {
                 start_time: node.startTime,
                 end_time: node.endTime,
                 stage1: {
-                    name: translation.stages[node.xMatchSetting.vsStages[0].id].name,
+                    name: translation.stages[node.xMatchSetting.vsStages[0].id]?.name,
                     image: node.xMatchSetting.vsStages[0].image.url
                 },
                 stage2: {
-                    name: translation.stages[node.xMatchSetting.vsStages[1].id].name,
+                    name: translation.stages[node.xMatchSetting.vsStages[1].id]?.name,
                     image: node.xMatchSetting.vsStages[1].image.url
                 },
                 rules: translation.rules[node.xMatchSetting.vsRule.id].name,
@@ -96,11 +96,11 @@ function parse(json, translation) {
                     start_time: node.startTime,
                     end_time: node.endTime,
                     stage1: {
-                        name: translation.stages[setting.vsStages[0].id].name,
+                        name: translation.stages[setting.vsStages[0].id]?.name,
                         image: setting.vsStages[0].image.url
                     },
                     stage2: {
-                        name: translation.stages[setting.vsStages[1].id].name,
+                        name: translation.stages[setting.vsStages[1].id]?.name,
                         image: setting.vsStages[1].image.url
                     },
                     rules: translation.rules[setting.vsRule.id].name,

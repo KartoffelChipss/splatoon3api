@@ -5,10 +5,10 @@ function parse(json, translation) {
 
     json.data.eventSchedules.nodes.forEach((event, index) => {
         let eventData = {
-            name: translation.events[event.leagueMatchSetting.leagueMatchEvent.id].name,
-            desc: translation.events[event.leagueMatchSetting.leagueMatchEvent.id].desc,
-            eventRule: translation.events[event.leagueMatchSetting.leagueMatchEvent.id].regulation,
-            gameRule: translation.rules[event.leagueMatchSetting.vsRule.id].name,
+            name: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.name,
+            desc: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.desc,
+            eventRule: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.regulation,
+            gameRule: translation.rules[event.leagueMatchSetting.vsRule.id]?.name,
             gameRuleImg: getImageFromRuleId(event.leagueMatchSetting.vsRule.id),
             stages: [],
             timePeriods: [],
@@ -16,7 +16,7 @@ function parse(json, translation) {
 
         event.leagueMatchSetting.vsStages.forEach((stage, index) => {
             eventData.stages.push({
-                name: translation.stages[stage.id].name,
+                name: translation.stages[stage.id]?.name,
                 image: stage.image.url,
             });
         });
