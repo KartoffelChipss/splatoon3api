@@ -2,6 +2,22 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 2.0.0 - 2024-06-30
+
+### Added
+- Added TS definitions
+
+### Changed
+- Rewrote the whole package in TS
+- Tests now use historical data to ensure that splatfest functions work
+- Salmonrun schedules and weapons are now provided in an array
+- Splatnet gear is now provided in an array
+- Removed `typ` attribute from SplatnetGear
+
+### Fixed
+
+---
+
 ## 1.6.4 - 2024-03-03
 
 ### Added

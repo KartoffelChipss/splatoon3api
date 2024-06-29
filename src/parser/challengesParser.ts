@@ -1,10 +1,11 @@
-const { getImageFromRuleId } = require("../utils.js");
+import { SplatChallenge } from "../types";
+import { getImageFromRuleId } from "../utils";
 
-function parse(json, translation) {
-    let data = [];
+export default function parseChallenges(json: any, translation: any): SplatChallenge[] {
+    let data: SplatChallenge[] = [];
 
-    json.data.eventSchedules.nodes.forEach((event, index) => {
-        let eventData = {
+    json.data.eventSchedules.nodes.forEach((event: any) => {
+        let eventData: SplatChallenge = {
             name: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.name,
             desc: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.desc,
             eventRule: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.regulation,
@@ -14,14 +15,14 @@ function parse(json, translation) {
             timePeriods: [],
         }
 
-        event.leagueMatchSetting.vsStages.forEach((stage, index) => {
+        event.leagueMatchSetting.vsStages.forEach((stage: any) => {
             eventData.stages.push({
                 name: translation.stages[stage.id]?.name,
                 image: stage.image.url,
             });
         });
 
-        event.timePeriods.forEach((period, index) => {
+        event.timePeriods.forEach((period: any) => {
             eventData.timePeriods.push({
                 startTime: period.startTime,
                 endTime: period.endTime,
@@ -33,5 +34,3 @@ function parse(json, translation) {
 
     return data;
 };
-
-module.exports = parse;

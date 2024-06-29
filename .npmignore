@@ -1,1 +1,5 @@
 tests/
+testapp/
+jstestapp//
+src/**/*.ts
+src/**/*.tsx

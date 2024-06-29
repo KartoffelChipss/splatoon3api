@@ -1,3 +1,5 @@
 testapp/
+jstestapp/
 lang/old/
 **/node_modules
+dist/

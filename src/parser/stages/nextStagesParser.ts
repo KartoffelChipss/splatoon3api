@@ -1,7 +1,15 @@
-const { getImageFromRuleId } = require("../utils.js");
+import { StagesResponse, FestMatchSetting } from "../../types";
+import { getImageFromRuleId } from "../../utils";
 
-function parse(json, translation) {
-    let data = {};
+export default function parse(json: any, translation: any): StagesResponse {
+    let data: StagesResponse = {
+        regular: null,
+        ranked: null,
+        xbattle: null,
+        festSchedule: null,
+        triColorStage: null
+    };
+
     if (json.data.regularSchedules.nodes[1].regularMatchSetting) {
         data.regular = {
             start_time: json.data.regularSchedules.nodes[1].startTime,
@@ -77,10 +85,13 @@ function parse(json, translation) {
 
     if (json.data.festSchedules.nodes[1].festMatchSettings) {
         let node = json.data.festSchedules.nodes[1];
-        let returnObj = {};
+        let returnObj: FestMatchSetting = {
+            regular: null,
+            challenge: null
+        };
 
         for (let setting of node.festMatchSettings) {
-            returnObj[setting.festMode.toLowerCase()] = {
+            returnObj[setting.festMode.toLowerCase() as keyof FestMatchSetting] = {
                 start_time: node.startTime,
                 end_time: node.endTime,
                 stage1: {
@@ -116,5 +127,3 @@ function parse(json, translation) {
 
     return data;
 };
-
-module.exports = parse;

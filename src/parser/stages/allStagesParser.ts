@@ -1,14 +1,16 @@
-const { getImageFromRuleId } = require("../utils.js");
+import { AllStagesResponse, FestMatchSetting } from "../../types.js";
+import { getImageFromRuleId } from "../../utils.js";
 
-function parse(json, translation) {
-    let data = {
+export default function parseAllStages(json: any, translation: any): AllStagesResponse {
+    let data: AllStagesResponse = {
         regular: [],
         ranked: [],
         xbattle: [],
         festSchedule: [],
+        triColorStage: null
     };
 
-    json.data.regularSchedules.nodes.forEach((node, index) => {
+    json.data.regularSchedules.nodes.forEach((node: any, index: number) => {
         if (node.regularMatchSetting) {
             data.regular.push({
                 start_time: node.startTime,
@@ -21,7 +23,7 @@ function parse(json, translation) {
                     name: translation.stages[node.regularMatchSetting.vsStages[1].id]?.name,
                     image: node.regularMatchSetting.vsStages[1].image.url
                 },
-                rules: translation.rules[node.regularMatchSetting.vsRule.id].name,
+                rules: translation.rules[node.regularMatchSetting.vsRule.id]?.name,
                 rulesImg: getImageFromRuleId(node.regularMatchSetting.vsRule.id)
             });
         } else {
@@ -29,7 +31,7 @@ function parse(json, translation) {
         }
     });
 
-    json.data.bankaraSchedules.nodes.forEach((node, index) => {
+    json.data.bankaraSchedules.nodes.forEach((node: any, index: number) => {
         if (node.bankaraMatchSettings) {
             data.ranked.push({
                 series: {
@@ -43,7 +45,7 @@ function parse(json, translation) {
                         name: translation.stages[node.bankaraMatchSettings[0].vsStages[1].id]?.name,
                         image: node.bankaraMatchSettings[0].vsStages[1].image.url
                     },
-                    rules: translation.rules[node.bankaraMatchSettings[0].vsRule.id].name,
+                    rules: translation.rules[node.bankaraMatchSettings[0].vsRule.id]?.name,
                     rulesImg: getImageFromRuleId(node.bankaraMatchSettings[0].vsRule.id)
                 },
                 open: {
@@ -57,7 +59,7 @@ function parse(json, translation) {
                         name: translation.stages[node.bankaraMatchSettings[1].vsStages[1].id]?.name,
                         image: node.bankaraMatchSettings[1].vsStages[1].image.url
                     },
-                    rules: translation.rules[node.bankaraMatchSettings[1].vsRule.id].name,
+                    rules: translation.rules[node.bankaraMatchSettings[1].vsRule.id]?.name,
                     rulesImg: getImageFromRuleId(node.bankaraMatchSettings[1].vsRule.id)
                 }
             });
@@ -66,7 +68,7 @@ function parse(json, translation) {
         }
     });
 
-    json.data.xSchedules.nodes.forEach((node, index) => {
+    json.data.xSchedules.nodes.forEach((node: any, index: number) => {
         if (node.xMatchSetting) {
             data.xbattle.push({
                 start_time: node.startTime,
@@ -79,7 +81,7 @@ function parse(json, translation) {
                     name: translation.stages[node.xMatchSetting.vsStages[1].id]?.name,
                     image: node.xMatchSetting.vsStages[1].image.url
                 },
-                rules: translation.rules[node.xMatchSetting.vsRule.id].name,
+                rules: translation.rules[node.xMatchSetting.vsRule.id]?.name,
                 rulesImg: getImageFromRuleId(node.xMatchSetting.vsRule.id),
             });
         } else {
@@ -87,12 +89,15 @@ function parse(json, translation) {
         }
     });
 
-    json.data.festSchedules.nodes.forEach((node, index) => {
+    json.data.festSchedules.nodes.forEach((node: any, index: number) => {
         if (node.festMatchSettings) {
-            let returnObj = {};
+            let returnObj: FestMatchSetting = {
+                regular: null,
+                challenge: null
+            };
 
             for (let setting of node.festMatchSettings) {
-                returnObj[setting.festMode.toLowerCase()] = {
+                returnObj[setting.festMode.toLowerCase() as keyof FestMatchSetting] = {
                     start_time: node.startTime,
                     end_time: node.endTime,
                     stage1: {
@@ -103,7 +108,7 @@ function parse(json, translation) {
                         name: translation.stages[setting.vsStages[1].id]?.name,
                         image: setting.vsStages[1].image.url
                     },
-                    rules: translation.rules[setting.vsRule.id].name,
+                    rules: translation.rules[setting.vsRule.id]?.name,
                     rulesImg: getImageFromRuleId(setting.vsRule.id),
                     festMode: setting.festMode,
                 }
@@ -129,5 +134,3 @@ function parse(json, translation) {
 
     return data;
 }
-
-module.exports = parse;

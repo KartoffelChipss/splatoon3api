@@ -1,4 +1,4 @@
-{
+export default <import("./types").GearTranslations> {
     "en-GB": {
         "HeadGear": "Headgear",
         "ClothingGear": "Clothing",

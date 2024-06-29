@@ -1,8 +1,5 @@
-const { Client } = require('../src/main.js');
-
-const Splatoon3 = new Client('en-US', {
-    userAgent: 'Splatoon 3 API'
-});
+import { Client } from '../dist/main';
+const Splatoon3 = new Client("en-US");
 
 describe('Splatoon3', () => {
     it('should return the salmon run', async () => {

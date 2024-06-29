@@ -1,18 +1,20 @@
-const NodeCache = require("node-cache");
-const cache = new NodeCache();
+import * as Types from './types';
 
-const ruleImg_turfwar = "https://splatoon3.ink/assets/regular.81d2e9e4.svg";
-const ruleImg_rainmaker = "https://splatoon3.ink/assets/hoko.e3dce940.svg";
-const ruleImg_clamblitz = "https://splatoon3.ink/assets/asari.83043125.svg";
-const ruleImg_splatzones = "https://splatoon3.ink/assets/area.02968ae6.svg";
-const ruleImg_towercontrol = "https://splatoon3.ink/assets/yagura.3d64cf2c.svg";
+import NodeCache from 'node-cache';
+const cache: NodeCache = new NodeCache();
+
+const ruleImg_turfwar: string = "https://splatoon3.ink/assets/regular.81d2e9e4.svg";
+const ruleImg_rainmaker: string = "https://splatoon3.ink/assets/hoko.e3dce940.svg";
+const ruleImg_clamblitz: string = "https://splatoon3.ink/assets/asari.83043125.svg";
+const ruleImg_splatzones: string = "https://splatoon3.ink/assets/area.02968ae6.svg";
+const ruleImg_towercontrol: string = "https://splatoon3.ink/assets/yagura.3d64cf2c.svg";
 
 /**
  * Get rule image from rule ID
- * @param {'VnNSdWxlLTQ=' | 'VnNSdWxlLTI=' | 'VnNSdWxlLTE=' | 'VnNSdWxlLTM='} ruleId 
+ * @param {Types.RuleID} ruleId 
  * @returns {string}
  */
-function getImageFromRuleId(ruleId) {
+export function getImageFromRuleId(ruleId: Types.RuleID): string {
     if (ruleId === "VnNSdWxlLTQ=") return ruleImg_clamblitz;
     else if (ruleId === "VnNSdWxlLTI=") return ruleImg_towercontrol;
     else if (ruleId === "VnNSdWxlLTE=") return ruleImg_splatzones;
@@ -29,7 +31,7 @@ function getImageFromRuleId(ruleId) {
  * @description
  * Borrowed from https://stackoverflow.com/a/73401564
  */
-function RGBAToHexA(rgba, forceRemoveAlpha = false) {
+export function RGBAtoHEX(rgba: string, forceRemoveAlpha: boolean = false): string {
     return "#" + rgba.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
         .split(',') // splits them at ","
         .filter((string, index) => !forceRemoveAlpha || index !== 3)
@@ -45,24 +47,24 @@ function RGBAToHexA(rgba, forceRemoveAlpha = false) {
  * @param {string} lang - The lang string to format
  * @returns {Lang} - The formatted language string
  */
-function formatLang(lang) {
+export function formatLang(lang: Types.Lang): Types.Lang {
     const compatibleLanguages = ["de-DE", "en-GB", "en-US", "es-ES", "es-MX", "fr-FR", "fr-CA", "it-IT", "ja-JP", "ko-KR", "nl-NL", "ru-RU", "zh-CN", "zh-TW"];
-    const altLangCodes = {
-        "en": "en-US",
-        "de": "de-DE",
-        "nl": "nl-NL",
-        "fr": "fr-FR",
-        "es": "es-ES",
-        "it": "it-IT",
-        "ru": "ru-RU",
-        "jp": "ja-JP"
-    }
+
+    const altLangCodes = new Map<string, Types.Lang>();
+    altLangCodes.set("en", "en-US");
+    altLangCodes.set("de", "de-DE");
+    altLangCodes.set("nl", "nl-NL");
+    altLangCodes.set("fr", "fr-FR");
+    altLangCodes.set("es", "es-ES");
+    altLangCodes.set("it", "it-IT");
+    altLangCodes.set("ru", "ru-RU");
+    altLangCodes.set("jp", "ja-JP");
 
     // If no lang at all is provided, default to en-US
     if (!lang || typeof lang !== 'string') lang = "en-US";
 
     // If the lang is in alternative language codes, convert it to the correct one
-    if (altLangCodes[lang]) lang = altLangCodes[lang];
+    if (altLangCodes.get(lang)) lang = altLangCodes.get(lang)!;
 
     // If the lang is in the format of xx-xx, convert it to xx-XX
     if (lang.includes("-")) lang = lang.split("-")[0].toLowerCase() + "-" + lang.split("-")[1].toUpperCase();
@@ -74,39 +76,20 @@ function formatLang(lang) {
 }
 
 /**
- * Format the options input
- * @param {import('./types').Options} options - The options to format
- * @returns {import('./types').Options} - The formatted options
+ * Check if the value is a valid fest region
+ * @param {any} value - The value to check
+ * @returns {value is FestRegion} - If the value is a valid fest region
  */
-function formatOptions(options) {
-    const {
-        schedulesURL = "https://splatoon3.ink/data/schedules.json",
-        salmonGearURL = "https://splatoon3.ink/data/coop.json",
-        gearURL = "https://splatoon3.ink/data/gear.json",
-        festURL = "https://splatoon3.ink/data/festivals.json",
-        userAgent = undefined,
-        cache = {
-            enabled: true,
-            ttl: 60
-        }
-    } = options;
-
-    return {
-        schedulesURL,
-        salmonGearURL,
-        gearURL,
-        festURL,
-        userAgent,
-        cache
-    };
+export function isFestRegion(value: any): value is Types.FestRegion {
+    return ['US', 'EU', 'JP', 'AP'].includes(value);
 }
 
 /**
  * Fetch data from the URL
  * @param {string} url 
- * @param {import('./types').Options} options 
+ * @param {Types.Options} options 
  */
-function fetchData(url, options) {
+export function fetchData(url: string, options: Types.Options): Promise<any> {
     return new Promise((resolve, reject) => {
         const cachedData = cache.get(url);
 
@@ -115,7 +98,10 @@ function fetchData(url, options) {
             return;
         }
 
-        fetch(url, { method: "GET", headers: { "User-Agent": options.userAgent } })
+        const headers = new Headers();
+        headers.append("User-Agent", options.userAgent || "");
+        
+        fetch(url, { method: "GET", headers })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -123,7 +109,7 @@ function fetchData(url, options) {
                 return response.json();
             })
             .then(json => {
-                if (options.cache.enabled) cache.set(url, json, options.cache.ttl || 60);
+                if (options.cache && options.cache.enabled) cache.set(url, json, options.cache.ttl || 60);
                 resolve(json);
             })
             .catch(error => {
@@ -131,11 +117,3 @@ function fetchData(url, options) {
             });
     });
 }
-
-module.exports = {
-    getImageFromRuleId,
-    RGBAToHexA,
-    formatLang,
-    formatOptions,
-    fetchData
-};

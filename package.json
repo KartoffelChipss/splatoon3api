@@ -1,52 +1,60 @@
 {
-  "name": "splatoon3api",
-  "version": "1.6.6",
-  "description": "A simple Method to get current and next Splatoon 3 maps, Salmonrun Schedules and Splatnet gear",
-  "main": "src/main.js",
-  "scripts": {
-    "test": "jest",
-    "testapp": "node ./testapp/index.js"
-  },
-  "author": "Kartoffelchips",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/KartoffelChipss/splatoon3api"
-  },
-  "keywords": [
-    "splatoon 3",
-    "splatoon",
-    "splatoon3",
-    "splatoon api",
-    "nintendo",
-    "splatoon3.ink",
-    "rotation",
-    "schedule",
-    "schedules",
-    "salmonrun",
-    "turfwar",
-    "splatfest",
-    "splatfests",
-    "splatnet",
-    "gear",
-    "weapons",
-    "maps",
-    "stages",
-    "ranked",
-    "league",
-    "splatoon3.ink",
-    "splatoon3.ink api"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "node-cache": "^5.1.2",
-    "node-fetch": "^2.6.7"
-  },
-  "bugs": {
-    "url": "https://github.com/KartoffelChipss/splatoon3api/issues "
-  },
-  "homepage": "https://www.npmjs.com/package/splatoon3api",
-  "readme": "README.md",
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
+    "name": "splatoon3api",
+    "version": "2.0.0",
+    "description": "A simple Method to get current and next Splatoon 3 maps, Salmonrun Schedules and Splatnet gear",
+    "main": "dist/main.js",
+    "types": "dist/types.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "tsc && jest",
+        "testapp": "tsc && bun ./testapp/index.ts",
+        "testapp2": "tsc && node ./jstestapp/index.js"
+    },
+    "author": "Kartoffelchips",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KartoffelChipss/splatoon3api"
+    },
+    "keywords": [
+        "splatoon 3",
+        "splatoon",
+        "splatoon3",
+        "splatoon api",
+        "nintendo",
+        "splatoon3.ink",
+        "rotation",
+        "schedule",
+        "schedules",
+        "salmonrun",
+        "turfwar",
+        "splatfest",
+        "splatfests",
+        "splatnet",
+        "gear",
+        "weapons",
+        "maps",
+        "stages",
+        "ranked",
+        "league",
+        "splatoon3.ink",
+        "splatoon3.ink api"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "node-cache": "^5.1.2",
+        "node-fetch": "^2.6.7"
+    },
+    "bugs": {
+        "url": "https://github.com/KartoffelChipss/splatoon3api/issues"
+    },
+    "homepage": "https://www.npmjs.com/package/splatoon3api",
+    "readme": "README.md",
+    "devDependencies": {
+        "@types/jest": "^29.5.12",
+        "@types/node": "^20.14.9",
+        "@types/node-fetch": "^2.6.11",
+        "jest": "^29.7.0",
+        "typescript": "^5.5.2",
+        "ts-jest": "^29.1.5"
+    }
 }
