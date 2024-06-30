@@ -2,6 +2,15 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 2.0.1 - 2024-06-30
+
+### Added
+
+### Changed
+
+### Fixed
+- Fixed a bug, where Types were not exported correctly
+
 ## 2.0.0 - 2024-06-30
 
 ### Added

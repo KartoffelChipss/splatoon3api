@@ -1,7 +1,6 @@
-import { Client } from '../dist/main';
-import { Options } from '../dist/types';
+import { Client, Types } from '../dist/main';
 const Splatoon3 = new Client("en-US");
-const Splatoon3Running = new Client("de-DE", new Options({ festURL: "https://splatoon3ink-archive.nyc3.digitaloceanspaces.com/2024/05/19/2024-05-19.05-00-00.festivals.json" }));
+const Splatoon3Running = new Client("de-DE", new Types.Options({ festURL: "https://splatoon3ink-archive.nyc3.digitaloceanspaces.com/2024/05/19/2024-05-19.05-00-00.festivals.json" }));
 
 describe("Splatoon 3 Stages", () => {
     it('should return all stages', async () => {
@@ -20,4 +19,4 @@ describe("Splatoon 3 Stages", () => {
         const res = await Splatoon3.getNextStages();
         expect(res).toBeDefined();
     });
-})
+});

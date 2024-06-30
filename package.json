@@ -1,9 +1,9 @@
 {
     "name": "splatoon3api",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "A simple Method to get current and next Splatoon 3 maps, Salmonrun Schedules and Splatnet gear",
     "main": "dist/main.js",
-    "types": "dist/types.d.ts",
+    "types": "dist/main.d.ts",
     "scripts": {
         "build": "tsc",
         "test": "tsc && jest",
