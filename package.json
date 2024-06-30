@@ -10,7 +10,11 @@
         "testapp": "tsc && bun ./testapp/index.ts",
         "testapp2": "tsc && node ./jstestapp/index.js"
     },
-    "author": "Kartoffelchips",
+    "author": {
+        "name": "Jan Straßburger",
+        "email": "contact@strassburger.org",
+        "url": "https://strassburger.org/"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/KartoffelChipss/splatoon3api"
