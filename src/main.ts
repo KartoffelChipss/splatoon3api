@@ -180,5 +180,4 @@ class Client {
     }
 }
 
-export { Client };
-export { Types };
+export { Client, Types };
