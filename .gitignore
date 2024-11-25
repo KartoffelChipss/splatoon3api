@@ -3,3 +3,4 @@ jstestapp/
 lang/old/
 **/node_modules
 dist/
+.idea/

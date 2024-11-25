@@ -4,7 +4,12 @@ import { FestMatchSetting, StagesResponse } from "../../types.js";
 export default function parseCurrentStages(json: any, translation: any): StagesResponse {
     let data: Partial<StagesResponse> = {};
 
-    const regularNode = json.data.regularSchedules.nodes[0];
+    const getCurrentNode = (nodes: any[]) => {
+        const now = new Date();
+        return nodes.find(node => new Date(node.startTime) <= now && new Date(node.endTime) > now) || null;
+    };
+
+    const regularNode = getCurrentNode(json.data.regularSchedules.nodes);
     if (regularNode.regularMatchSetting) {
         data.regular = {
             start_time: regularNode.startTime,
@@ -24,7 +29,7 @@ export default function parseCurrentStages(json: any, translation: any): StagesR
         data.regular = null;
     }
 
-    const bankaraNode = json.data.bankaraSchedules.nodes[0];
+    const bankaraNode = getCurrentNode(json.data.bankaraSchedules.nodes);
     if (bankaraNode.bankaraMatchSettings) {
         data.ranked = {
             series: {
@@ -60,7 +65,7 @@ export default function parseCurrentStages(json: any, translation: any): StagesR
         data.ranked = null;
     }
 
-    const xNode = json.data.xSchedules.nodes[0];
+    const xNode = getCurrentNode(json.data.xSchedules.nodes);
     if (xNode.xMatchSetting) {
         data.xbattle = {
             start_time: xNode.startTime,
@@ -80,7 +85,7 @@ export default function parseCurrentStages(json: any, translation: any): StagesR
         data.xbattle = null;
     }
 
-    const festNode = json.data.festSchedules.nodes[0];
+    const festNode = getCurrentNode(json.data.festSchedules.nodes);
     if (festNode.festMatchSettings) {
         let returnObj: FestMatchSetting = {
             regular: null,
