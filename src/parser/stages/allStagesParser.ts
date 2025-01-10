@@ -7,7 +7,8 @@ export default function parseAllStages(json: any, translation: any): AllStagesRe
         ranked: [],
         xbattle: [],
         festSchedule: [],
-        triColorStage: null
+        triColorStage: null,
+        triColorStages: []
     };
 
     json.data.regularSchedules.nodes.forEach((node: any, index: number) => {
@@ -121,14 +122,23 @@ export default function parseAllStages(json: any, translation: any): AllStagesRe
     });
 
     if (json.data.currentFest) {
-        data.triColorStage = {
+        data.triColorStages = json.data.currentFest.tricolorStages ? json.data.currentFest.tricolorStages.map((stage: any) => ({
+            start_time: json.data.currentFest.startTime,
+            end_time: json.data.currentFest.endTime,
+            name: translation.stages[stage.id]?.name,
+            image: stage.image.url,
+            rulesImg: "https://file.strassburger.org/tricolor.svg",
+        })) : null;
+        data.triColorStage = json.data.currentFest.tricolorStage ? {
             start_time: json.data.currentFest.startTime,
             end_time: json.data.currentFest.endTime,
             name: translation.stages[json.data.currentFest.tricolorStage.id]?.name,
             image: json.data.currentFest.tricolorStage.image.url,
             rulesImg: "https://file.strassburger.org/tricolor.svg",
-        }
+        } : null;
+
     } else {
+        data.triColorStages.push(null);
         data.triColorStage = null;
     }
 
