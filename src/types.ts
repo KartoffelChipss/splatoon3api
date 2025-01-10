@@ -171,6 +171,7 @@ export interface StagesResponse {
     xbattle: SplatRotation | null;
     festSchedule: FestMatchSetting | null;
     triColorStage: SplatTricolorStage | null;
+    triColorStages: SplatTricolorStage[] | null;
 }
 
 /**
@@ -184,6 +185,7 @@ export interface AllStagesResponse {
     xbattle: (null | SplatRotation)[];
     festSchedule: (null | FestMatchSetting)[];
     triColorStage: SplatTricolorStage | null;
+    triColorStages: (null | SplatTricolorStage)[];
 }
 
 /**
