@@ -2,6 +2,15 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 2.0.3 - 2025-01-10
+
+### Added
+
+### Changed
+- The StagesResponse and AllStagesResponse objects now include either a single tricolor stage or an array of tricolor stages (@ntdoJanneck)
+
+### Fixed
+
 ## 2.0.1 - 2024-06-30
 
 ### Added
