@@ -229,6 +229,7 @@ export interface SalmonSchedule {
     end_time: string;
     stage: SplatStage;
     weapons: SalmonRunWeapon[];
+    boss: string;
 }
 
 export interface SalmonResult {

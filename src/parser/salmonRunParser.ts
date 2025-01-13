@@ -16,7 +16,8 @@ export default async function parseSalmonrun(json: any, translation: any, salmon
                     name: translation.stages[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.coopStage.id]?.name,
                     image: json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.coopStage.image.url
                 },
-                weapons: []
+                weapons: [],
+                boss: translation.bosses[json.data.coopGroupingSchedule.regularSchedules.nodes[index].setting.boss.id]?.name
             }
 
             for (let i = 0; i < 4; i++) {
@@ -37,7 +38,8 @@ export default async function parseSalmonrun(json: any, translation: any, salmon
                     name: translation.stages[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.coopStage.id].name,
                     image: json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.coopStage.image.url
                 },
-                weapons: []
+                weapons: [],
+                boss: translation.bosses[json.data.coopGroupingSchedule.bigRunSchedules.nodes[index].setting.boss.id]?.name
             }
 
             for (let i = 0; i < 4; i++) {
