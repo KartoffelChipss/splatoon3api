@@ -2,6 +2,15 @@
 
 Here, you will find all notabled changes that have been made to this project.
 
+## 2.0.4 - 2025-01-13
+
+### Added
+- Salmonrun schedules now contain information about the current boss
+
+### Changed
+
+### Fixed
+
 ## 2.0.3 - 2025-01-10
 
 ### Added
