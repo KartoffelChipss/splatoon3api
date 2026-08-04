@@ -46,7 +46,7 @@
     "license": "MIT",
     "dependencies": {
         "node-cache": "^5.1.2",
-        "node-fetch": "^2.6.7"
+        "node-fetch": "^3.3.2"
     },
     "bugs": {
         "url": "https://github.com/KartoffelChipss/splatoon3api/issues"
