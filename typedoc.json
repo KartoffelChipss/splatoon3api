@@ -1,0 +1,19 @@
+{
+    "out": "docs",
+    "name": "splatoon3api",
+    "includeVersion": true,
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "hideGenerator": true,
+    "plugin": ["typedoc-github-theme"],
+    "theme": "typedoc-github-theme",
+    "readme": "typedoc-readme.md",
+    "navigationLinks": {
+        "Discord": "https://strassburger.org/discord",
+        "NPM": "https://www.npmjs.com/package/splatoon3api",
+        "GitHub": "https://github.com/KartoffelChipss/splatoon3api"
+    },
+    "disableSources": true,
+    "entryPoints": ["src/main.ts"],
+    "entryPointStrategy": "resolve"
+}

@@ -15,7 +15,9 @@
         "build": "tsc",
         "clean": "rm -rf dist",
         "testapp": "pnpm build && tsc -p testapp/tsconfig.json && node testapp/index.js",
-        "test": "jest"
+        "test": "jest",
+        "docs": "typedoc --options typedoc.json",
+        "opendocs": "pnpm run docs && open ./docs/index.html"
     },
     "author": {
         "name": "Jan Straßburger",
@@ -64,6 +66,8 @@
         "@types/node": "^20.14.9",
         "jest": "^30.4.2",
         "ts-jest": "^29.4.12",
+        "typedoc": "^0.28.20",
+        "typedoc-github-theme": "^0.4.0",
         "typescript": "^5.5.2"
     }
 }
