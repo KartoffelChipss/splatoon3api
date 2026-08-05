@@ -1,4 +1,7 @@
-import { computeTeamColor, buildFestTeams } from '../../../src/parser/splatfests/shared';
+import {
+    computeTeamColor,
+    buildFestTeams,
+} from '../../../src/parser/splatfests/shared';
 
 describe('computeTeamColor', () => {
     it('encodes a fully opaque color correctly', () => {
@@ -20,8 +23,13 @@ describe('computeTeamColor', () => {
 
 describe('buildFestTeams', () => {
     it('walks however many teams the fest actually has, not just indices 0-2', () => {
-        const fest = { teams: [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'd' }] };
-        const teams = buildFestTeams(fest, (team, index) => ({ index, id: team.id }));
+        const fest = {
+            teams: [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'd' }],
+        };
+        const teams = buildFestTeams(fest, (team, index) => ({
+            index,
+            id: team.id,
+        }));
 
         expect(Object.keys(teams)).toEqual(['0', '1', '2', '3']);
         expect(teams[1]).toEqual({ index: 1, id: 'b' });

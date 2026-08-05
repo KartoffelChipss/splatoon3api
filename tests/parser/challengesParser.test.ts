@@ -11,7 +11,10 @@ describe('parseChallenges', () => {
                             leagueMatchSetting: {
                                 leagueMatchEvent: { id: 'event1' },
                                 vsRule: { id: RULE_IDS.clamBlitz },
-                                vsStages: [buildStageNode('stage1'), buildStageNode('stage2')],
+                                vsStages: [
+                                    buildStageNode('stage1'),
+                                    buildStageNode('stage2'),
+                                ],
                             },
                             timePeriods: [{ startTime: 't0', endTime: 't1' }],
                         },
@@ -27,6 +30,8 @@ describe('parseChallenges', () => {
         expect(challenge.gameRuleId).toBe(RULE_IDS.clamBlitz);
         expect(challenge.gameRule).toBe('Clam Blitz');
         expect(challenge.stages).toHaveLength(2);
-        expect(challenge.timePeriods).toEqual([{ startTime: 't0', endTime: 't1' }]);
+        expect(challenge.timePeriods).toEqual([
+            { startTime: 't0', endTime: 't1' },
+        ]);
     });
 });

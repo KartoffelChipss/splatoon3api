@@ -6,7 +6,12 @@ import {
     buildTricolorStage,
     buildTricolorStages,
 } from '../../../src/parser/stages/shared';
-import { buildTranslation, buildMatchSetting, buildStageNode, RULE_IDS } from '../../fixtures';
+import {
+    buildTranslation,
+    buildMatchSetting,
+    buildStageNode,
+    RULE_IDS,
+} from '../../fixtures';
 
 describe('buildStage', () => {
     it('resolves the translated name and keeps the raw id', () => {
@@ -25,7 +30,7 @@ describe('buildRotation', () => {
             '2024-01-01T00:00:00Z',
             '2024-01-01T02:00:00Z',
             buildMatchSetting(RULE_IDS.splatZones),
-            buildTranslation()
+            buildTranslation(),
         );
 
         expect(rotation.ruleId).toBe(RULE_IDS.splatZones);
@@ -40,8 +45,11 @@ describe('buildRankedModes', () => {
         const modes = buildRankedModes(
             't0',
             't1',
-            [buildMatchSetting(RULE_IDS.splatZones), buildMatchSetting(RULE_IDS.towerControl)],
-            buildTranslation()
+            [
+                buildMatchSetting(RULE_IDS.splatZones),
+                buildMatchSetting(RULE_IDS.towerControl),
+            ],
+            buildTranslation(),
         );
 
         expect(modes.series.rules).toBe('Splat Zones');
@@ -56,7 +64,12 @@ describe('buildFestMatchSetting', () => {
             { ...buildMatchSetting(RULE_IDS.clamBlitz), festMode: 'CHALLENGE' },
         ];
 
-        const result = buildFestMatchSetting('t0', 't1', settings, buildTranslation());
+        const result = buildFestMatchSetting(
+            't0',
+            't1',
+            settings,
+            buildTranslation(),
+        );
 
         expect(result.regular?.festMode).toBe('REGULAR');
         expect(result.regular?.rules).toBe('Turf War');
@@ -75,10 +88,17 @@ describe('buildTricolorStage / buildTricolorStages', () => {
             startTime: 't0',
             endTime: 't1',
             tricolorStage: buildStageNode('stage1'),
-            tricolorStages: [buildStageNode('stage1'), buildStageNode('stage2')],
+            tricolorStages: [
+                buildStageNode('stage1'),
+                buildStageNode('stage2'),
+            ],
         };
 
-        expect(buildTricolorStage(currentFest, buildTranslation())?.name).toBe('Scorch Gorge');
-        expect(buildTricolorStages(currentFest, buildTranslation())).toHaveLength(2);
+        expect(buildTricolorStage(currentFest, buildTranslation())?.name).toBe(
+            'Scorch Gorge',
+        );
+        expect(
+            buildTricolorStages(currentFest, buildTranslation()),
+        ).toHaveLength(2);
     });
 });

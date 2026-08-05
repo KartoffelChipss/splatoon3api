@@ -1,11 +1,18 @@
 import parseCurrentStages from '../../../src/parser/stages/currentStagesParser';
-import { buildTranslation, buildMatchSetting, buildScheduleJson, RULE_IDS } from '../../fixtures';
+import {
+    buildTranslation,
+    buildMatchSetting,
+    buildScheduleJson,
+    RULE_IDS,
+} from '../../fixtures';
 
 describe('parseCurrentStages', () => {
     it('does not throw and returns nulls when no node is currently active', () => {
         const json = buildScheduleJson();
 
-        expect(() => parseCurrentStages(json, buildTranslation())).not.toThrow();
+        expect(() =>
+            parseCurrentStages(json, buildTranslation()),
+        ).not.toThrow();
 
         const result = parseCurrentStages(json, buildTranslation());
         expect(result.regular).toBeNull();
@@ -26,7 +33,9 @@ describe('parseCurrentStages', () => {
             endTime: new Date(now + 1800_000).toISOString(),
             regularMatchSetting: buildMatchSetting(RULE_IDS.splatZones),
         };
-        const json = buildScheduleJson({ regularSchedules: { nodes: [past, active] } });
+        const json = buildScheduleJson({
+            regularSchedules: { nodes: [past, active] },
+        });
 
         const result = parseCurrentStages(json, buildTranslation());
         expect(result.regular?.rules).toBe('Splat Zones');

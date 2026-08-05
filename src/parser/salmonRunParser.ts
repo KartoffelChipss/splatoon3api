@@ -1,4 +1,8 @@
-import { SalmonResult, SalmonRunWeapon, SalmonSchedule } from '../types/salmonRun';
+import {
+    SalmonResult,
+    SalmonRunWeapon,
+    SalmonSchedule,
+} from '../types/salmonRun';
 
 function buildWeapon(weaponNode: any, translation: any): SalmonRunWeapon {
     return {
@@ -17,7 +21,9 @@ function buildSchedule(node: any, translation: any): SalmonSchedule {
             name: translation.stages[node.setting.coopStage.id]?.name,
             image: node.setting.coopStage.image.url,
         },
-        weapons: node.setting.weapons.map((weapon: any) => buildWeapon(weapon, translation)),
+        weapons: node.setting.weapons.map((weapon: any) =>
+            buildWeapon(weapon, translation),
+        ),
         boss: translation.bosses[node.setting.boss.id]?.name,
     };
 }
@@ -25,15 +31,17 @@ function buildSchedule(node: any, translation: any): SalmonSchedule {
 export default function parseSalmonRun(
     scheduleJson: any,
     gearJson: any,
-    translation: any
+    translation: any,
 ): SalmonResult {
-    const regularSchedules = scheduleJson.data.coopGroupingSchedule.regularSchedules.nodes
-        .filter((node: any) => node.setting)
-        .map((node: any) => buildSchedule(node, translation));
+    const regularSchedules =
+        scheduleJson.data.coopGroupingSchedule.regularSchedules.nodes
+            .filter((node: any) => node.setting)
+            .map((node: any) => buildSchedule(node, translation));
 
-    const bigRunSchedules = scheduleJson.data.coopGroupingSchedule.bigRunSchedules.nodes
-        .filter((node: any) => node.setting)
-        .map((node: any) => buildSchedule(node, translation));
+    const bigRunSchedules =
+        scheduleJson.data.coopGroupingSchedule.bigRunSchedules.nodes
+            .filter((node: any) => node.setting)
+            .map((node: any) => buildSchedule(node, translation));
 
     const monthlyGearNode = gearJson?.data?.coopResult?.monthlyGear;
     const monthlyGear = monthlyGearNode

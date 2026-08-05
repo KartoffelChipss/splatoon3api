@@ -1,5 +1,9 @@
 import parsePastSplatfests from '../../../src/parser/splatfests/pastSplatfestsParser';
-import { buildFestJson, buildFestRecord, buildTranslation } from '../../fixtures';
+import {
+    buildFestJson,
+    buildFestRecord,
+    buildTranslation,
+} from '../../fixtures';
 
 describe('parsePastSplatfests', () => {
     it('only includes CLOSED fests, resolving title/team names from the translation table', () => {

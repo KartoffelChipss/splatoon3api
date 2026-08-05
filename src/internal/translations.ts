@@ -21,7 +21,8 @@ export function formatLang(lang: Lang | string | undefined): Lang {
 
     let normalized: string = lang;
 
-    if (ALT_LANG_CODES.has(normalized)) normalized = ALT_LANG_CODES.get(normalized)!;
+    if (ALT_LANG_CODES.has(normalized))
+        normalized = ALT_LANG_CODES.get(normalized)!;
 
     if (normalized.includes('-')) {
         const [language, region] = normalized.split('-');
@@ -39,7 +40,7 @@ export function formatLang(lang: Lang | string | undefined): Lang {
  */
 export function getTranslation(
     translationCache: Map<Lang, Promise<any>>,
-    lang: Lang
+    lang: Lang,
 ): Promise<any> {
     const cached = translationCache.get(lang);
     if (cached) return cached;
@@ -47,7 +48,9 @@ export function getTranslation(
     const promise = fetch(`https://splatoon3.ink/data/locale/${lang}.json`)
         .then((res) => {
             if (!res || !res.ok)
-                throw new Error(`Network response was not ok while loading lang file for ${lang}`);
+                throw new Error(
+                    `Network response was not ok while loading lang file for ${lang}`,
+                );
             return res.json();
         })
         .then((json: any) => ({ ...json, gearType: GearTypes[lang] }))

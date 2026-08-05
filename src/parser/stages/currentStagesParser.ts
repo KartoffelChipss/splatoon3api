@@ -10,12 +10,17 @@ import {
 function getCurrentNode(nodes: any[]): any | null {
     const now = new Date();
     return (
-        nodes.find((node) => new Date(node.startTime) <= now && new Date(node.endTime) > now) ??
-        null
+        nodes.find(
+            (node) =>
+                new Date(node.startTime) <= now && new Date(node.endTime) > now,
+        ) ?? null
     );
 }
 
-export default function parseCurrentStages(json: any, translation: any): StagesResponse {
+export default function parseCurrentStages(
+    json: any,
+    translation: any,
+): StagesResponse {
     const regularNode = getCurrentNode(json.data.regularSchedules.nodes);
     const bankaraNode = getCurrentNode(json.data.bankaraSchedules.nodes);
     const xNode = getCurrentNode(json.data.xSchedules.nodes);
@@ -27,7 +32,7 @@ export default function parseCurrentStages(json: any, translation: any): StagesR
                   regularNode.startTime,
                   regularNode.endTime,
                   regularNode.regularMatchSetting,
-                  translation
+                  translation,
               )
             : null,
         ranked: bankaraNode?.bankaraMatchSettings
@@ -35,18 +40,23 @@ export default function parseCurrentStages(json: any, translation: any): StagesR
                   bankaraNode.startTime,
                   bankaraNode.endTime,
                   bankaraNode.bankaraMatchSettings,
-                  translation
+                  translation,
               )
             : null,
         xbattle: xNode?.xMatchSetting
-            ? buildRotation(xNode.startTime, xNode.endTime, xNode.xMatchSetting, translation)
+            ? buildRotation(
+                  xNode.startTime,
+                  xNode.endTime,
+                  xNode.xMatchSetting,
+                  translation,
+              )
             : null,
         festSchedule: festNode?.festMatchSettings
             ? buildFestMatchSetting(
                   festNode.startTime,
                   festNode.endTime,
                   festNode.festMatchSettings,
-                  translation
+                  translation,
               )
             : null,
         triColorStage: buildTricolorStage(json.data.currentFest, translation),

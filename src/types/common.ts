@@ -19,7 +19,8 @@ export type Lang = (typeof SUPPORTED_LANGUAGES)[number];
 
 export type FestRegion = 'US' | 'EU' | 'JP' | 'AP';
 
-export type RuleID = 'VnNSdWxlLTQ=' | 'VnNSdWxlLTI=' | 'VnNSdWxlLTE=' | 'VnNSdWxlLTM=';
+export type RuleID =
+    'VnNSdWxlLTQ=' | 'VnNSdWxlLTI=' | 'VnNSdWxlLTE=' | 'VnNSdWxlLTM=';
 
 /**
  * Per-call language override. Falls back to the client's `defaultLang` when omitted.

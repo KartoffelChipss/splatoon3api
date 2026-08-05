@@ -7,7 +7,10 @@ import {
     buildTricolorStages,
 } from './shared';
 
-export default function parseNextStages(json: any, translation: any): StagesResponse {
+export default function parseNextStages(
+    json: any,
+    translation: any,
+): StagesResponse {
     const regularNode = json.data.regularSchedules.nodes[1];
     const bankaraNode = json.data.bankaraSchedules.nodes[1];
     const xNode = json.data.xSchedules.nodes[1];
@@ -19,7 +22,7 @@ export default function parseNextStages(json: any, translation: any): StagesResp
                   regularNode.startTime,
                   regularNode.endTime,
                   regularNode.regularMatchSetting,
-                  translation
+                  translation,
               )
             : null,
         ranked: bankaraNode?.bankaraMatchSettings
@@ -27,18 +30,23 @@ export default function parseNextStages(json: any, translation: any): StagesResp
                   bankaraNode.startTime,
                   bankaraNode.endTime,
                   bankaraNode.bankaraMatchSettings,
-                  translation
+                  translation,
               )
             : null,
         xbattle: xNode?.xMatchSetting
-            ? buildRotation(xNode.startTime, xNode.endTime, xNode.xMatchSetting, translation)
+            ? buildRotation(
+                  xNode.startTime,
+                  xNode.endTime,
+                  xNode.xMatchSetting,
+                  translation,
+              )
             : null,
         festSchedule: festNode?.festMatchSettings
             ? buildFestMatchSetting(
                   festNode.startTime,
                   festNode.endTime,
                   festNode.festMatchSettings,
-                  translation
+                  translation,
               )
             : null,
         triColorStage: buildTricolorStage(json.data.currentFest, translation),

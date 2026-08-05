@@ -17,7 +17,10 @@ describe('parseSalmonRun', () => {
                                 startTime: 't1',
                                 endTime: 't2',
                                 setting: {
-                                    coopStage: { id: 'stage1', image: { url: 'stage1.png' } },
+                                    coopStage: {
+                                        id: 'stage1',
+                                        image: { url: 'stage1.png' },
+                                    },
                                     boss: { id: 'boss1' },
                                     weapons: [buildWeaponNode('weapon1')],
                                 },
@@ -40,7 +43,11 @@ describe('parseSalmonRun', () => {
             },
         };
 
-        const result = parseSalmonRun(scheduleJson, gearJson, buildTranslation());
+        const result = parseSalmonRun(
+            scheduleJson,
+            gearJson,
+            buildTranslation(),
+        );
 
         expect(result.regularSchedules).toHaveLength(1);
         expect(result.regularSchedules[0].boss).toBe('Big Shot');
@@ -71,7 +78,7 @@ describe('parseSalmonRun', () => {
         const result = parseSalmonRun(
             scheduleJson,
             { data: { coopResult: {} } },
-            buildTranslation()
+            buildTranslation(),
         );
         expect(result.monthlyGear).toBeNull();
     });

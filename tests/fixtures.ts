@@ -29,7 +29,11 @@ export function buildTranslation(overrides: any = {}): any {
         bosses: { boss1: { name: 'Big Shot' } },
         weapons: { weapon1: { name: 'Splattershot' } },
         gear: { gear1: { name: 'Cool Cap' } },
-        gearType: { HeadGear: 'Headgear', ClothingGear: 'Clothing', ShoesGear: 'Shoes' },
+        gearType: {
+            HeadGear: 'Headgear',
+            ClothingGear: 'Clothing',
+            ShoesGear: 'Shoes',
+        },
         powers: { power1: { name: 'Ink Saver (Main)' } },
         brands: { brand1: { name: 'Zekko' } },
         festivals: {

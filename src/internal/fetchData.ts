@@ -4,7 +4,11 @@ import { Options } from '../types/common';
 /**
  * Fetch JSON from a URL, using the given cache instance keyed by URL.
  */
-export function fetchJson(url: string, options: Options, cache: NodeCache): Promise<any> {
+export function fetchJson(
+    url: string,
+    options: Options,
+    cache: NodeCache,
+): Promise<any> {
     return new Promise((resolve, reject) => {
         const cachedData = cache.get(url);
 

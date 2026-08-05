@@ -7,23 +7,41 @@ import {
     buildTricolorStages,
 } from './shared';
 
-export default function parseAllStages(json: any, translation: any): AllStagesResponse {
+export default function parseAllStages(
+    json: any,
+    translation: any,
+): AllStagesResponse {
     const regular = json.data.regularSchedules.nodes.map((node: any) =>
         node.regularMatchSetting
-            ? buildRotation(node.startTime, node.endTime, node.regularMatchSetting, translation)
-            : null
+            ? buildRotation(
+                  node.startTime,
+                  node.endTime,
+                  node.regularMatchSetting,
+                  translation,
+              )
+            : null,
     );
 
     const ranked = json.data.bankaraSchedules.nodes.map((node: any) =>
         node.bankaraMatchSettings
-            ? buildRankedModes(node.startTime, node.endTime, node.bankaraMatchSettings, translation)
-            : null
+            ? buildRankedModes(
+                  node.startTime,
+                  node.endTime,
+                  node.bankaraMatchSettings,
+                  translation,
+              )
+            : null,
     );
 
     const xbattle = json.data.xSchedules.nodes.map((node: any) =>
         node.xMatchSetting
-            ? buildRotation(node.startTime, node.endTime, node.xMatchSetting, translation)
-            : null
+            ? buildRotation(
+                  node.startTime,
+                  node.endTime,
+                  node.xMatchSetting,
+                  translation,
+              )
+            : null,
     );
 
     const festSchedule = json.data.festSchedules.nodes.map((node: any) =>
@@ -32,9 +50,9 @@ export default function parseAllStages(json: any, translation: any): AllStagesRe
                   node.startTime,
                   node.endTime,
                   node.festMatchSettings,
-                  translation
+                  translation,
               )
-            : null
+            : null,
     );
 
     return {
@@ -43,6 +61,9 @@ export default function parseAllStages(json: any, translation: any): AllStagesRe
         xbattle,
         festSchedule,
         triColorStage: buildTricolorStage(json.data.currentFest, translation),
-        triColorStages: buildTricolorStages(json.data.currentFest, translation) ?? [null],
+        triColorStages: buildTricolorStages(
+            json.data.currentFest,
+            translation,
+        ) ?? [null],
     };
 }

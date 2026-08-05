@@ -19,10 +19,24 @@ function buildScheduleResponse() {
                 ],
             },
             bankaraSchedules: {
-                nodes: [{ startTime: 't0', endTime: 't1', bankaraMatchSettings: null }],
+                nodes: [
+                    {
+                        startTime: 't0',
+                        endTime: 't1',
+                        bankaraMatchSettings: null,
+                    },
+                ],
             },
-            xSchedules: { nodes: [{ startTime: 't0', endTime: 't1', xMatchSetting: null }] },
-            festSchedules: { nodes: [{ startTime: 't0', endTime: 't1', festMatchSettings: null }] },
+            xSchedules: {
+                nodes: [
+                    { startTime: 't0', endTime: 't1', xMatchSetting: null },
+                ],
+            },
+            festSchedules: {
+                nodes: [
+                    { startTime: 't0', endTime: 't1', festMatchSettings: null },
+                ],
+            },
             currentFest: null,
         },
     };
@@ -30,7 +44,10 @@ function buildScheduleResponse() {
 
 function buildLocaleResponse(ruleName: string) {
     return {
-        stages: { stage1: { name: 'Stage One' }, stage2: { name: 'Stage Two' } },
+        stages: {
+            stage1: { name: 'Stage One' },
+            stage2: { name: 'Stage Two' },
+        },
         rules: { 'VnNSdWxlLTA=': { name: ruleName } },
     };
 }
@@ -42,7 +59,8 @@ function jsonResponse(body: any) {
 describe('Client', () => {
     it('serves multiple languages from one instance without re-fetching the raw schedule data', async () => {
         const fetchMock = jest.fn((url: string) => {
-            if (url.includes('/data/schedules.json')) return jsonResponse(buildScheduleResponse());
+            if (url.includes('/data/schedules.json'))
+                return jsonResponse(buildScheduleResponse());
             if (url.includes('/locale/en-US.json'))
                 return jsonResponse(buildLocaleResponse('Turf War'));
             if (url.includes('/locale/de-DE.json'))
@@ -61,17 +79,20 @@ describe('Client', () => {
         expect(en.regular?.ruleId).toBe(de.regular?.ruleId);
 
         const scheduleFetches = fetchMock.mock.calls.filter(([url]) =>
-            url.includes('/data/schedules.json')
+            url.includes('/data/schedules.json'),
         );
         expect(scheduleFetches).toHaveLength(1);
 
-        const localeFetches = fetchMock.mock.calls.filter(([url]) => url.includes('/locale/'));
+        const localeFetches = fetchMock.mock.calls.filter(([url]) =>
+            url.includes('/locale/'),
+        );
         expect(localeFetches).toHaveLength(2);
     });
 
     it('shares one in-flight translation fetch across concurrent calls for the same language', async () => {
         const fetchMock = jest.fn((url: string) => {
-            if (url.includes('/data/schedules.json')) return jsonResponse(buildScheduleResponse());
+            if (url.includes('/data/schedules.json'))
+                return jsonResponse(buildScheduleResponse());
             if (url.includes('/locale/en-US.json'))
                 return jsonResponse(buildLocaleResponse('Turf War'));
             return Promise.reject(new Error(`Unexpected fetch: ${url}`));
@@ -88,13 +109,16 @@ describe('Client', () => {
         expect(current.regular?.rules).toBe('Turf War');
         expect(next.regular).toBeNull(); // fixture only has one schedule node, so index 1 doesn't exist
 
-        const localeFetches = fetchMock.mock.calls.filter(([url]) => url.includes('/locale/'));
+        const localeFetches = fetchMock.mock.calls.filter(([url]) =>
+            url.includes('/locale/'),
+        );
         expect(localeFetches).toHaveLength(1);
     });
 
     it('defaultLang is used when no per-call lang is given', async () => {
         const fetchMock = jest.fn((url: string) => {
-            if (url.includes('/data/schedules.json')) return jsonResponse(buildScheduleResponse());
+            if (url.includes('/data/schedules.json'))
+                return jsonResponse(buildScheduleResponse());
             if (url.includes('/locale/de-DE.json'))
                 return jsonResponse(buildLocaleResponse('Revierkampf'));
             return Promise.reject(new Error(`Unexpected fetch: ${url}`));

@@ -24,11 +24,17 @@ describe('fetchJson', () => {
         const fetchMock = mockFetchOnce({ hello: 'world' });
         global.fetch = fetchMock as any;
 
-        const result = await fetchJson('https://example.com/data.json', new Options(), cache);
+        const result = await fetchJson(
+            'https://example.com/data.json',
+            new Options(),
+            cache,
+        );
 
         expect(result).toEqual({ hello: 'world' });
         expect(fetchMock).toHaveBeenCalledTimes(1);
-        expect(cache.get('https://example.com/data.json')).toEqual({ hello: 'world' });
+        expect(cache.get('https://example.com/data.json')).toEqual({
+            hello: 'world',
+        });
     });
 
     it('serves from cache without calling fetch again', async () => {
@@ -36,7 +42,11 @@ describe('fetchJson', () => {
         const fetchMock = jest.fn();
         global.fetch = fetchMock as any;
 
-        const result = await fetchJson('https://example.com/data.json', new Options(), cache);
+        const result = await fetchJson(
+            'https://example.com/data.json',
+            new Options(),
+            cache,
+        );
 
         expect(result).toEqual({ cached: true });
         expect(fetchMock).not.toHaveBeenCalled();
@@ -68,7 +78,7 @@ describe('fetchJson', () => {
         global.fetch = fetchMock as any;
 
         await expect(
-            fetchJson('https://example.com/data.json', new Options(), cache)
+            fetchJson('https://example.com/data.json', new Options(), cache),
         ).rejects.toThrow();
     });
 });

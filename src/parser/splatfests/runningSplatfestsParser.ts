@@ -6,7 +6,7 @@ function buildRunningTeam(
     team: any,
     festId: string,
     index: number,
-    translation: any
+    translation: any,
 ): RunningFestTeam {
     const { color, colorHEX } = computeTeamColor(team.color);
 
@@ -19,7 +19,10 @@ function buildRunningTeam(
     };
 }
 
-export default function parseRunningSplatfests(json: any, translation: any): RunningFestData {
+export default function parseRunningSplatfests(
+    json: any,
+    translation: any,
+): RunningFestData {
     const data: RunningFestData = { US: [], EU: [], JP: [], AP: [] };
 
     for (const region of Object.keys(json)) {
@@ -28,12 +31,18 @@ export default function parseRunningSplatfests(json: any, translation: any): Run
         data[region] = json[region].data.festRecords.nodes
             .filter((fest: any) => fest.state !== 'CLOSED')
             .map((fest: any) => ({
-                title: translation.festivals[fest.__splatoon3ink_id]?.title ?? '',
+                title:
+                    translation.festivals[fest.__splatoon3ink_id]?.title ?? '',
                 startTime: fest.startTime,
                 endTime: fest.endTime,
                 state: fest.state,
                 teams: buildFestTeams(fest, (team, index) =>
-                    buildRunningTeam(team, fest.__splatoon3ink_id, index, translation)
+                    buildRunningTeam(
+                        team,
+                        fest.__splatoon3ink_id,
+                        index,
+                        translation,
+                    ),
                 ),
             }));
     }

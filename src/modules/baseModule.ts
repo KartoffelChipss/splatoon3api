@@ -13,11 +13,17 @@ export abstract class BaseModule {
     constructor(protected readonly context: ClientContext) {}
 
     protected fetchJson(url: string): Promise<any> {
-        return fetchJsonInternal(url, this.context.options, this.context.dataCache);
+        return fetchJsonInternal(
+            url,
+            this.context.options,
+            this.context.dataCache,
+        );
     }
 
     protected resolveTranslation(lang?: Lang): Promise<any> {
-        const resolvedLang = formatLang(lang ?? this.context.options.defaultLang);
+        const resolvedLang = formatLang(
+            lang ?? this.context.options.defaultLang,
+        );
         return getTranslation(this.context.translationCache, resolvedLang);
     }
 }

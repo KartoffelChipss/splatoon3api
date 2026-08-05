@@ -14,7 +14,10 @@ function buildGearPower(powerNode: any, translation: any): SplatGearpower {
     };
 }
 
-function buildFeaturedGear(gearItem: any, translation: any): SplatnetGearFeatured {
+function buildFeaturedGear(
+    gearItem: any,
+    translation: any,
+): SplatnetGearFeatured {
     const gear = gearItem.gear;
     return {
         id: gear.__splatoon3ink_id,
@@ -23,7 +26,7 @@ function buildFeaturedGear(gearItem: any, translation: any): SplatnetGearFeature
         image: gear.image.url,
         primaryGearPower: buildGearPower(gear.primaryGearPower, translation),
         additionalGearPowers: gear.additionalGearPowers.map((power: any) =>
-            buildGearPower(power, translation)
+            buildGearPower(power, translation),
         ),
         price: gearItem.price,
         saleEnd: gearItem.saleEndTime,
@@ -39,7 +42,7 @@ function buildLimitedGear(gearItem: any, translation: any): SplatnetGear {
         image: gear.image.url,
         primaryGearPower: buildGearPower(gear.primaryGearPower, translation),
         additionalGearPowers: gear.additionalGearPowers.map((power: any) =>
-            buildGearPower(power, translation)
+            buildGearPower(power, translation),
         ),
         price: gearItem.price,
         saleEnd: gearItem.saleEndTime,
@@ -51,27 +54,33 @@ function buildLimitedGear(gearItem: any, translation: any): SplatnetGear {
     };
 }
 
-export default function parseSplatnetGear(json: any, translation: any): SplatnetResult {
+export default function parseSplatnetGear(
+    json: any,
+    translation: any,
+): SplatnetResult {
     const pickupBrand = json.data.gesotown.pickupBrand;
 
     const brandGears = pickupBrand.brandGears
         .map((gearItem: any) => buildFeaturedGear(gearItem, translation))
         .sort(
             (a: SplatnetGearFeatured, b: SplatnetGearFeatured) =>
-                a.additionalGearPowers.length - b.additionalGearPowers.length
+                a.additionalGearPowers.length - b.additionalGearPowers.length,
         );
 
     const featuredBrand: SplatnetFeaturedBrand = {
         id: pickupBrand.brand.id,
         name: translation.brands[pickupBrand.brand.id]?.name,
         banner: pickupBrand.image.url,
-        usualPower: buildGearPower(pickupBrand.brand.usualGearPower, translation),
+        usualPower: buildGearPower(
+            pickupBrand.brand.usualGearPower,
+            translation,
+        ),
         saleEnd: pickupBrand.saleEndTime,
         brandGears,
     };
 
     const limitedGear = json.data.gesotown.limitedGears.map((gearItem: any) =>
-        buildLimitedGear(gearItem, translation)
+        buildLimitedGear(gearItem, translation),
     );
 
     return { featuredBrand, limitedGear };

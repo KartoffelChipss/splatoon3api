@@ -1,11 +1,21 @@
 import parseAllStages from '../../../src/parser/stages/allStagesParser';
-import { buildTranslation, buildMatchSetting, buildScheduleJson } from '../../fixtures';
+import {
+    buildTranslation,
+    buildMatchSetting,
+    buildScheduleJson,
+} from '../../fixtures';
 
 describe('parseAllStages', () => {
     it('maps a node to null when its match setting is absent', () => {
         const json = buildScheduleJson({
             regularSchedules: {
-                nodes: [{ startTime: 't0', endTime: 't1', regularMatchSetting: null }],
+                nodes: [
+                    {
+                        startTime: 't0',
+                        endTime: 't1',
+                        regularMatchSetting: null,
+                    },
+                ],
             },
         });
 
@@ -17,7 +27,11 @@ describe('parseAllStages', () => {
         const json = buildScheduleJson({
             regularSchedules: {
                 nodes: [
-                    { startTime: 't0', endTime: 't1', regularMatchSetting: buildMatchSetting() },
+                    {
+                        startTime: 't0',
+                        endTime: 't1',
+                        regularMatchSetting: buildMatchSetting(),
+                    },
                 ],
             },
         });

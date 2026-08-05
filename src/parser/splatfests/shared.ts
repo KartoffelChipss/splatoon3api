@@ -7,7 +7,10 @@ interface RawColor {
     a: number;
 }
 
-export function computeTeamColor(rawColor: RawColor): { color: string; colorHEX: string } {
+export function computeTeamColor(rawColor: RawColor): {
+    color: string;
+    colorHEX: string;
+} {
     const r = Math.round(rawColor.r * 255);
     const g = Math.round(rawColor.g * 255);
     const b = Math.round(rawColor.b * 255);
@@ -19,7 +22,7 @@ export function computeTeamColor(rawColor: RawColor): { color: string; colorHEX:
 
 export function buildFestTeams<T>(
     fest: any,
-    mapTeam: (team: any, index: number) => T
+    mapTeam: (team: any, index: number) => T,
 ): { [key: string]: T } {
     const teams: { [key: string]: T } = {};
     fest.teams.forEach((team: any, index: number) => {
