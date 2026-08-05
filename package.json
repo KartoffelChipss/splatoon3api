@@ -14,7 +14,8 @@
     "scripts": {
         "build": "tsc",
         "clean": "rm -rf dist",
-        "testapp": "pnpm build && tsc -p testapp/tsconfig.json && node testapp/index.js"
+        "testapp": "pnpm build && tsc -p testapp/tsconfig.json && node testapp/index.js",
+        "test": "jest"
     },
     "author": {
         "name": "Jan Straßburger",
@@ -59,7 +60,10 @@
     "homepage": "https://www.npmjs.com/package/splatoon3api",
     "readme": "README.md",
     "devDependencies": {
+        "@types/jest": "^30.0.0",
         "@types/node": "^20.14.9",
+        "jest": "^30.4.2",
+        "ts-jest": "^29.4.12",
         "typescript": "^5.5.2"
     }
 }
