@@ -1,4 +1,4 @@
-import NodeCache from 'node-cache';
+import { CacheStore } from '../../src/types/common';
 import { fetchJson } from '../../src/internal/fetchData';
 import { Options } from '../../src/types/common';
 
@@ -9,15 +9,24 @@ function mockFetchOnce(body: any, ok = true) {
     });
 }
 
+function createFakeStore(): CacheStore & { data: Map<string, unknown> } {
+    const data = new Map<string, unknown>();
+    return {
+        data,
+        async get(key) {
+            return data.get(key);
+        },
+        async set(key, value) {
+            data.set(key, value);
+        },
+    };
+}
+
 describe('fetchJson', () => {
-    let cache: NodeCache;
+    let cache: ReturnType<typeof createFakeStore>;
 
     beforeEach(() => {
-        cache = new NodeCache();
-    });
-
-    afterEach(() => {
-        cache.flushAll();
+        cache = createFakeStore();
     });
 
     it('fetches and caches on a cache miss', async () => {
@@ -32,13 +41,13 @@ describe('fetchJson', () => {
 
         expect(result).toEqual({ hello: 'world' });
         expect(fetchMock).toHaveBeenCalledTimes(1);
-        expect(cache.get('https://example.com/data.json')).toEqual({
+        expect(cache.data.get('https://example.com/data.json')).toEqual({
             hello: 'world',
         });
     });
 
     it('serves from cache without calling fetch again', async () => {
-        cache.set('https://example.com/data.json', { cached: true });
+        cache.data.set('https://example.com/data.json', { cached: true });
         const fetchMock = jest.fn();
         global.fetch = fetchMock as any;
 
@@ -59,7 +68,7 @@ describe('fetchJson', () => {
         const options = new Options({ cache: { enabled: false } });
         await fetchJson('https://example.com/data.json', options, cache);
 
-        expect(cache.get('https://example.com/data.json')).toBeUndefined();
+        expect(cache.data.get('https://example.com/data.json')).toBeUndefined();
     });
 
     it('sends the configured User-Agent header', async () => {
@@ -80,5 +89,20 @@ describe('fetchJson', () => {
         await expect(
             fetchJson('https://example.com/data.json', new Options(), cache),
         ).rejects.toThrow();
+    });
+
+    it('passes the configured ttl through to the cache store', async () => {
+        const fetchMock = mockFetchOnce({ hello: 'world' });
+        global.fetch = fetchMock as any;
+
+        const setSpy = jest.spyOn(cache, 'set');
+        const options = new Options({ cache: { enabled: true, ttl: 120 } });
+        await fetchJson('https://example.com/data.json', options, cache);
+
+        expect(setSpy).toHaveBeenCalledWith(
+            'https://example.com/data.json',
+            { hello: 'world' },
+            120,
+        );
     });
 });

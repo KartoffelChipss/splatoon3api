@@ -46,6 +46,11 @@ export type CacheOptions = {
     ttl?: number;
 };
 
+export interface CacheStore {
+    get(key: string): Promise<unknown | undefined>;
+    set(key: string, value: unknown, ttlSeconds?: number): Promise<void>;
+}
+
 export interface OptionsInput {
     schedulesURL?: string;
     salmonGearURL?: string;
@@ -54,6 +59,7 @@ export interface OptionsInput {
     userAgent?: string;
     defaultLang?: Lang;
     cache?: CacheOptions;
+    cacheStore?: CacheStore;
 }
 
 export class Options {
@@ -67,6 +73,7 @@ export class Options {
         enabled: true,
         ttl: 60,
     };
+    cacheStore: CacheStore | undefined = undefined;
 
     constructor(options?: OptionsInput) {
         if (!options) return;
@@ -77,5 +84,6 @@ export class Options {
         if (options.userAgent) this.userAgent = options.userAgent;
         if (options.defaultLang) this.defaultLang = options.defaultLang;
         if (options.cache) this.cache = options.cache;
+        if (options.cacheStore) this.cacheStore = options.cacheStore;
     }
 }

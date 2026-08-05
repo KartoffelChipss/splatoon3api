@@ -1,5 +1,5 @@
-import NodeCache from 'node-cache';
 import * as Types from './types';
+import { NodeCacheStore } from './internal/nodeCacheStore';
 import { ClientContext } from './modules/baseModule';
 import { StagesModule } from './modules/stagesModule';
 import { ChallengesModule } from './modules/challengesModule';
@@ -19,10 +19,11 @@ class Client {
      * Raw upstream data is cached once per `Client` regardless of language; pass `{ lang }`
      * on individual calls to fetch a different language without creating another `Client`.
      */
-    constructor(options?: Types.OptionsInput) {
+    constructor(optionsInput?: Types.OptionsInput) {
+        const options = new Types.Options(optionsInput);
         const context: ClientContext = {
-            options: new Types.Options(options),
-            dataCache: new NodeCache(),
+            options,
+            dataCache: options.cacheStore ?? new NodeCacheStore(),
             translationCache: new Map(),
         };
 

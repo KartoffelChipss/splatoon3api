@@ -89,6 +89,21 @@ const splatoon3 = new Client({
 });
 ```
 
+By default, raw upstream data is cached in memory for the lifetime of the `Client`. If you need a shared cache across multiple processes (e.g. Redis), pass a `cacheStore` implementing `get(key)`/`set(key, value, ttlSeconds?)`:
+
+```js
+const splatoon3 = new Client({
+    cacheStore: {
+        async get(key) {
+            /* ... */
+        },
+        async set(key, value, ttlSeconds) {
+            /* ... */
+        },
+    },
+});
+```
+
 ## Stages
 
 ### All Stages

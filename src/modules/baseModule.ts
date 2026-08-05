@@ -1,11 +1,10 @@
-import NodeCache from 'node-cache';
-import { Lang, Options } from '../types/common';
+import { CacheStore, Lang, Options } from '../types/common';
 import { fetchJson as fetchJsonInternal } from '../internal/fetchData';
 import { formatLang, getTranslation } from '../internal/translations';
 
 export interface ClientContext {
     options: Options;
-    dataCache: NodeCache;
+    dataCache: CacheStore;
     translationCache: Map<Lang, Promise<any>>;
 }
 
