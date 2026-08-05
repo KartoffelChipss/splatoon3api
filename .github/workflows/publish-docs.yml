@@ -11,7 +11,7 @@ on:
             - 'tsconfig.json'
             - 'package.json'
             - 'pnpm-lock.yaml'
-            - '.github/workflows/deploy-docs.yml'
+            - '.github/workflows/publish-docs.yml'
     workflow_dispatch:
 
 permissions:
@@ -30,8 +30,6 @@ jobs:
 
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
-              with:
-                  version: 10
 
             - name: Setup Node
               uses: actions/setup-node@v4
