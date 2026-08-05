@@ -2,7 +2,20 @@
     "name": "splatoon3api",
     "version": "3.0.0",
     "description": "A simple Method to get current and next Splatoon 3 maps, Salmonrun Schedules and Splatnet gear",
-    "scripts": {},
+    "main": "dist/main.js",
+    "types": "dist/main.d.ts",
+    "files": [
+        "dist"
+    ],
+    "packageManager": "pnpm@10.33.0",
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "build": "tsc",
+        "clean": "rm -rf dist",
+        "testapp": "pnpm build && tsc -p testapp/tsconfig.json && node testapp/index.js"
+    },
     "author": {
         "name": "Jan Straßburger",
         "email": "contact@strassburger.org",
@@ -44,5 +57,9 @@
         "url": "https://github.com/KartoffelChipss/splatoon3api/issues"
     },
     "homepage": "https://www.npmjs.com/package/splatoon3api",
-    "readme": "README.md"
+    "readme": "README.md",
+    "devDependencies": {
+        "@types/node": "^20.14.9",
+        "typescript": "^5.5.2"
+    }
 }
