@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "lib": ["dom"],
-        "target": "ES6",
+        "target": "ES2020",
         "module": "commonjs",
         "outDir": "./dist",
         "strict": true,
@@ -13,11 +13,6 @@
         "baseUrl": ".",
         "typeRoots": ["./node_modules/@types"]
     },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "**/*.spec.ts"
-    ]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
 }

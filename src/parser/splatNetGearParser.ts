@@ -1,69 +1,87 @@
-import { SplatnetResult } from "../types";
+import { SplatGearpower } from '../types/common';
+import {
+    SplatnetFeaturedBrand,
+    SplatnetGear,
+    SplatnetGearFeatured,
+    SplatnetResult,
+} from '../types/gear';
 
-export default function parseSplatnetGear(json: any, translation: any): SplatnetResult {
-    let data: Partial<SplatnetResult> = {};
+function buildGearPower(powerNode: any, translation: any): SplatGearpower {
+    return {
+        id: powerNode.__splatoon3ink_id,
+        name: translation.powers[powerNode.__splatoon3ink_id]?.name,
+        image: powerNode.image.url,
+    };
+}
 
-    const featuredBrand = json.data.gesotown.pickupBrand;
-    data.featuredBrand = {
-        name: translation.brands[featuredBrand.brand.id].name,
-        banner: featuredBrand.image.url,
-        usualPower: {
-            name: translation.powers[featuredBrand.brand.usualGearPower.__splatoon3ink_id]?.name,
-            image: featuredBrand.brand.usualGearPower.image.url
+function buildFeaturedGear(
+    gearItem: any,
+    translation: any,
+): SplatnetGearFeatured {
+    const gear = gearItem.gear;
+    return {
+        id: gear.__splatoon3ink_id,
+        name: translation.gear[gear.__splatoon3ink_id]?.name,
+        type: translation.gearType[gear.__typename],
+        image: gear.image.url,
+        primaryGearPower: buildGearPower(gear.primaryGearPower, translation),
+        additionalGearPowers: gear.additionalGearPowers.map((power: any) =>
+            buildGearPower(power, translation),
+        ),
+        price: gearItem.price,
+        saleEnd: gearItem.saleEndTime,
+    };
+}
+
+function buildLimitedGear(gearItem: any, translation: any): SplatnetGear {
+    const gear = gearItem.gear;
+    return {
+        id: gear.__splatoon3ink_id,
+        name: translation.gear[gear.__splatoon3ink_id]?.name,
+        type: translation.gearType[gear.__typename],
+        image: gear.image.url,
+        primaryGearPower: buildGearPower(gear.primaryGearPower, translation),
+        additionalGearPowers: gear.additionalGearPowers.map((power: any) =>
+            buildGearPower(power, translation),
+        ),
+        price: gearItem.price,
+        saleEnd: gearItem.saleEndTime,
+        brand: {
+            id: gear.brand.id,
+            name: translation.brands[gear.brand.id]?.name,
+            image: gear.brand.image.url,
         },
-        saleEnd: featuredBrand.saleEndTime,
-        brandGears: []
-    }
+    };
+}
 
-    featuredBrand.brandGears.forEach((gear: any) => {
-        data.featuredBrand!.brandGears.push({
-            name: translation.gear[gear.gear.__splatoon3ink_id].name,
-            type: translation.gearType[gear.gear.__typename],
-            image: gear.gear.image.url,
-            primaryGearPower: {
-                name: translation.powers[gear.gear.primaryGearPower.__splatoon3ink_id]?.name,
-                image: gear.gear.primaryGearPower.image.url
-            },
-            additionalGearPowers: [],
-            price: gear.price,
-            saleEnd: gear.saleEndTime,
-        })
-    });
+export default function parseSplatnetGear(
+    json: any,
+    translation: any,
+): SplatnetResult {
+    const pickupBrand = json.data.gesotown.pickupBrand;
 
-    for (let i = 0; i < featuredBrand.brandGears.length; i++) {
-        featuredBrand.brandGears[i].gear.additionalGearPowers.forEach((power: any) => {
-            data.featuredBrand!.brandGears[i].additionalGearPowers.push({
-                name: translation.powers[power.__splatoon3ink_id]?.name,
-                image: power.image.url
-            })
-        });
-    }
+    const brandGears = pickupBrand.brandGears
+        .map((gearItem: any) => buildFeaturedGear(gearItem, translation))
+        .sort(
+            (a: SplatnetGearFeatured, b: SplatnetGearFeatured) =>
+                a.additionalGearPowers.length - b.additionalGearPowers.length,
+        );
 
-    data.featuredBrand.brandGears.sort((a, b) => a.additionalGearPowers.length - b.additionalGearPowers.length);
+    const featuredBrand: SplatnetFeaturedBrand = {
+        id: pickupBrand.brand.id,
+        name: translation.brands[pickupBrand.brand.id]?.name,
+        banner: pickupBrand.image.url,
+        usualPower: buildGearPower(
+            pickupBrand.brand.usualGearPower,
+            translation,
+        ),
+        saleEnd: pickupBrand.saleEndTime,
+        brandGears,
+    };
 
+    const limitedGear = json.data.gesotown.limitedGears.map((gearItem: any) =>
+        buildLimitedGear(gearItem, translation),
+    );
 
-    data.limitedGear = json.data.gesotown.limitedGears.map((gearItem: any, index: number) => {
-        return {
-            name: translation.gear[gearItem.gear.__splatoon3ink_id]?.name,
-            type: translation.gearType[gearItem.gear.__typename],
-            image: gearItem.gear.image.url,
-            primaryGearPower: {
-                name: translation.powers[gearItem.gear.primaryGearPower.__splatoon3ink_id]?.name,
-                image: gearItem.gear.primaryGearPower.image.url
-            },
-            additionalGearPowers: gearItem.gear.additionalGearPowers.map((power: any) => ({
-                name: translation.powers[power.__splatoon3ink_id]?.name,
-                image: power.image.url
-            })),
-            price: gearItem.price,
-            saleEnd: gearItem.saleEndTime,
-            brand: {
-                name: translation.brands[gearItem.gear.brand.id]?.name,
-                image: gearItem.gear.brand.image.url
-            }
-        };
-    });
-    
-
-    return data as SplatnetResult;
-};
+    return { featuredBrand, limitedGear };
+}

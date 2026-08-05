@@ -1,36 +1,30 @@
-import { SplatChallenge } from "../types";
-import { getImageFromRuleId } from "../utils";
+import { SplatChallenge } from '../types/challenges';
+import { getImageFromRuleId } from '../internal/ruleImages';
+import { buildStage } from './stages/shared';
 
-export default function parseChallenges(json: any, translation: any): SplatChallenge[] {
-    let data: SplatChallenge[] = [];
+export default function parseChallenges(
+    json: any,
+    translation: any,
+): SplatChallenge[] {
+    return json.data.eventSchedules.nodes.map((event: any) => {
+        const eventId = event.leagueMatchSetting.leagueMatchEvent.id;
+        const ruleId = event.leagueMatchSetting.vsRule.id;
 
-    json.data.eventSchedules.nodes.forEach((event: any) => {
-        let eventData: SplatChallenge = {
-            name: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.name,
-            desc: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.desc,
-            eventRule: translation.events[event.leagueMatchSetting.leagueMatchEvent.id]?.regulation,
-            gameRule: translation.rules[event.leagueMatchSetting.vsRule.id]?.name,
-            gameRuleImg: getImageFromRuleId(event.leagueMatchSetting.vsRule.id),
-            stages: [],
-            timePeriods: [],
-        }
-
-        event.leagueMatchSetting.vsStages.forEach((stage: any) => {
-            eventData.stages.push({
-                name: translation.stages[stage.id]?.name,
-                image: stage.image.url,
-            });
-        });
-
-        event.timePeriods.forEach((period: any) => {
-            eventData.timePeriods.push({
+        return {
+            id: eventId,
+            name: translation.events[eventId]?.name,
+            desc: translation.events[eventId]?.desc,
+            eventRule: translation.events[eventId]?.regulation,
+            gameRuleId: ruleId,
+            gameRule: translation.rules[ruleId]?.name,
+            gameRuleImg: getImageFromRuleId(ruleId),
+            stages: event.leagueMatchSetting.vsStages.map((stage: any) =>
+                buildStage(stage, translation),
+            ),
+            timePeriods: event.timePeriods.map((period: any) => ({
                 startTime: period.startTime,
                 endTime: period.endTime,
-            });
-        });
-
-        data.push(eventData)
+            })),
+        };
     });
-
-    return data;
-};
+}

@@ -1,52 +1,51 @@
-import { FestData, RunningFestData } from "../../types";
-import { RGBAtoHEX, isFestRegion } from "../../utils.js";
+import { RunningFestData, RunningFestTeam } from '../../types/splatfests';
+import { isFestRegion } from '../../internal/festRegion';
+import { buildFestTeams, computeTeamColor } from './shared';
 
-export default function parseRunningSplatfests(json: any, translation: any): RunningFestData {
-    let data: RunningFestData = {
-        US: [],
-        EU: [],
-        JP: [],
-        AP: []
+function buildRunningTeam(
+    team: any,
+    festId: string,
+    index: number,
+    translation: any,
+): RunningFestTeam {
+    const { color, colorHEX } = computeTeamColor(team.color);
+
+    return {
+        teamName: translation.festivals[festId]?.teams[index]?.teamName ?? '',
+        image: team.image.url,
+        color,
+        colorHEX,
+        role: team.role,
     };
+}
 
-    for (let region in json) {
+export default function parseRunningSplatfests(
+    json: any,
+    translation: any,
+): RunningFestData {
+    const data: RunningFestData = { US: [], EU: [], JP: [], AP: [] };
+
+    for (const region of Object.keys(json)) {
         if (!isFestRegion(region)) continue;
-        data[region] = [];
 
-        json[region].data.festRecords.nodes.forEach((fest: any) => {
-            if (fest.state === "CLOSED") return;
-
-            data[region].push({
-                title: translation.festivals[fest.__splatoon3ink_id]?.title ?? "",
+        data[region] = json[region].data.festRecords.nodes
+            .filter((fest: any) => fest.state !== 'CLOSED')
+            .map((fest: any) => ({
+                title:
+                    translation.festivals[fest.__splatoon3ink_id]?.title ?? '',
                 startTime: fest.startTime,
                 endTime: fest.endTime,
                 state: fest.state,
-                teams: {
-                    0: {
-                        teamName: translation.festivals[fest.__splatoon3ink_id]?.teams[0]?.teamName ?? "",
-                        image: fest.teams[0].image.url,
-                        color: `rgba(${fest.teams[0].color.r * 255}, ${fest.teams[0].color.g * 255}, ${fest.teams[0].color.b * 255}, ${fest.teams[0].color.a})`,
-                        colorHEX: RGBAtoHEX(`rgba(${Math.floor(fest.teams[0].color.r * 255)}, ${Math.floor(fest.teams[0].color.g * 255)}, ${Math.floor(fest.teams[0].color.b * 255)}, ${Math.floor(fest.teams[0].color.a)})`),
-                        role: fest.teams[0].role,
-                    },
-                    1: {
-                        teamName: translation.festivals[fest.__splatoon3ink_id]?.teams[1]?.teamName ?? "",
-                        image: fest.teams[1].image.url,
-                        color: `rgba(${fest.teams[1].color.r * 255}, ${fest.teams[1].color.g * 255}, ${fest.teams[1].color.b * 255}, ${fest.teams[1].color.a})`,
-                        colorHEX: RGBAtoHEX(`rgba(${Math.floor(fest.teams[1].color.r * 255)}, ${Math.floor(fest.teams[1].color.g * 255)}, ${Math.floor(fest.teams[1].color.b * 255)}, ${Math.floor(fest.teams[1].color.a)})`),
-                        role: fest.teams[1].role,
-                    },
-                    2: {
-                        teamName: translation.festivals[fest.__splatoon3ink_id]?.teams[2]?.teamName ?? "",
-                        image: fest.teams[2].image.url,
-                        color: `rgba(${fest.teams[2].color.r * 255}, ${fest.teams[2].color.g * 255}, ${fest.teams[2].color.b * 255}, ${fest.teams[2].color.a})`,
-                        colorHEX: RGBAtoHEX(`rgba(${Math.floor(fest.teams[2].color.r * 255)}, ${Math.floor(fest.teams[2].color.g * 255)}, ${Math.floor(fest.teams[2].color.b * 255)}, ${Math.floor(fest.teams[2].color.a)})`),
-                        role: fest.teams[2].role,
-                    }
-                }
-            });
-        })
+                teams: buildFestTeams(fest, (team, index) =>
+                    buildRunningTeam(
+                        team,
+                        fest.__splatoon3ink_id,
+                        index,
+                        translation,
+                    ),
+                ),
+            }));
     }
 
     return data;
-};
+}

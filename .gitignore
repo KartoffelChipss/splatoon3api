@@ -4,3 +4,4 @@ lang/old/
 **/node_modules
 dist/
 .idea/
+docs/
